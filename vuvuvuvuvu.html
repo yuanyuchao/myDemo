@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <router-link to="/home">home</router-link>
+    <router-link to="/list">list</router-link>
+    <router-view></router-view>
+</div>
+</body>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+    var detail = {
+        template:`<div>{{this.$route.params.bid}}</div>`,
+    }
+    var home = {
+        template:`<div>home组件</div>`
+    }
+    var list = {
+        template: `<div><ul><router-link v-for="(a,index) in arr" tag="li" :key="index"
+:to="{name:'detail',params:{bid:a.id}}"><h1>{{a.name}}</h1>
+<h2>{{a.age}}</h2>
+<h3>{{a.sex}}</h3>
+</router-link></ul></div>`,
+        data(){
+            return {
+                dd:'',
+                arr:[
+                    {
+                        id:1,
+                        name:'yyc',
+                        age:28,
+                        sex:'man'
+                    },
+                    {
+                        id:2,
+                        name:'zxh',
+                        age:25,
+                        sex:'man'
+                    },
+                    {
+                        id:3,
+                        name:'cxs',
+                        age:23,
+                        sex:'woman',
+                    }
+                ]
+            }
+        },
+        created(){
+            this.dd=this.$route.params.bid
+        }
+    }
+
+    let router = new VueRouter({
+        routes:[
+            {
+                path:'/home',
+                component:home,
+            },
+            {
+                name:'list',
+                path:'/list',
+                component:list
+            },
+            {
+                name:'detail',
+                path:'/detail/:bid',
+                component:detail,
+            }
+        ]
+    })
+    let vm = new Vue({
+        el:'#app',
+        router,
+    })
+</script>
+</html>

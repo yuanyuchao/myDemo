@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+    <style>
+        @font-face {
+            font-family: "aa";
+            src: url('font/LigatureSymbols.svg'),url('font/LigatureSymbols.eot'),url('font/LigatureSymbols.ttf'),url('font/LigatureSymbols.woff');
+        }
+
+        .container {
+            width: 600px;
+            margin: 100px auto;
+            font-size: 20px;
+            font-family: aa;
+        }
+        .col-md-3:hover {
+            background-color: #cccccc;
+        }
+        p:nth-of-type(1) {
+            font-family: aa;
+            font-size: 35px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <aa></aa>
+    <bb></bb>
+    <bb></bb>
+</div>
+<template id="f1">
+    <div class="container">
+        <div class="col-md-3 text-center"> <p class="glyphicon glyphicon-home"></p><p>首页</p></div>
+        <div class="col-md-3 text-center"> <p class="glyphicon glyphicon-earphone"></p><p>手机</p></div>
+        <div class="col-md-3 text-center"> <p class="glyphicon glyphicon-shopping-cart"></p><p>购物车</p></div>
+        <div class="col-md-3 text-center"> <p class="glyphicon glyphicon-user"></p><p>用户</p></div>
+    </div>
+</template>
+<template id="f2">
+<div class="container">
+    <div class="col-md-3 text-center"><p>home</p><p>首页</p></div>
+    <div class="col-md-3 text-center"><p>phone</p><p>手机</p></div>
+    <div class="col-md-3 text-center"><p>cart</p><p>购物车</p></div>
+    <div class="col-md-3 text-center"><p>user</p><p>用户</p></div>
+</div>
+</template>
+
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {},
+//        定义组件
+        components: {
+            //组件名：组件配置项，组件名:组件配置项
+            'aa': {
+                template: '#f1',
+            },
+            'bb': {
+                template:'#f2',
+            }
+        },
+    })
+</script>
+</html>

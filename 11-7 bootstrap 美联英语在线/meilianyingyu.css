@@ -1,0 +1,302 @@
+body {
+    font-size: 14px;
+}
+
+ul {
+    list-style: none;
+}
+
+.nav-top {
+    height: 37px;
+    line-height: 37px;
+
+    background-color: gray;
+    color: white;
+}
+
+.nav-top span {
+    margin-right: 20px;
+}
+
+.dropdown-menu > li > a {
+    color: #fff;
+    background-color: #000;
+}
+
+.dropdown-menu {
+    padding: 0;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.banner-bottom {
+    padding: 20px 0;
+    background-color: #333333;
+    color: white;
+}
+
+.banner-bottom .col-md-8 p {
+    color: #8d8d8d;
+}
+
+.banner-bottom .col-md-4 button {
+    padding: 5px 50px;
+    background-color: yellow;
+    color: #333333;
+}
+
+.title .h1 {
+    margin-top: 100px;
+    color: #00a080;
+    margin-bottom: 50px;
+}
+
+.shuju {
+    padding: 35px 50px;
+    background-color: #00a080;
+    color: #fff;
+    position: relative;
+    z-index: 33;
+}
+
+
+.tongji {
+    background: url("img/bg.jpg");
+    background-size: cover;
+    padding-top: 225px;
+    padding-bottom: 50px;
+    background-position:center ;
+    background-repeat:no-repeat;
+    background-size: cover;
+    margin-top: -150px;
+}
+
+.tongji > .container > h4 {
+    max-width: 655px;
+    margin: 0px auto 30px auto;
+    color: white;
+    font-size: 17px;
+    line-height: 30px;
+}
+
+.tongji > .container > h4 span {
+    color: yellow;
+}
+
+.tongji .col-md-3 {
+    color: white;
+    padding: 40px 15px;
+}
+
+.tongji h3 {
+    color: #00a080;
+    margin-bottom: 20px;
+}
+
+.shizi {
+    padding-top: 75px;
+}
+
+.shizi .h1 {
+    color: #00a080;
+}
+
+.shizi h4 {
+    margin: 40px auto;
+}
+
+.yy .big-pic {
+    min-height: 350px;
+    background: url("img/oleg.png") no-repeat  center;
+    background-size: cover;
+}
+
+.yy .small-pic {
+    min-height: 350px;
+    background: url("img/oksana.png") no-repeat  center;
+    background-size: cover;
+}
+
+.zz .col-md-4 {
+
+    min-height: 200px;
+}
+
+.bg1 {
+    min-height: 200px;
+    background: url("img/ewelina.png") no-repeat center center;
+    background-size: cover;
+}
+
+.bg2 {
+    min-height: 200px;
+    background: url("img/juraj.png") no-repeat center center;
+    background-size: cover;
+}
+
+.bg3 {
+    min-height: 200px;
+    background-color: pink;
+    line-height: 100px;
+    margin-top: 20px;
+}
+
+.bg3 img {
+    /*margin-top: 50px;*/
+}
+
+.tec {
+    color: #ffffff;
+}
+
+.kecheng {
+    margin-top: 100px;
+}
+
+.kecheng h1 {
+    color: #00a080;
+}
+
+.kecheng h4 {
+    margin: 40px auto;
+}
+
+.d {
+    height: 100px;
+    line-height: 100px;
+    background-color: rgba(217,80,114,.85);
+}
+
+.p {
+    height: 100px;
+    line-height: 100px;
+    background-color: rgba(217,80,114,.65);
+}
+
+.p p, .d p {
+    line-height: 100px;
+    color: white;
+    font-size: 18px;
+}
+
+.item3 img {
+    width: 100%;
+}
+
+.kaohe {
+    background-color: #00a080;
+    padding-top:235px;
+    padding-bottom:50px;
+    color: white;
+    margin-top: -200px;
+}
+
+.row-top .col-md-4 {
+    height: 125px;
+    line-height: 25px;
+}
+
+.chengnuo {
+    background: url("img/bg2.jpg");
+    background-size: cover;
+    padding-bottom: 80px;
+}
+
+.chengnuo h4 {
+    color: white;
+}
+
+.chengnuo .row {
+    margin-top: 50px;
+    color: white;
+}
+.chengnuo .row .col-md-6 {
+    padding-bottom: 50px;
+}
+
+
+.chengnuo h3 {
+    color: #00a080;
+}
+
+.text1 {
+    max-width: 870px;
+    margin: 10px 0;
+}
+
+.text1 p {
+    max-width: 695px;
+}
+
+.world {
+    background: url("img/bg3.jpg") no-repeat;
+    background-position:center;
+    background-size: cover;
+    padding-top: 75px;
+    padding-bottom: 100px;
+}
+
+.world .kecheng1 > img {
+    margin: 30px auto 50px auto;
+}
+
+.world .row p {
+    padding: 10px;
+    color: #f3f3f3;
+    background-color: rgba(51,51,51,0.3);
+}
+
+.step {
+
+    margin-bottom: 30px;
+}
+
+.item {
+    padding: 50px 10px 10px 10px ;
+    border: 1px dashed #00a080;
+}
+
+.footer-top {
+    background: url("img/bg.png");
+    background-size: cover;
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.footer-top h1 {
+    margin: 60px 0;
+    color: #00a080;
+}
+
+.footer-top img {
+    width: 100%;
+}
+
+.footer-bottom {
+    /*height: 195px;*/
+    background-color: #262626;
+    color: white;
+    font-size: 10px;
+    padding-top: 35px;
+}
+.footer-bottom span {
+    font-size: 12px;
+}
+
+.footer-bottom p:nth-of-type(1) {
+    margin-top: 30px;
+}
+
+.ooo {
+    margin: 0 auto;
+}
+.xxx {
+    margin-bottom: 10px;
+}
+.m {
+    margin: 0 auto;
+}

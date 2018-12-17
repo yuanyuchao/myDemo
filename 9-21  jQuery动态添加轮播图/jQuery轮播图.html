@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        div {
+            width: 800px;
+            height: 600px;
+            margin: 25px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul > li {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        ol {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        ol > li {
+            float: left;
+            background-color: #fff;
+            width: 20px;
+            height: 20px;
+            margin-left: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li><img src="1.jpg" alt=""></li>
+        <li><img src="2.jpg" alt=""></li>
+        <li><img src="3.jpg" alt=""></li>
+    </ul>
+    <ol>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+</div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(function () {
+//        让第一张图片显示，其他隐藏
+        $('li').eq(0).siblings().hide();
+//        控制当前第几张图播放
+        var index = 0;
+        setInterval(function () {
+            index++;
+            index = index > 2 ? 0 : index;
+            $('ul>li').eq(index).fadeIn().siblings().fadeOut();
+            $('ol>li').eq(index).addClass('active').siblings().removeClass('active');
+        }, 3000);
+    })
+</script>
+</html>

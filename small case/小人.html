@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+</body>
+<script>
+
+//    获取元素
+    var cv = document.getElementById('canvas');
+//    获取上下文
+    var ctx = cv.getContext('2d');
+//    声明一个IMG对象
+    var img = new Image();
+    img.src = 'NPCrabbitbaby.png';
+
+//    原生JS入口函数 onload加载完成后执行的事件
+    var xIndex = 0;
+    var yIndex = 0;
+
+    document.addEventListener('keyup',function (e) {
+        switch(e.keyCode){
+            case 37:
+                yIndex = 1;
+                break;
+            case 38:
+                yIndex = 3;
+                break;
+            case 39:
+                yIndex = 2;
+                break;
+            case 40:
+                yIndex = 0;
+                break
+        }
+    });
+
+    setInterval(function () {
+        ctx.clearRect( 0 ,0 ,cv.width , cv.height);
+        ctx.drawImage(
+            img,
+            xIndex * 40,
+            yIndex * 65,
+            40,
+            65,
+            200,
+            100,
+            120,
+            195
+        );
+        xIndex++;
+          xIndex = xIndex > 4 ? 0 : xIndex;
+        xIndex = xIndex % 4;
+    },200)
+
+
+
+
+
+
+
+</script>
+</html>

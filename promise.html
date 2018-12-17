@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    new Promise(
+        //执行器
+        function (resolve, reject) {
+            //一段耗时很长的操作
+            resolve();//数据处理完成
+            reject();//数据处理出错
+        }
+    )
+        .then(function a() {
+            //成功，下一步
+        }, function b() {
+            //失败，做相应处理
+        })
+</script>
+</html>

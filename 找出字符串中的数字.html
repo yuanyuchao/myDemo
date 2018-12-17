@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>找出字符串中的数字</title>
+</head>
+<body>
+
+</body>
+<script>
+    //找出这个字符串中的所有数字
+    var str = 'abc123de45fgh6789qqq111';
+    //方法1
+    function findNum(str) {
+        var tmp = '',
+            arr = [];
+        for (var i = 0; i < str.length; i++) {
+            var cur = str[i];
+            if (!isNaN(cur)) {//nan=not a number
+                //isNaN:非数字返回true；否则返回false；
+                tmp += cur;
+            } else {
+                if (tmp) {
+                    arr.push(tmp);
+                    tmp = '';
+                }
+            }
+        }
+        if (tmp) {
+            arr.push(tmp)
+        }
+        return arr;
+    }
+    console.log(findNum(str))
+    //["123", "45", "6789", "111"]
+    var reg = /\d+/g;     //  \d : 0-9之间的任意一个数字  \d只占一个位置
+    // +: 1到多个   *:0到多个
+    console.log(str.match(reg))
+
+
+//去除字符串中的空格
+    var ss = ' n n n         hello  world' +
+        ''
+    ;
+    function handle(ss) {
+        var cc = '';
+        for(let i = 0; i<ss.length;i++){
+            if(ss[i]!==' '){
+                cc+=ss[i]
+            }
+        };
+        return cc;
+    }
+
+
+    console.log(handle(ss))
+    console.log(ss.replace(/\s/g,''));
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缓动动画</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color:black;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+        #box1 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top:200px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">走起来</button>
+ <div id="box"></div>
+<div id="box1"></div>
+</body>
+<script>
+    var btn=document.getElementById('btn');
+    var box=document.getElementById('box');
+    var box1=document.getElementById('box1');
+    var index=0;
+//    第一个变量：现在的位置
+    var leader=0;
+//    第二个变量：目标位置
+    var target=800;
+//    缓动动画，先快后慢，一种算法
+btn.onclick=function(){
+//     现在的位置=现在的位置+（目标位置-现在的位置）/10
+    setInterval(function () {
+        leader=leader+(target-leader)/10;
+        box.style.left=leader+'px';
+    },30)
+    setInterval(function () {
+        index+=20;
+        box1.style.left = index+'px';
+
+    },30)
+}
+
+</script>
+</html>

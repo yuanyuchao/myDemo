@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三元运算符</title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+    oBth.onclick=function(){
+        var style = oUl.style.display;
+        oUl.style.display= style == "block" ? "none":"block"  //这样写的话就一定不能忘了把运算结果重新赋值给元素 - -
+        //oUl.style.display= (style == "block" ? "none":"block") 可读性更高
+    }
+    // 上面代码的意思是，如果style == "block" 成立的话就把none返回，不成立就返回block，
+    // 然后把返回结果赋值给作用元素，不过要特别注意 = 和 == 用法和区别。因为赋值运算符（=）的优先级比较低，
+    // 所以会最后执行赋值运算。如果把后面的三元运算符加上（）可读性会更高一点，但效果是一样的。
+
+
+    // 尽量避免的情况
+    //
+    // 代码如下:
+    alert(true ? 'true' : false ? 't' : 'f')
+    // 我指的是尽量避免如上嵌套的 三元，因为在js 中 语句是从右到左，上面的代码等同于
+    //
+    // 代码如下:
+    alert(true ? 'true' : (false ? 't' : 'f'));
+
+
+    // 三元运算比较容易出错的应该就是运算的优先级问题：
+
+    var isMember = false;
+    console.log("当前费用" + isMember ? "$2.00" : "$10.00"); //返回$2.00
+    // 出错的原因是 ？的运算优先级比+低，所以实际运行的语句是：
+
+    "当前费用false" ? "$2.00" : "$10.00";
+    // 在js中字符串是为真的，所以会输出$2.00.
+
+    // 不过为了避免以上错误的话，可以记住：
+
+    // 不是false, 0, undefined, NaN, "" or null，js都认为是true;
+
+</script>
+</html>

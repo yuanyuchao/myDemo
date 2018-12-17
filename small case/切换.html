@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 1000px;
+            height: 500px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .top li {
+            width: 248px;
+            float: left;
+            /*padding: 0 60px;*/
+            cursor: pointer;
+            border-left:1px solid black ;
+            background-color:yellow;
+            font-size: 20px;
+            text-align: center;
+        }
+        .top li:hover {
+            background-color: blue;
+        }
+
+        .bottom li {
+            clear: both;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="top">
+        <li>国际大牌</li>
+        <li>国民品牌</li>
+        <li>男士精品</li>
+        <li>清洁用品</li>
+    </ul><br/>
+    <ul class="bottom">
+        <li><img src="img/guojidapai.jpg" alt=""></li>
+        <li><img src="img/guozhuangmingpin.jpg" alt=""></li>
+        <li><img src="img/nanshijingpin.jpg" alt=""></li>
+        <li><img src="img/qingjieyongpin.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('.top li').on('click',function () {
+            index=$(this).index();
+            $('.bottom li').eq(index).show().siblings().hide();
+        })
+//        $('.top li').on('mouseleave',function () {
+//            $('.bottom li').eq(0).show().siblings().hide();
+//        })
+
+
+    })
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function outfn() {
+        var b=1;
+        function infn(){
+            b++;
+            alert(b)
+        }
+        return infn;
+    }
+    var fn=outfn();
+    fn();
+    fn();
+    var fnn=outfn();
+    fn();
+    fnn();
+    fnn();
+    //闭包产生的变量永远不会被内存回收， 滥用闭包会导致页面崩溃。
+    //注意：闭包所产生到的变量永远保存在内存中，并且保持原有的值。
+    //闭包在访问函数内部的变量，打破了函数作用域的限制，并且不会造成命名冲突。
+</script>
+</body>
+</html>

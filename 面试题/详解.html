@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // 得到三个数中的最大值
+    //function getMaxNum(num1,num2,num3) {
+    //    第一种实现方式
+    //    return (num1 > num2 ? num1 : num2) > num3 ? (num1 > num2 ? num1 : num2) : num3;
+    //    第二种实现方式
+    //    return Math.min.apply(null,[num1,num2,num3]);
+    //}
+    //console.log(getMaxNum(47,52,11));
+
+    //在字符串类型的原型上扩展一个方法myReset方法，实现将目标字符串倒置
+    //    String.prototype.myReset = function () {
+    //        var str = '';
+    //        for(var i = this.length - 1; i >= 0; i--){
+    //            str+= this[i];
+    //        }
+    //        return str;
+    //    };
+    //    console.log('987'.myReset());
+
+
+    //清除arr的重复项，并且按大到小的顺序排列(不能使用sort方法)
+//     var arr = [1, 5, 8, 5, 2, 14, 7, 6, 9, 8, 4, 5, 2, 1, 7, 5, 9, 8, 7, 4, 1, 2, 3, 2, 5, 9];
+//
+//     function arrRset(arr) {
+//         //数组去重
+//         for (var i = 0; i < arr.length; i++) {
+//             for (var j = i + 1; j < arr.length; j++) {
+//                 if (arr[i] === arr[j]) {
+//                     arr.splice(j, 1);
+//                     j--;
+//                 }
+//             }
+//         }
+// //    数组排序  冒泡排序
+//         var c = 0;
+//         for (var i = 0; i < arr.length; i++) {
+//             for (var j = i + 1; j < arr.length; j++) {
+//                 if (arr[i] > arr[j]) {
+//                     c = arr[i];
+//                     arr[i] = arr[j];
+//                     arr[j] = c;
+//                 }
+//             }
+//         }
+//         return arr;
+//     }
+//
+//     console.log(arrRset(arr));
+
+    var a = 1;
+    var b = 2;
+    c=a;
+    a=b;
+    b=c;
+    console.log(a);
+    console.log(b);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据处理</title>
+</head>
+<body>
+<input type="text" name="" id="">
+<button>查询</button>
+<div></div>
+<script>
+    var data = [{
+        name: '张三',
+        kaoshixinxi: [{
+            time: '2013-5-13',
+            kaohao: '001',
+            kaochang: '教室一',
+            kemu: {
+                shuxve: 80,
+                yingyu: 90,
+                yuwen: 60,
+            }
+        }, {
+            time: '2014-8-13',
+            kaohao: '006',
+            kaochang: '教室2',
+            kemu: {
+                shuxve: 44,
+                yingyu: 66,
+                yuwen: 99,
+            }
+        }, {
+            time: '2016-9-22',
+            kaohao: '003',
+            kaochang: '教室3',
+            kemu: {
+                shuxve: 87,
+                yingyu: 76,
+                yuwen: 94,
+            }
+        },]
+    }, {
+        name: '李四',
+        kaoshixinxi: [{
+            time: '2015-7-17',
+            kaohao: '055',
+            kaochang: '教室8',
+            kemu: {
+                shuxve: 89,
+                yingyu: 91,
+                yuwen: 85,
+            }
+        }, {
+            time: '2017-10-13',
+            kaohao: '035',
+            kaochang: '教室9',
+            kemu: {
+                shuxve: 66,
+                yingyu: 83,
+                yuwen: 97,
+            }
+        }, {
+            time: '2017-1-22',
+            kaohao: '073',
+            kaochang: '教室10',
+            kemu: {
+                shuxve: 100,
+                yingyu: 84,
+                yuwen: 79,
+            }
+        },]
+    }]
+    var box = document.querySelector('div')
+    var btn = document.querySelector('button')
+    var inp = document.querySelector('input')
+    var str = '';
+//    for (var i = 0; i < data.length; i++) {
+//        str += '<h1>' + data[i].name + '</h1>';
+//        for (var j = 0; j < data[i].kaoshixinxi.length; j++) {
+//            str += '<h3>考试时间：' + data[i].kaoshixinxi[j].time + '</h3>';
+//            str += '<p>考号：' + data[i].kaoshixinxi[j].kaohao + '</p>';
+//            str += '<p>考场' + data[i].kaoshixinxi[j].kaochang + '</p>';
+//            str += '<p>数学成绩:' + data[i].kaoshixinxi[j].kemu.shuxve + '</p>';
+//            str += '<p>语文成绩:' + data[i].kaoshixinxi[j].kemu.yuwen + '</p>';
+//            str += '<p>英语成绩：' + data[i].kaoshixinxi[j].kemu.yingyu + '</p>';
+//        }
+//    }
+//    box.innerHTML = str;
+    btn.addEventListener('click', function () {
+        var txt = inp.value;
+//         str = '';
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].name === txt) {
+                str += '<h1>' + data[i].name + '</h1>';
+                for (var j = 0; j < data[i].kaoshixinxi.length; j++) {
+                    str += '<h3>考试时间：' + data[i].kaoshixinxi[j].time + '</h3>';
+                    str += '<p>考号：' + data[i].kaoshixinxi[j].kaohao + '</p>';
+                    str += '<p>考场' + data[i].kaoshixinxi[j].kaochang + '</p>';
+                    str += '<p>数学成绩:' + data[i].kaoshixinxi[j].kemu.shuxve + '</p>';
+                    str += '<p>语文成绩:' + data[i].kaoshixinxi[j].kemu.yuwen + '</p>';
+                    str += '<p>英语成绩：' + data[i].kaoshixinxi[j].kemu.yingyu + '</p>';
+                }
+            }
+        }
+        box.innerHTML = str;
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" value="66666">
+</body>
+<script>
+    var start = Date.now();
+    var response = prompt("What is your name?", "");
+    var end = Date.now();
+    var elapsed = (end - start) / 1000;
+    document.write("You took " + elapsed + " seconds" + " to type: " + response);
+    console.log(start)
+    console.log(end)
+</script>
+</html>

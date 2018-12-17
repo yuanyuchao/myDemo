@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script src="vue.js"></script>
+<script>
+    var son = {
+        template:`<div>
+<h1 v-text="title" @click="isShow()"></h1>
+<h1 v-show="aaa">hello</h1></ul></div>`,
+        props:['title'],
+        data:function () {
+            return {
+                aaa :true,
+            }
+        },
+        methods: {
+            isShow(){
+                this.aaa = !this.aaa;
+            }
+        }
+    }
+
+    //父用子：生出子 声明子 使用子
+    //父传子; 父传子（属性），子声明（接收），子直接用（就跟是自己的一样）。
+    var myHeader= {
+        template:'<div>我是头部</div>'
+    }
+    var myBody = {
+        components:{
+          son:son,
+        },
+        template:'<div>我是身体<son :title="text"></son></div> ',
+        data:function () {
+            return {
+                text:'Hi',
+            }
+        }
+
+    }
+    var myFooter = {
+        template:'<div>我是底部<button @click="showNum(666)">点我</button></div>',
+        methods:{
+            showNum(num){
+                alert(num);
+            }
+        }
+    }
+    new Vue ({
+        el:'#app',
+        components:{
+            'my-header':myHeader,
+            'my-body':myBody,
+            'my-footer':myFooter,
+        },
+        template:'<div><my-header></my-header> <my-body></my-body><my-footer></my-footer></div>',
+    })
+</script>
+</html>

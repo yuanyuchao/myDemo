@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new Date()</title>
+</head>
+<body>
+<div>
+    <h1>距过年还有：</h1>
+    <span id="_d">00</span>
+    <span id="_h">00</span>
+    <span id="_m">00</span>
+    <span id="_s">00</span>
+</div>
+</body>
+<script>
+    (function countTime() {
+        var now= new Date().getTime();//当前的时间点 毫秒
+        var t1 = new Date().valueOf();//获取当前时间毫秒数的第二种方法
+        var t2 = Date.parse(new Date());//获取当前毫秒数的第三种方法
+        var str="2019-02-04 00:00:00";
+        var endDate = new Date(str);
+        var end = endDate.getTime();//设定的时间点
+        var leftTime = end-now;
+        var d,h,m,s;
+        if (leftTime>=0) {
+            d = Math.floor(leftTime/1000/60/60/24);//day
+            h = Math.floor(leftTime/1000/60/60%24);//hour
+            m = Math.floor(leftTime/1000/60%60);//minute
+            s = Math.floor(leftTime/1000%60);//second
+        }
+       function handel(str) {
+         return str < 10 ? '0'+str:str;
+       }
+        document.getElementById("_d").innerHTML = d+"天";
+        document.getElementById("_h").innerHTML = handel(h)+"时";
+        document.getElementById("_m").innerHTML =handel(m)+"分";
+        document.getElementById("_s").innerHTML = handel(s)+"秒";
+        setTimeout(countTime,1000);
+    }())
+    // countTime();
+</script>
+</html>

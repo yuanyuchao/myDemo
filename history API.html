@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>history API</title>
+
+</head>
+<body>
+
+</body>
+<script>
+    //  pushState方法不会触发页面刷新，只是导致history对象发生变化，地址栏会有反应。
+    history.pushState({data:'test'}, null, 'history模式.html');
+
+
+    window.onpopstate = function (event) {
+
+        console.log('location: ' + document.location);
+        console.log(event);
+
+        console.log('state: ' + JSON.stringify(event.state));
+
+    };
+</script>
+</html>

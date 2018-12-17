@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+            width: 2100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .box {
+            width: 500px;
+            height: 400px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        li {
+            width: 500px;
+            height: 400px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="../small%20case/img/1.jpg" alt=""></li>
+        <li><img src="../small%20case/img/2.jpg" alt=""></li>
+        <li><img src="../small%20case/img/3.jpg" alt=""></li>
+        <li><img src="../small%20case/img/4.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+<script>
+    var ul = document.querySelector('ul');
+    // var li = document.querySelector('li');
+    // var box = document.querySelector('.box');
+    var start = 0;
+    var target = 0;
+    var timer = null;
+    var index = 0;//记录当前第几张图播放
+
+    // 伦比图主动画函数
+
+        // 养成一个好习惯，在开启定时器的时候，先把他本身清除一下。
+    setInterval(function () {
+        index++;
+        index > 3 ? index=0 : index;
+        target = -500 * index;
+        clearInterval(timer);
+        timer=setInterval(function () {
+            start = start + (target - start) / 10;
+            ul.style.left = start + 'px';
+        },20)
+    },3000)
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ref-inside-dom-all">
+    <ref-inside-dom-quanjv></ref-inside-dom-quanjv>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    Vue.component("ref-inside-dom-quanjv",{
+        template:"<div class='insideFather'> " +
+        "<input type='text' ref='insideDomRefAll' v-on:input='showinsideDomRef'>" +
+        "  <p>ref在里面的元素上--全局注册 </p> " +
+        "</div>",
+        methods:{
+            showinsideDomRef:function () {
+                console.log(this); //这里的this其实还是div.insideFather
+                console.log(this.$refs.insideDomRefAll.value); // <input  type="text">
+            }
+        }
+    });
+
+    var refinsidedomall=new Vue({
+        el:"#ref-inside-dom-all"
+    });
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bgc {
+            color: red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li v-for="(item,index) in arr" v-text="index +'、'+ item.text" :class="{bgc:item.selected}" @click="fn(index)"></li>
+    </ul>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.5.1/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#box',
+        data:{
+            arr:[{
+                text:'吃饭',
+                selected:false
+            },{
+                text:'睡觉',
+                selected:false
+            },{
+                text:'打豆豆',
+                selected:false
+            }]
+        },
+        methods:{
+            fn:function (index) {
+                for(var i=0;i<this.arr.length;i++){
+                    this.arr[i].selected=false
+                }
+                this.arr[index].selected=true
+            }
+        }
+    })
+</script>
+</html>

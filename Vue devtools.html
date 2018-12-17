@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue devtools调试工具</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="num1" @keyup="sum">+
+    <input type="text" v-model="num2" @keyup="sum">*
+    <input type="text" v-model="num3" @keyup="sum">=
+    <input type="text" :value="result">
+    <button @click="reset">清空数据</button>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+   new Vue ({
+       el:`#app`,
+       data(){
+           return{
+               num1:'',
+               num2:'',
+               num3:'',
+               result:'',
+           }
+       },
+       methods:{
+           sum(){
+               this.result = (Number(this.num1)+Number(this.num2))*Number(this.num3);
+           },
+           reset(){
+               this.num1=this.num2=this.num3=this.result = '';
+               this.$emit('reset');//测试自定义事件触发，原生事件不触发。
+           }
+       }
+   })
+</script>
+</html>

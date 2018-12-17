@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+     var srr = [1,2,[1,2],4];
+     console.log( $.inArray(4,srr))
+     console.log(srr.splice(-1,1))
+    function deepClone(obj) {
+       var brr = JSON.stringify(obj);
+      var  objClone = JSON.parse(brr);
+        return objClone;
+    }
+    arr = deepClone(srr);
+    srr[0] = 666;
+    srr[2][1] = 888;
+    console.log(srr,arr)
+    var crr = [1,1111,2,33,888888];
+     function bubbleSort(arr) {
+         var len = arr.length;
+         for (var i = 0; i < len; i++) {
+             for (var j = 0; j < len - 1 - i; j++) {
+                 if (arr[j] > arr[j+1]) {        //相邻元素两两对比
+                     var temp = arr[j+1];        //元素交换
+                     arr[j+1] = arr[j];
+                     arr[j] = temp;
+                 }
+             }
+         }
+         return arr;
+     }
+     console.log(bubbleSort(crr))
+
+</script>
+</html>

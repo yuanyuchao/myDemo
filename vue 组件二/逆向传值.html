@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <parent></parent>
+</div>
+<template id="y">
+    <div>
+        <h1 v-text="msg"></h1>
+        <child @yuan="msg = $event"></child>
+    </div>
+</template>
+<template id="x">
+    <div @click="fn()">
+        <h1 >我是子组件</h1>
+    </div>
+</template>
+</body>
+<!--父组件给子组件传值 正向传递 用props-->
+<!--子组件给父组件传值 逆向传值 VUE本身是不支持这种传值方式的-->
+<!--那么我们需要利用其它的方式俩实现传值   抛出自定义事件的方式-->
+
+
+<!--逆向传值的步骤-->
+<!--第一步：定义一个方法 通过$emit() 抛出自定义事件-->
+<!--第二步： 在子组件内触发这个函数-->
+<!--第三步： 在父组件内 找到子组件的调用 并接受抛出的自定义事件-->
+<!--第四步： 接收到抛出的自定义事件后 定义一个函数 -->
+<!--这个函数接受到一个val参数 就是传过来的值-->
+
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        components: {
+            'parent': {
+                template: '#y',
+                data: function () {
+                    return {
+                        msg: '我是父组件'
+                    }
+                },
+                methods: {
+                    getMsg: function (val) {
+                        this.msg=val;
+//                        console.log(val);
+                    }
+                },
+                components: {
+                    'child': {
+                        template: '#x',
+                        data: function () {
+                            return {
+                                msg: '我出去玩了'
+                            }
+                        },
+                        methods: {
+                            fn: function () {
+//                                $emit 注册自定义事件 有两个参数
+//                                第一个参数 自定义事件的名字
+//                                第二个参数 需要抛出的数据
+                                this.$emit('yuan', this.msg)
+                            }
+                        }
+                    }
+                }
+            }
+        },
+    })
+</script>
+</html>

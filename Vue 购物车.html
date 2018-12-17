@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <script src="vue.js"></script>
+    <!--<script src="jquery.min.js"></script>-->
+    <style>
+        .grey {
+            color: #cccccc;
+        }
+        input {
+            text-align: center  ;
+        }
+        span {
+            font-size: 22px;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="cart-box-body">
+    <template v-if="goods_list.length">
+        <table class="cart-table" style="width:100%;">
+            <thead>
+            <tr>
+                <th>全选<input type="checkbox" v-model="checked" @change="changeAllChecked"></th>
+                <th>商品名称</th>
+                <th>单价</th>
+                <th>购买数量</th>
+                <th>合计</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(goods,index) in goods_list" style="text-align: center" >
+                <td><input type="checkbox"  name="checkboxs"  v-model="checkedNames" :value="index"></td>
+                <td>{{ goods.name }}</td>
+                <td>{{ goods.price }}</td>
+                <td><span @click="minus(index)" :class="{grey:goods_list[index].num==1}">-</span><input type="text" size="5"  v-model="goods.num" ><span @click="add(index)">+</span></td>
+                <td>{{ goods.price * goods.num}}</td>
+                <td>
+                    <a href="javascript:;"  @click="remove(index)" >删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center;margin-top: 50px">
+            共{{ count }}件商品 购物车总金额：￥{{total}}元
+        </div>
+    </template>
+    <template v-else style="text-align: center;margin-top: 50px">
+        <div>购物车为空</div>
+    </template>
+</div>
+</body>
+<script>
+    var model = {
+        goods_list: [{name : "测试商品1",num : 1, price : 10.0},
+            {name : "测试商品2",num : 1, price : 20.0},
+            {name : "测试商品3",num : 1, price : 30.0},
+            {name: "测试商品4", num: 1, price: 40.0}
+        ],
+        checked: false,
+        checkedNames: [],
+        checkedArr: [0,1,2,3]
+    };
+
+    new Vue({
+        el: ".cart-box-body",
+        data : model,
+        methods: {
+            remove: function (index) {
+                model.goods_list.splice(index, 1);
+            },
+            add:function (index) {
+                this.goods_list[index].num++;
+            },
+            minus:function (index) {
+                this.goods_list[index].num--;
+                if( this.goods_list[index].num<=1){
+                    this.goods_list[index].num=1
+                }
+            },
+            changeAllChecked: function() {
+                if (this.checked) {
+                    this.checkedNames = this.checkedArr
+                } else {
+                    this.checkedNames = []
+                }
+            }
+
+
+        },
+        computed:{
+            count : function(){
+                let num = 0;
+                for(let i in this.goods_list){
+                    num += parseInt(this.goods_list[i].num);
+                }
+                return num;
+            },
+            total : function(){
+                let total = 0;
+                for(let i in this.goods_list){
+                    total += this.goods_list[i].price * this.goods_list[i].num;
+                }
+                return total;
+            }
+        },
+        watch: {
+            "checkedNames": function() {
+                if (this.checkedNames.length == this.checkedArr.length) {
+                    this.checked = true
+                } else {
+                    this.checked = false
+                }
+            }
+        }
+    });
+</script>
+</html>

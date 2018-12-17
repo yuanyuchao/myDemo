@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打印机效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 500px;
+            margin:50px auto;
+        }
+        textarea {
+            width: 500px;
+            height: 200px;
+        }
+        .text {
+            width: 458px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <textarea></textarea>
+    <div class="text"></div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(function () {
+
+        $('textarea').on('blur',function () {
+//            获取文本域的内容
+            var text=$(this).val();
+//            当前打印字符的位置
+            var pos=0;
+            var timer=null;
+            clearInterval(timer);
+            timer=setInterval(function () {
+                pos++;
+                var str=text.substring(0,pos);
+                $('.text').html(str);
+            },150)
+
+        })
+        
+    })
+</script>
+</html>

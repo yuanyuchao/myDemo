@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <button @click="add()">add</button>
+    <ul>
+        <li v-for="(item,index) in datas">{{item}} <span @click="del(index)">删除</span></li>
+    </ul>
+</div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            datas: [],
+            numKey: 1
+
+        },
+        methods: {
+            //新增
+            add: function () {
+                this.datas.push(this.numKeyAdd());
+            },
+            numKeyAdd:function () {
+                return this.numKey++;
+            },
+            //删除
+            del:function (index) {
+               this.datas.splice(index,1)
+
+            }
+        },
+    })
+</script>
+</html>

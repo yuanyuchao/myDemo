@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+<h1>00000</h1>
+<p>0000</p>
+<ul>
+    <li>0000</li>
+    <li>0000</li>
+    <li>0000</li>
+    <li>0000</li>
+    <li>0000</li>
+</ul>
+</body>
+<script>
+    $(function () {
+        $('html').on('keydown', function (e) {
+            console.log(e.keyCode)
+        })
+        $('html').on('click', function (e) {
+            console.log(e)
+        })
+        $('html').on('mousedown',function (e) {
+            console.log(e.button)
+        })
+        $('html').on('mousedown',function (e) {
+            console.log(e.target.tagName)
+            console.log(e.target.innerText)
+        })
+
+    })
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>第1个</li>
+    <li>第2个</li>
+    <li>第3个</li>
+    <li>第4个</li>
+    <li>第5个</li>
+</ul>
+</body>
+<script>
+
+    // 先在页面上创建一个元素，然后再把他添加到页面上
+    // createElement(tagName);创建新的元素节点
+    // appendChild(nodeName);向已存在的节点列表的末尾添加新的子节点
+    // insertBefore(newelement.oldelement);向指定的节点之前插入一个新的子节点
+    // cloneNode(deep);复制某个指定的节点
+    var ul = document.querySelector('ul');
+    var lis = document.getElementsByTagName('li')
+    var li = document.createElement('li');
+    li.innerHTML='我是新创建的';
+    // ul.appendChild(li);
+    ul.insertBefore(li,lis[0]);
+    ul.removeChild(li)
+
+</script>
+</html>

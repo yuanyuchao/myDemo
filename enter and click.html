@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><input type="text"></p>
+<p><input type="text"></p>
+<p><input type="text"></p>
+<button>submit</button>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    $(function () {
+
+        function submit() {
+            if ($('input').val()==''){
+                alert('此处不能为空');
+                return
+            };
+            alert(666)
+        }
+        $('button').on('click',function (event) {
+            console.log(event.button)
+            submit()
+        })
+        $('button').keydown(function (event) {
+            console.log(event)
+            if(event.keyCode == 13){
+                event.preventDefault();
+                submit()
+            }
+        })
+
+    })
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 箭头函数</title>
+</head>
+<body>
+
+</body>
+<script>
+    a=(b,s)=>(b*s);
+   console.log( a(1,2));
+   console.log( 5.123|0);//取整
+    const addZero1 = (num, len = 2) => (`0${num}`).slice(-len)//不满两位自动补零
+    console.log(addZero1)
+    var  str = 'abcdef';
+    console.log(str.slice(-2));
+
+    b=()=>{
+        alert(666);
+    }
+    b();
+
+</script>
+</html>

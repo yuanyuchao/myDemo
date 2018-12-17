@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toString()和valueOf()</title>
+</head>
+<body>
+
+</body>
+<script>
+    // let a = {
+    //     i: 1,
+    //     valueOf (){
+    //         alert(666)
+    //         return a.i++
+    //     },
+    //     toString () {
+    //         return a.i++
+    //     },
+    // }
+    //
+    // if(a == 1 && a == 2 && a == 3) {
+    //     console.log('Hello World!');
+    // }
+    var colors = ["red", "blue", "green"]; // 创建一个包含3 个字符串的数组
+    //alert调用的总是一个字符串，即使不是字符串最后也会通过toString()转换成字符串
+    alert(colors.toString());
+    alert(colors.valueOf());
+    alert(colors);
+    //结果是第一个是true而第二个是false，为什么呢，
+    // 其实valueOf()调用完以后还是返回一个数组。这个数组被alert的时候会调用toString()函数，
+    // 所以不是valueOf()和toString()函数相同，而是间接的调用了toString()函数！
+    var arr = [1, 2, 3];
+    alert(Array.isArray(arr.valueOf()));
+    alert(Array.isArray(arr.toString()));
+    arr.toString = function () {
+        alert("你调用了toString函数");
+    }
+    alert(arr.valueOf());
+
+
+    //
+    var bbb = {
+        i: 10,
+        toString: function () {
+            console.log('toString');
+            return this.i;
+        },
+        valueOf: function () {
+            console.log('valueOf');
+            return this.i;
+        }
+    }
+
+    alert(bbb);// 10 toString
+    alert(+bbb); // 10 valueOf
+    alert('' + bbb); // 10 valueOf
+    alert(String(bbb)); // 10 toString
+    alert(Number(bbb)); // 10 valueOf
+    alert(bbb == '10'); // 这个里面的判等的顺序是，获取原始值，然后判断两边的原始值是否相等，所以调用valueOf
+    alert(bbb === '10'); // ===操作符不进行隐式转换，判全等的第一个步骤是判断类型，因为类型都不一样了，所以后面什么都不会调用
+    //总结：valueOf偏向于运算，toString偏向于显示。
+    // 1、 在进行强转字符串类型时将优先调用toString方法，强转为数字时优先调用valueOf。
+    // 2、 在有运算操作符的情况下，valueOf的优先级高于toString。
+    // 下面给大家简单说下valueof和tostring的区别。
+    // valueOf()：返回最适合该对象类型的原始值；
+    // toString(): 将该对象的原始值以字符串形式返回。
+    // 这两个方法一般是交由JS去隐式调用，以满足不同的运算情况。
+    // 在数值运算里，会优先调用valueOf()，如a + b；
+    // 在字符串运算里，会优先调用toString()，如alert(c)。
+</script>
+</html>

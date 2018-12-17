@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属相和侦听器</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input type="text" v-model="firstName">
+    <input type="text" v-model="lastName">
+    <div>{{fullName}}</div>
+    <div>{{count}}</div>
+</div>
+</body>
+<script>
+    // 计算属性依赖的数据发生变化时，计算属性菜发生变化，如果计算属性所依赖的数据没有发生变化，就会使用缓存数据，用于提升性能。
+    new Vue({
+        el: '#root',
+        data: {
+            firstName: '',
+            lastName: '',
+            count: 0,
+        },
+        methods: {},
+        computed: {
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        },
+        watch: {
+            // firstName:function () {
+            //    this.count++
+            // },
+            // lastName:function () {
+            //     this.count++
+            // }
+            fullName: function () {
+                this.count++
+            }
+        }
+    })
+</script>
+</html>

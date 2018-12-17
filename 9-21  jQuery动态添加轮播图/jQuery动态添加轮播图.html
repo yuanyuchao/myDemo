@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding:0;
+        }
+        ul,ol {
+            list-style: none;
+        }
+        div {
+            width: 800px;
+            height: 600px;
+            margin:25px auto;
+            position: relative;
+        }
+        ul>li {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        ol {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+        }
+        ol>li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color:white;
+            margin-left: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer ;
+        }
+        .active {
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <ul></ul>
+    <ol></ol>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(function(){
+        var data=['https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505991155334&di=b985fbc0de6752abc76b0a20b0c2b8bb&imgtype=0&src=http%3A%2F%2F5.26923.com%2Fdownload%2Fpic%2F000%2F249%2Fe29c3df4ac1a23d36fe8e7a40dfe8fcb.jpg',
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505988530567&di=06952ac70c94223797931bdeeeae348c&imgtype=0&src=http%3A%2F%2Fimg3.3lian.com%2F2013%2Fc2%2F32%2Fd%2F101.jpg',
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505988530566&di=9187f7eaacb71ce49962f290c43e6106&imgtype=0&src=http%3A%2F%2Fimg.article.pchome.net%2F00%2F27%2F86%2F50%2Fpic_lib%2Fs960x639%2F25s960x639.jpg',
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505988530564&di=29adffe16a231c21289e754e353503d2&imgtype=0&src=http%3A%2F%2Fimg2.3lian.com%2Fimg2007%2F23%2F10%2F024.jpg',
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505988530559&di=27ca242da02c5220a34cbad7ac2dce9f&imgtype=0&src=http%3A%2F%2Fimg15.3lian.com%2F2015%2Fa1%2F25%2Fd%2F130.jpg',
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505988914385&di=7ddc87bdfd5f48dc2f82e6c69887f3d9&imgtype=0&src=http%3A%2F%2Fwww.xgjzyjm.com%2FUp%2Fday_130726%2F201307261010238405.jpg'];
+        var str='';
+        var str_ol='';
+        for(var i=0;i<data.length;i++){
+            str+='<li><img src="'+data[i]+'"></li>';
+            if(i==0){
+                str_ol+='<li class="active">'+(i+1)+'</li>'
+            }else{
+                str_ol+='<li>'+(i+1)+'</li>'
+            }
+        }
+        $('ul').html(str);
+        $('ol').html(str_ol);
+//        轮播图动画开始
+        $('ul>li').eq(0).siblings().hide();
+//        记录播放到第几张
+        index=0;
+//        开启定时器  进行动画播放
+        setInterval(function(){
+            index++;
+            index=index>data.length-1?0:index;
+            $('ul>li').eq(index).fadeIn().siblings().fadeOut();
+            $('ol>li').eq(index).addClass('active').siblings().removeClass('active');
+        },3000)
+    })
+</script>
+</html>

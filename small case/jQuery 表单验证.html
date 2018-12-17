@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery表单验证</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 500px;
+            margin: 100px auto;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box">
+    用户名:<input type="text"><span></span><br/>
+    密码:<input type="password"><span></span><br/>
+    手机号:<input type="text"><span></span><br/>
+    邮箱:<input type="text" ><span></span><br/>
+    <button disabled="true">注册</button>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+    $(function () {
+        var $inp = $('input');
+        var $span = $('span');
+//         所有验证逻辑全部通过按钮才能被点击，否则不能被点击
+//        用来记录每个input框当前验证逻辑是不是通过的状态
+//        如果有一个input框的验证逻辑通过了 那么数组对应他的项就会变成true
+        var  arr=[false,false,false,false];
+//        遍历数组，检测验证逻辑是否全部通过
+//        fa函数 用来判断这4个input框的验证逻辑是不是全部通过
+        function fa() {
+            var  index=0;
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]===true){
+                    index++;
+                }
+            }
+            if(index===4){
+                $('button').removeAttr('disabled');
+            }else{
+                $('button').attr('disabled','false')
+            }
+        }
+        $('button').on('click',function () {
+            alert('注册成功')
+        })
+        $inp.eq(0).on('blur', function () {
+            var text = $(this).val();
+            if (text.length >= 6 && text.length <= 10) {
+                $span.eq(0).html('输入正确');
+                arr[0]=true;
+            } else {
+                $span.eq(0).html('请输入6-10位');
+                arr[0]=false;
+            }
+            fa();
+        })
+        $inp.eq(1).on('blur', function () {
+            var text = $(this).val();
+            if (text.length >= 6 && text.length <= 10) {
+                $span.eq(1).html('输入正确');
+                arr[1]=true;
+            } else {
+                $span.eq(1).html('请输入6-10位');
+                arr[1]=false;
+            }
+            fa();
+        })
+        $inp.eq(2).on('blur', function () {
+//            因为我们input获取到的一定是一个字符串
+//            那么我们首先给他转换成数字
+            var text = $(this).val();//此时他是一个字符串
+            if (text.length == 11) {//如果这个字符串的长度是11位才执行
+                text = parseInt(text);// 此时他是一个数字类型
+//              转换成数字以后就不能使用length方法了，我们需要再把它转换成字符串
+                if (text.toString().length == 11) {
+                    $span.eq(2).html('输入正确');
+                    arr[2]=true;
+                } else {
+                    $span.eq(2).html('请输入11位数字');
+                    arr[2]=false;
+                }
+            } else {//如果字符串的长度不是11位执行这里
+                $span.eq(2).html('请输入11位数字');
+                arr[2]=false;
+            }
+            fa();
+        })
+        $inp.eq(3).on('blur', function () {
+            var text = $(this).val();
+            if (text.indexOf('@')!=-1&&text.indexOf('.')!=-1) {
+                $span.eq(3).html('输入正确');
+                arr[3]=true;
+            } else {
+                $span.eq(3).html('请输入正确的邮箱格式');
+                arr[3]=false;
+            }
+            fa();
+        })
+    })
+</script>
+</html>

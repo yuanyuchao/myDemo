@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function test(fruit, quantity) {
+        if (!fruit) return;
+        const q = quantity || 1; // 如果没有提供 quantity，默认为 1
+        console.log(`We have ${q}${fruit}!`);
+    }
+    //测试结果
+    test('banana'); // We have 1 banana!
+    test('apple', 2); // We have 2 apple!
+</script>
+</html>

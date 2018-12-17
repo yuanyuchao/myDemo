@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hasOwnProperty() 方法</title>
+</head>
+<body>
+
+</body>
+<script>
+    // ​ 大家知道，我们用去访问一个对象的属性的时候，这个属性既有可能来自对象本身，也有可能来自这个对象的[[prototype]]属性指向的原型。
+    // ​ 那么如何判断这个对象的来源呢？
+    // ​ hasOwnProperty方法，可以判断一个属性是否来自对象本身。
+    function Person () {
+
+    }
+    Person.prototype.name = "志玲";
+    var p1 = new Person();
+    p1.sex = "女";
+    //sex属性是直接在p1属性中添加，所以是true
+    alert("sex属性是对象本身的：" + p1.hasOwnProperty("sex"));
+    // name属性是在原型中添加的，所以是false
+    alert("name属性是对象本身的：" + p1.hasOwnProperty("name"));
+    //  age 属性不存在，所以也是false
+    alert("age属性是存在于对象本身：" + p1.hasOwnProperty("age"));
+// 所以，通过hasOwnProperty这个方法可以判断一个对象是否在对象本身添加的，但是不能判断是否存在于原型中，因为有可能这个属性不存在.
+// 也即是说，在原型中的属性和不存在的属性都会返回fasle。
+</script>
+</html>

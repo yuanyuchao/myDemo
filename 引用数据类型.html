@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引用数据类型</title>
+</head>
+<body>
+
+</body>
+<script>
+    var outObj = {value:1};
+    function addOne(inObj) {
+        inObj = {value : 2 };
+        return inObj;
+    }
+
+    console.log(addOne(outObj));
+    console.log(outObj);
+
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>双十一特惠：<span>111</span></h1>
+<p></p>
+</body>
+<script>
+    var span=document.querySelector('span');
+    var p=document.querySelector('p');
+    function getPrice() {
+        var price = 8888;
+        return function () {
+            // price++;
+            return price;
+        }
+    }
+
+    var price=getPrice();
+    span.innerHTML=price();
+    var price1=getPrice()
+    p.innerHTML=price1();
+
+
+</script>
+</html>

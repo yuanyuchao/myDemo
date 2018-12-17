@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History API</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<ul id="menu">
+    <li><a href="/home">首页</a></li>
+    <li><a href="/about">关于我们</a></li>
+    <li><a href="/blog">博客</a></li>
+    <li><a href="/photos">相册</a></li>
+</ul>
+<button id="back">Back</button>
+<button id="forward">Forward</button>
+<div>
+    Action: <span id="action"></span><br/>
+    Url: <span id="url"></span><br/>
+    Description: <span id="description"></span>
+</div>
+</body>
+<script>
+    console.log(history)
+    document.addEventListener('DOMContentLoaded', function(){
+        var act, historyState;
+        var menu = document.querySelectorAll('li a');
+
+        historyState = {
+            home : {
+                description : "我是首页------Index Page",
+                url:'',
+            },
+            about : {
+                description : "关于我们------About Page",
+                url:'',
+            },
+            blog : {
+                description : "博客页面------Blog Page",
+                url:'',
+            },
+            photos : {
+                description : "相册页面------Photos Page",
+                url:'',
+            }
+        };
+
+        for( let i =0; i < menu.length; i++ ) {
+            menu[i].addEventListener('click', function(e){
+                e.preventDefault();
+                var hash = menu[i].getAttribute('href');//获取a标签的herf属性值  /home
+                console.log(hash)
+                var key = hash.replace('/','');//去掉‘/’
+                console.log(key)
+                act = "点击导航";
+
+                historyState[key].url = key;//吧key复制给每一项的url
+                console.log( historyState[key].url)
+                history.pushState(historyState[key], null, hash);
+                setStateInfo( historyState[key] );//改变url，description，action的值
+
+            },false);
+        }
+
+
+        window.addEventListener('popstate', function(event){
+            var state = history.state || event.state || window.event.state;
+            console.log(event.state)
+            if( state) setStateInfo(state);
+
+        },false);
+
+        document.querySelector("#back").addEventListener('click', function(){
+            act = "点击后退按钮";
+            history.back();
+        }, false);
+
+        document.querySelector("#forward").addEventListener('click', function(){
+            act = "点击前进按钮";
+            history.go(1);
+        });
+
+        function setStateInfo( state ){
+            //ajax处理不同的数据
+            document.querySelector('#action').innerHTML = act;
+            document.querySelector("#url").innerHTML = state.url;
+            document.querySelector('#description').innerHTML = state.description;
+        }
+
+        //第一次加载进来的时候
+        var path = location.pathname;
+        console.log(path)
+        var arr = path.split('/');
+        var index = 'home';
+        console.log(index);
+
+        act = "刷新页面";
+        console.log(historyState[index])
+        historyState[index].url =  index;
+        setStateInfo(historyState[index]);
+
+        history.replaceState(historyState[index], null, '/home')
+    },false);
+
+</script>
+</html>

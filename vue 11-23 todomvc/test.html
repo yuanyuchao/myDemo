@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li v-for="aaa in arr">
+            {{aaa}}
+        </li>
+    </ul>
+</div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            arr: [{
+                name: 'yuanyuchao',
+                age: '27',
+                sex: 'man',
+            }]
+
+
+        }
+    })
+
+
+    //        console.log('yuanyuchao'.split('').reverse().join(''));
+    //        var a='yuanyuchao'
+    //        console.log(a.charAt(0).toUpperCase()+a.slice(1))
+
+
+</script>
+</html>

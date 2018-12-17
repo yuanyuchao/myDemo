@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            position: absolute;
+            top: 30px;
+            left: 0;
+        }
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            position: absolute;
+            top: 200px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<div class="box1"></div>
+<button>动起来</button>
+</body>
+<script>
+    // 缓动动画
+    // 现在的位置=现在的位置+（目标位置-现在的位置）/10
+    var box = document.querySelector('.box');
+    var btn = document.querySelector('button');
+    var box1 = document.querySelector('.box1');
+    var start = 0;
+    var target = 1000;
+    var index = 0;
+    btn.onclick = function () {
+        setInterval(function () {
+            start = start + (target - start) / 10;
+            box.style.left = start + 'px';
+        }, 100)
+        setInterval(function () {
+            index += 20 ;
+            box1.style.left = index + 'px';
+        },100)
+    }
+</script>
+</html>

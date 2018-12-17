@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新浪评论</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        textarea {
+            width: 400px;
+            height: 100px;
+        }
+
+        button {
+            width: 80px;
+            height: 30px;
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        span {
+            display: block;
+        }
+
+        li {
+            margin-bottom: 30px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="box">
+     <!--评论输入框-->
+    <div class="comment">
+        <textarea id="inp" placeholder=" 请输入评论内容"></textarea>
+        <button id="btn">发送</button>
+        <div class="clear"></div>
+    </div>
+    <!--评论显示区-->
+    <div class="content">
+        <ul id="ul">
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+    //    第一步获取元素
+    var inp = document.getElementById('inp');
+    var btn = document.getElementById('btn');
+    var ul = document.getElementById('ul');
+
+
+    //第二部绑定事件
+
+    btn.onclick = function () {
+        if (inp.value == '') {
+            alert('请输入评论内容')
+        } else {
+//        获取输入内容
+            var text = inp.value;
+//        获取当前页面所有的li标签
+            var lis = document.getElementsByTagName('li');
+//        创建一盒li标签
+            var li = document.createElement('li');
+//        li便签的文字内容与我输入的一样
+            li.innerHTML = text;
+//       //创建一个span标签
+            var span = document.createElement('span');
+//        获取时间
+            var date = new Date();
+            span.innerHTML = date.getFullYear() + '/' + (date.getMonth()+1) + '/' + date.getDate() + '&nbsp&nbsp&nbsp&nbsp' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+            li.appendChild(span);
+//        把li标签添加到li数组的第一个li前面，让最新的内容显示在最上面
+            ul.insertBefore(li, lis[0]);
+            inp.value = '';
+        }
+
+    }
+
+</script>
+</html>

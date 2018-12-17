@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .left,.right {
+            width: 200px;
+            height: 200px;
+            background-color:yellowgreen ;
+        }
+        .right {
+            float: right;
+        }
+        .left {
+            float: left;
+        }
+        .middle {
+            /*margin: 0 200px;*/
+            overflow: hidden;
+            background-color: red;
+            height: 200px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="left">22222222222</div>
+
+<div class="right">333333333</div>
+<div class="middle">1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</div>
+</body>
+<script>
+    a = function() {
+        alert(11);
+    }();
+    (function () {
+        alert(22)
+    })()
+
+
+</script>
+</html>

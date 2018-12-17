@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // concat() 方法用于连接两个或多个数组。
+    // 该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
+    // 语法
+    // arrayObject.concat(arrayX,arrayX,......,arrayX)
+    // arrayX	必需。该参数可以是具体的值，也可以是数组对象。可以是任意多个。
+    // 返回值
+    // 返回一个新的数组。该数组是通过把所有 arrayX 参数添加到 arrayObject 中生成的。如果要进行 concat() 操作的参数是数组，那么添加的是数组中的元素，而不是数组。
+    // var a = [1,2,3];
+    // document.write(a.concat(4,5)+'</br>');
+    // var b = ['a','b','c'];
+    // var c = ['d','e','f'];
+    // var d = ['h','i','j'];
+    // document.write(a.concat(b,c,d)+'</br>');
+
+    // reverse() 方法用于颠倒数组中元素的顺序。
+    // 注释：该方法会改变原来的数组，而不会创建新的数组。
+    // document.write(a.reverse()+'</br>');
+
+
+    // sort() 方法用于对数组的元素进行排序。
+    // 语法
+    // arrayObject.sort(sortby)
+    // sortby	可选。规定排序顺序。必须是函数。
+    // 返回值
+    // 对数组的引用。请注意，数组在原数组上进行排序，不生成副本。
+    // var m = ['f','g','d','c','a','111'];
+    // document.write(m.sort()+'</br>');
+    var f = [1,8,6,666,11111,88];
+    document.write(f.sort()+'</br>');
+    function z(a,b) {
+        return b-a;
+    }
+    document.write(f.sort(z));
+
+  console.log( Math.max.apply(null,f))
+
+    // valueOf() 方法返回 Array 对象的原始值。
+    // 该原始值由 Array 对象派生的所有对象继承。
+    // valueOf() 方法通常由 JavaScript 在后台自动调用，并不显式地出现在代码中。
+    // arrayObject.valueOf()
+
+// console.log(a.valueOf())
+
+
+</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .box {
+            width: 760px;
+            height: 270px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        li {
+            float: left;
+            height: 125px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            /*margin: 5px;*/
+        }
+        li p {
+            width: 180px;
+            height: 25px;
+            bottom: -25px;
+            position: absolute;
+            text-align: center;
+            line-height: 25px;
+            color: black;
+            font-size: 14px;
+            background: url("img/bg.png") no-repeat;
+            opacity:0.8;
+            background-color: rgba(174, 184, 186, 0.38);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul></ul>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(function(){
+     var data = [
+        {
+            src: 'img/1.jpg',
+            text: '百度一下，你就知道',
+        }, {
+            src: 'img/2.jpg',
+            text: '悔创阿里jack马'
+        }, {
+            src: 'img/3.jpg',
+            text: '做微博的公司'
+        }, {
+            src: 'img/4.jpg',
+            text: '你好163'
+        }, {
+            src: 'img/5.jpg',
+            text: '张朝阳的公司'
+        }, {
+            src: 'img/6.jpg',
+            text: '普通家庭马化腾'
+        }, {
+            src: 'img/7.jpg',
+            text: '这世界很酷'
+        }, {
+            src: 'img/8.jpg',
+            text: '我是脸盲刘强东'
+        }
+    ]
+    var str = '';
+    for (var i = 0; i < data.length; i++) {
+        str += '<li>';
+        str += '<img src="' + data[i].src + '">';
+        str += '<p>' + data[i].text + '</p>'
+        str += '</li>';
+    }
+    $('ul').html(str);
+
+    for (var b = 0; b < data.length; b++) {
+        $('p').eq(b).css('background-position', '8px ' + (-25 * b) + 'px');
+    }
+    $('li').on('mouseenter', function () {
+        $(this).children('p').stop().animate({
+            bottom: '0',
+        }, 200)
+    })
+    $('li').on('mouseleave', function () {
+        $(this).children('p').stop().animate({
+            bottom: '-25',
+        }, 200)
+    })
+    })
+</script>
+</html>

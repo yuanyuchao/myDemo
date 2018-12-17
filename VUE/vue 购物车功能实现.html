@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 购物车功能实现</title>
+</head>
+<link rel="stylesheet" href="../bootstrap.min.css">
+<body>
+<div id="app">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <!--//change可以保证值变化以后触发函数-->
+                <th>全选 <input type="checkbox" v-model="checkAll"></th>
+                <th>商品</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="product in products">
+                <td><input type="checkbox" v-model="product.isSelected" ></td>
+                <td><img :src="product.productImg" alt=""><span>{{product.productInfo}}</span> <span style="margin-left: 20px;">{{product.productType}}</span></td>
+                <td>{{product.productPrice}}</td>
+                <td><input type="number" v-model.number="product.productCount" min="1"></td>
+                <td>{{(product.productPrice*product.productCount) | handle(`2`,`￥`)}}</td>
+                <td><div class="btn btn-danger" @click="remove(product)">删除</div></td>
+            </tr>
+            <tr>
+                <td colspan="6">总价：{{sum | handle(`2`,`￥`)}}</td>
+            </tr>
+
+        </table>
+    </div>
+
+</div>
+</body>
+<script src="axios.js"></script>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:`#app`,
+        created(){
+            this.getData();
+        },
+        mounted(){
+
+        },
+        filters :{
+          handle(value,num,sym){
+              return sym+(value.toFixed(num));
+          }
+        },
+        data(){
+            return {
+                products:[],
+            }
+        },
+        computed:{
+            checkAll:{
+                get(){
+                    return this.products.every(item=>item.isSelected)
+                },
+                set(val){
+                    return this.products.forEach(item=>item.isSelected=val);
+                }
+            },
+            sum:{
+                get(){
+                    return this.products.reduce((prev,next)=>{
+                        if(!next.isSelected) return prev;
+                        return prev+next.productPrice*next.productCount;
+                    },0)
+                }
+            }
+
+        },
+        methods:{
+            getData(){
+                axios.get('请求资源.json').then((res)=>{
+                    this.products = res.data;
+                }).then((err=>{
+
+                }))
+            },
+            remove(p){
+                this.products = this.products.filter(item=>item!==p);
+            },
+        }
+    })
+</script>
+</html>

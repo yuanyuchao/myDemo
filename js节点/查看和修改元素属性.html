@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="http://www.baidu.com" class="aaa" id="a_" name="aa_">百度</a>
+</body>
+<script>
+     // getAttribute（‘属性名’）获取元素属性
+     var a = document.getElementById('a_');
+    var text = a.getAttribute('href');
+    var z = a.getAttribute('class')
+    console.log(text)
+    console.log(z)
+     //setAttribute（‘属性名’，‘属性值’）设置元素属性
+    a.setAttribute('href','http://www.jd.com')
+</script>
+</html>

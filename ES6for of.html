@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 for of</title>
+</head>
+<body>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+</body>
+<script>
+    // for of 可以遍历字符串 数组 类数组
+    var plist = document.querySelectorAll('p');
+    for( let v of plist){
+        console.log(v)
+    }
+    var str = 'hello world'
+    arr = [1,2,3,4];
+    for(let v of str){
+        console.log(v)
+    }
+    for (let i=0;i<str.length;i++){
+        console.log(str[i])
+    }
+    for (let v of arr ){
+        if(v===3){
+            break;//退出整个循环
+        }
+        console.log( v)
+    }
+    for (let v of arr ){
+        if(v===3){
+            continue;//退出当次循环
+        }
+        console.log( v)
+    }
+    for (let v in arr){
+        console.log(typeof v)
+    }
+    for (let v of arr.keys() ){
+        console.log(v)
+    }
+    for (let v of arr.values() ){
+        console.log(v)
+    }
+    for (let i=0; i<arr.length;i++){
+        console.log(arr[i])
+        console.log(typeof arr[i])
+    }
+    arr.forEach(function (value,index) {
+        console.log(value,index)//无法终止循环
+    })
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="select_id" name="condition">
+    <option id="order_id" value="order_id">订单号</option>
+    <option id="order_time" value="order_time">下单时间</option>
+</select>
+<label style="letter-spacing:1px;">&nbsp;<b>查找</b></label>
+<input id="search_content_id" type="search"
+       placeholder="请输入订单号"   name="search_content"  />
+</body>
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#select_id").change(function(){
+            var selected=$(this).children('option:selected').val()
+            if(selected=="order_time"){
+                //document.getElementById("search_content_id").
+                $("#search_content_id")[0].placeholder="时间格式：20150923";
+            }else if(selected=="order_id"){
+                $("#search_content_id")[0].placeholder="请输入订单号";
+            }
+            alert(selected);
+        });
+    });
+</script>
+</html>

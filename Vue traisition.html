@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue transition</title>
+    <style>
+        html {
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+        .box{
+            width:800px;
+            height:600px;
+            text-align: center;
+            line-height: 200px;
+            background: #ff8282;
+            color: #Fff;
+            /*以下两个默认值，可不写*/
+            /*写上只是为了便于讲解，记住这两个*/
+        }
+        .box-enter-active,.box-leave-active{
+            transition: all 1s;
+        }
+        .box-enter{
+            opacity: 0;
+            margin-top: 100%;
+        }
+        .box-leave-active{
+            opacity: 0;
+            margin-top: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app" class="app">
+    <button class="btn"   @click="showBox = !showBox" >切换</button>
+    <transition name="box">
+        <div v-show="showBox" class="box" >
+            i am the box
+        </div>
+    </transition>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:`#app`,
+        data:function () {
+            return {
+                showBox:false,
+            }
+        },
+        methods:{
+
+        }
+    })
+</script>
+</html>

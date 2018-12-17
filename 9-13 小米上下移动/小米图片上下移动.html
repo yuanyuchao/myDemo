@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米图片上下移动</title>
+    <style>
+        * {
+            margin: 0;
+            padding:0;
+        }
+        .box {
+            width: 510px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+        .top {
+            width: 510px;
+            height: 250px;
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+        .bottom {
+            width: 510px;
+            height: 250px;
+            position: absolute;
+            left: 0;
+            top: 250px;
+        }
+        #img {
+            position: absolute;
+            left:0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="mi.png" alt="" id="img" >
+    <div class="top"></div>
+    <div class="bottom"></div>
+</div>
+</body>
+<script>
+    var divs=document.getElementsByTagName('div');//获取所有的div元素
+    var img=document.getElementById('img');
+    var index=0;//定义开始动画的位置
+    var timer=null;
+    divs[1].onmouseover=(function () {
+        timer=setInterval(function(){
+            console.log(index)
+            index=index-5;
+            if(index<=-970){
+                index=-970;
+            }
+            img.style.top=index+'px';
+        },10)
+    })
+    divs[2].onmouseover=(function () {
+        timer=setInterval(function(){
+            console.log(index)
+            index=index+5;
+            if(index>=0){
+               index=0;
+            }
+            img.style.top=index+'px'
+        },10)
+    })
+    divs[0].onmouseout=function(){
+        clearInterval(timer);
+    }
+</script>
+</html>

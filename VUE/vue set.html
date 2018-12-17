@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue set</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in arr">{{item}}</li>
+    </ul>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+  const vm = new Vue({
+        el:'#app',
+        data:{
+            arr:[111,2,3,4]
+        },
+        // created(){
+        //   this.mySet();
+        // },
+        methods:{
+           mySet(){
+               this.arr[0] = 0;
+               console.log(this.arr);
+           }
+        }
+
+    });
+  vm.arr[0] = 666;//这样写不会触发视图更新，虽然数据已经更新了。
+  console.log(vm.arr);
+  // Vue.set(vm.arr,2,8888)//vue提供的set方法，可以解决这个bug。
+</script>
+</html>

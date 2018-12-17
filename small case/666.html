@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div {
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            position:absolute;
+            left:0;
+            top: 0;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<div id="aa"></div>
+</body>
+<script>
+//    方块来回运动
+    var aaa=document.getElementById('aa');
+    var index=0;
+    setInterval(function () {
+        index++;
+        aaa.style.top=index+'px';
+        aaa.style.left=index+'px';
+    },10)
+</script>
+</html>

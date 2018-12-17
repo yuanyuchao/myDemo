@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+            clear: both;
+        }
+        .box {
+            width: 600px;
+            margin: 100px auto;
+        }
+        textarea {
+            width: 600px;
+            height: 100px;
+        }
+        button {
+            width: 80px;
+            height: 30px;
+            float: right;
+        }
+        li {
+            margin: 15px 0;
+        }
+        span {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="conment">
+<!--评论区域-->
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>发送</button>
+    </div>
+    <div class="content">
+        <!--内容区域-->
+        <ul>
+            <!--<li>今天天气不错 <span>20180119</span></li>-->
+            <!--<li>阿拉斯加</li>-->
+            <!--<li>还啊啊啊 </li>-->
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+    var ul = document.querySelector('ul');
+    var btn = document.querySelector('button');
+    var inp = document.querySelector('textarea');
+    btn.onclick = function () {
+       if(inp.value!==''){
+           var text = inp.value;
+           // console.log(text)
+           var lis = document.getElementsByTagName('li');
+           var li = document.createElement('li');
+           var span = document.createElement('span');
+           var p = document. createElement('p');
+           var date = new Date();
+           span.innerHTML = '删除';
+           p.innerHTML = date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日'+' '+date.getHours()+'时'+date.getMinutes()+'分'+date.getSeconds()+'秒';
+           // li标签的内容和我输入的内容一致
+           li.innerHTML = text;
+           // 把li标签添加到ul里边
+           ul.insertBefore(li,lis[0]);
+           li.append(span);
+           li.append(p);
+           inp.value='';
+       }else{
+           alert('请输入评论内容')
+       }
+    }
+    
+</script>
+</html>

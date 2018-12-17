@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            font-size: 50px;
+            color: red;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span>☆</span>
+    <span>☆</span>
+    <span>☆</span>
+    <span>☆</span>
+    <span>☆</span>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var index=0;
+    var flag=false;
+    $('span').on('click',function(){
+        flag=true;//被点击的时候状态发生改变
+        index=$(this).index();//记录哪个被点击了
+    })
+    $('span').on('mouseover',function(){
+        $(this).html('★').prevAll().html('★');
+        $(this).nextAll().html('☆')
+    })
+    $('span').on('mouseout', function(){
+        if(flag==false){
+            $('div').children().html('☆');
+        }else{
+            $('span').eq(index).html('★').prevAll().html('★');
+            $('span').eq(index).nextAll().html('☆');
+        }
+    })
+</script>
+<!--//★-->
+</html>

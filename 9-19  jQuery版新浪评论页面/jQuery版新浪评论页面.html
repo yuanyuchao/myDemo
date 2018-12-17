@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        textarea {
+            width: 400px;
+            height: 100px;
+        }
+
+        .comment {
+            margin-bottom: 50px;
+        }
+
+        .comment button {
+            width: 80px;
+            height: 30px;
+            float: right;
+        }
+
+        .content button {
+            float: right;
+            border: none;
+            outline: none;
+            background-color: #fff;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        span {
+            display: block;
+            cursor: pointer;
+            width: 40px;
+        }
+
+        li {
+            margin-bottom: 30px;
+        }
+
+        span:hover {
+            background-color: #ddd;
+            /*color: white;*/
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="comment">
+        <textarea placeholder=" 请输入评论内容"></textarea>
+        <button>发送</button>
+        <div class="clear"></div>
+    </div>
+    <div class="content">
+        <ul id="ul">
+        </ul>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(function () {
+//      给发送按钮绑定点击事件
+        $('button').on('click', function () {
+//          获取输入框的内容=text
+            if ($('textarea').val() == '') {
+                alert('评论内容不能为空')
+            }
+            else {
+                var text = $('textarea').val();
+//      str就是要添加的li标签，str=<li>+text+<span>删除</span>+</li>;
+                var str = '';
+                str += '<li>';
+                str += text;
+                str += '<button>删除</button>';
+                str += '</li>';
+//       把li添加到ul的最前面
+                $('ul').prepend(str);
+//      点击发送以后使输入框里的内容为空
+                $('textarea').val('');
+            }
+        })
+        $('ul').on('click', 'li', function () {
+            $(this).hide();
+        })
+    })
+</script>
+
+</html>

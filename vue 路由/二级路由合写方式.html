@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><router-link to="/news">新闻</router-link></li>
+        <li><router-link to="/hot">热点</router-link></li>
+        <li><router-link to="/mine">我的</router-link></li>
+    </ul>
+    <div class="content">
+        <router-view></router-view>
+    </div>
+
+</div>
+<template id="news">
+    <div>
+        <h1>新闻列表</h1>
+        <ul>
+            <li><router-link to="/news/guonei">国内新闻</router-link></li>
+            <li><router-link to="/news/guowai">国外新闻</router-link></li>
+        </ul>
+        <router-view></router-view>
+    </div>
+</template>
+</body>
+<script src="../vue.js"></script>
+<script src="../vue-router.js"></script>
+<script>
+    var vm= new Vue({
+        el:'#box',
+        router: new VueRouter({
+            routes:[
+                {
+                    path:'/news',
+                    component:{template:'#news'},
+                    children:[
+                        {path:'/news/guonei',component:{template:'<h1>习近平出席web三班毕业典礼</h1>'}},
+                        {path:'/news/guowai',component:{template:'<h1>特朗普出席web三班毕业典礼</h1>'}},
+                    ]
+                    },
+                {path:'/hot',component:{template:'<h1>热点信息</h1>'}},
+                {path:'/mine',component:{template:'<h1>我的中心</h1>'}},
+            ]
+        }),
+        beforeCreate:function () {
+            this.$router.push('/news/guonei');
+        }
+    })
+</script>
+</html>

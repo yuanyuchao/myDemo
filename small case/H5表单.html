@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="www.baidu.com">
+    <!--autofocus自动获取焦点-->
+    <!--required是必填项-->
+    <!--autocomplete自动完成-->
+    邮箱:<input type="email" autofocus="autofocus"><br>
+    数字:<input type="number"><br>
+    网址:<input type="url" required><br>
+    滚动条:<input id="a" type="range" value="23" max="30" min="0"><br>
+    搜索框: <input type="search" name="" placeholder="请输入搜索内容"><br>
+    日期: <input type="datetime-local" name="" id=""><br>
+    时间:<input type="time" name="" ><br>
+    自动完成:<input type="text" autocomplete="on"><br>
+    <input type="submit">
+</form>
+</body>
+<script>
+    var range=document.querySelector('#a');
+    range.addEventListener('change',function () {
+        console.log(this.value);
+    })
+</script>
+</html>

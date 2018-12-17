@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选与取消全选</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    全选：
+    <input type="checkbox" id="checkbox" v-model="checked" @change="changeAllChecked()">
+    <label for="checkbox">
+        {{checked}}
+    </label><br>
+    <input type="checkbox" id="taobao" v-model="checkedNames" value="taobao"><label for="taobao">taobao</label>
+    <input type="checkbox" id="baidu" v-model="checkedNames" value="baidu"><label for="baidu">baidu</label>
+    <input type="checkbox" id="tengxun" v-model="checkedNames" value="tengxun"><label for="tengxun">tengxun</label>
+    <input type="checkbox" id="jingdong" v-model="checkedNames" value="jingdong"><label for="jingdong">jingdong</label>
+    <p>你选了{{checkedNames}}</p>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            checked: false,
+            checkedNames: [],
+            checkedArr: ["taobao", "baidu", "tengxun",'jingdong']
+        },
+        methods: {
+            changeAllChecked: function() {
+                if (this.checked) {
+                    this.checkedNames = this.checkedArr
+                } else {
+                    this.checkedNames = []
+                }
+            }
+        },
+        watch: {
+            "checkedNames": function() {
+                if (this.checkedNames.length == this.checkedArr.length) {
+                    this.checked = true
+                } else {
+                    this.checked = false
+                }
+            }
+        }
+    })
+</script>
+</html>

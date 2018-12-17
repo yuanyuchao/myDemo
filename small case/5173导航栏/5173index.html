@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5173导航栏</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        .box {
+            width: 100%;
+            height: 36px;
+            background: url("img/header_repeat.png");
+            margin-top: 100px;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            float: left;
+            padding: 0 20px;
+            font:bold 14px 黑体  ;
+            color: white;
+            height: 36px;
+            line-height: 36px;
+            position: relative;
+            cursor: pointer;
+        }
+        .a {
+            background: url("img/header_repeat.png")0 -47px;
+        }
+        li:hover {
+            background: url("img/header_repeat.png") 0 -135px;
+        }
+        li img {
+            position: absolute;
+            right:0px;
+            top: -12px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="container">
+    <ul>
+        <li class="a">首页</li>
+        <li>金币交易
+            <img src="img/sy_hot.png" alt="" ></li>
+        <li>账号交易</li>
+        <li>装备交易</li>
+        <li>手游交易
+            <img src="img/sy_hot.png" alt="" ></li>
+        <li>游戏代练
+            <img src="img/sy_hot.png" alt="" ></li>
+        <li>点卡交易</li>
+        <li>账号租赁</li>
+        <li>热门页游
+            <img src="img/sy_hot.png" alt="" ></li>
+    </ul>
+    </div>
+</div>
+</body>
+</html>

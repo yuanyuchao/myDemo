@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展开运算符</title>
+</head>
+<body>
+<div>11</div>
+<div>11</div>
+<div>11</div>
+<div>11</div>
+<div>11</div>
+<div>11</div>
+</body>
+<script>
+    //可用于数组和类数组深拷贝
+    let arr = [1,2,3];
+    let copyArr = [...arr,'b','c'];
+    console.log(copyArr);
+
+    var arr1 = [11,22,33];
+    arr.push(...arr1);//可用于合并数组
+    console.log(arr);
+    var list = document.getElementsByTagName('div');
+    console.log(list instanceof Array);
+    console.log(list);
+    var brr = [...list];//可以把类数组变成数组
+    console.log(brr instanceof Array);
+    console.log(brr);
+
+</script>
+</html>

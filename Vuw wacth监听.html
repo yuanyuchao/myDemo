@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue wacth监听</title>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script src="vue.js"></script>
+<script>
+    var app = {
+        template: `<div><input type="text" v-model="text"> <button @click="student[0].name='rose'">按钮</button>
+<input type="text" v-model="num1">+
+<input type="text" v-model="num2">*
+<input type="text" v-model="num3">={{result}}
+</div>`,//过滤器的第一个参数默认为需要被处理的数据，传参是从第二个参数开始才的。
+        data: function () {
+            return {
+                num1: 0,
+                num2: 0,
+                num3: 0,
+                text: '',
+                student: [
+                    {name: 'zhangsan'}
+                ]
+            }
+        },
+        computed: {//conputed可以监听所有data里的数据
+            result: function () {
+                return ((this.num1 - 0) + (this.num2 - 0)) * (this.num3 - 0);
+            }
+        },
+        watch: {
+            //普通监视的是对象的地址，只适用于基本数据类型。
+            //深度监视可以监视对象的值
+            student: {
+                deep: true,
+                handler: function (newT, oldT) {
+                    console.log('监听成功');
+                }
+            },
+            text: function (newT, oldT) {
+                if (newT === 'yyc') {
+                    alert(666);
+                }
+            },
+
+        },
+    };
+    new Vue({
+        el: '#app',
+        components: {
+            app: app,
+        },
+        template: `<div><app></app></div>`,
+
+    });
+
+</script>
+</html>

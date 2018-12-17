@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类数组转换为数组</title>
+</head>
+<body>
+
+</body>
+<script>
+    //定义数组和类数组对象
+    var arr = [1,2,3];
+    var obj = {0: 1, 1: 2, 2: 3, length: 3};
+    //元素读写操作
+    arr[0] = 9;
+    obj[0] = 9;
+
+    //遍历
+    for(var i = 0, len = arr.length; i < len; i++) {
+        console.log(arr[i])
+    }
+    for(var i = 0, len = obj.length; i < len; i++) {
+      console.log( obj[i])
+    }
+    console.log(Array.prototype.slice.call(obj));
+    console.log(Array.from(obj));//[...obj]也可以把类数组变成数组
+    console.log(obj instanceof Object);
+    console.log(arr instanceof Array);
+
+    let ele = document.getElementsByTagName('a');
+    console.log( ele instanceof Array)
+    console.log(  ele instanceof Object)
+    console.log( Array.from(ele) instanceof Array)
+    console.log( Array.from(ele) instanceof Object)
+
+
+
+</script>
+</html>

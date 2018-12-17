@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <ul id="ul1">
+        <li>111111</li>
+        <li>222222</li>
+        <li>333333</li>
+        <li>444444</li>
+    </ul>
+</div>
+</body>
+<script>
+    // var aaa = document.querySelector('ul');
+    body.click = function () {
+        alert('hello')
+    }
+    window.onload = function(){
+        var oUl = document.getElementById("ul1");
+        var aLi = oUl.getElementsByTagName('li');
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick = function(){
+                alert(123);
+            }
+        }
+    }
+    // window.onload = function(){
+    //     var oUl = document.getElementById("ul1");
+    //     var li = document.querySelectorAll('li')
+    //     oUl.onclick = function(){
+    //         li[i].style.color = 'red';
+    //     }
+    // }
+    // var str = 'asdfgh';
+    // console.log(str.substring(3,5));
+</script>
+</html>

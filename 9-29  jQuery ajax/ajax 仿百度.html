@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax仿百度</title>
+</head>
+<body>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //是jquery帮我们写好的一个请求后台的ajax的方法
+    $.ajax({
+//        url是请求的地址
+        url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+//        type设置我们的提交方式
+        type:'get',
+        data:{
+            wd:'java'
+        },
+        //请求返回的数据类型
+        dataType:'jsonp',
+//        jsonp参数的意义就是告诉jquery我们可以通过cb这个参数来定义回调函数的名字
+        jsonp:'cb',
+//        success就是当ajax请求成功并返回数据后执行的函数
+//        data就是我们请求回来的数据
+        success:function (data) {
+            console.log(data)
+        },
+//        当ajax请求失败的时候执行的函数
+        error:function(){
+
+        }
+
+    })
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="box">
+    <input type="number" v-model.trim="msg">
+    <p>{{msg}}</p>
+    <input type="radio" v-model="select" value="man" id="man"> <label for="man">man</label><br>
+    <input type="radio" v-model="select" value="woman" id="woman"><label for="woman">woman</label>
+    <p>您选中了{{select}}</p>
+    <input type="checkbox" id="taobao" v-model="checkNmames" value="taobao"><label for="taobao">taobao</label>
+    <input type="checkbox" id="baidu" v-model="checkNmames" value="baidu"><label for="baidu">baidu</label>
+    <input type="checkbox" id="tengxun" v-model="checkNmames" value="tengxun"><label for="tengxun">tengxun</label>
+    <input type="checkbox" id="jingdong" v-model="checkNmames" value="jingdong"><label for="jingdong">jingdong</label>
+    <p>你选了{{checkNmames}}</p>
+    <select name="web" v-model="dropDown">
+        <option value="">请选择一个网站</option>
+        <option value="www.baidu.com">baidu</option>
+        <option value="www.taobao.com">taobao</option>
+    </select>
+    <p>下拉菜单选择了{{dropDown}}</p>
+
+</div>
+
+
+</body>
+
+<script>
+
+    new Vue({
+        el: '#box',
+        data: {
+            msg:'',
+            select: 'man',
+            checkNmames: [],
+            dropDown:'',
+        }
+
+    })
+</script>
+</html>

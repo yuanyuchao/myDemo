@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+</head>
+<body>
+<input id="inp" type="text"><button id="but">抽奖</button>
+<div id="vv"></div>
+<div></div>
+</body>
+<script>
+    var inp=document.getElementById('inp');
+    var but=document.getElementById('but');
+    var vv=document.getElementById('vv')
+    var index=0;
+    but.onclick=function () {
+       var num=Math.ceil(Math.random()*10);
+       console.log(num)
+        var text=inp.value;
+        if(text==num){
+            index=0;
+            vv.innerHTML='你中奖了';
+        }else{
+            index++;
+            vv.innerHTML='谢谢惠顾'+index+'次';
+        }
+    }
+</script>
+</html>

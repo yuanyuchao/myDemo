@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue axios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #app {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            margin-top: 50px;
+            text-align: center;
+            color: #cccccc;
+        }
+
+        li {
+            border-bottom: 1px solid #cccccc;
+            margin-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        li > img {
+            width: 40px;
+            height: 40px;
+            float: left;
+            border-radius: 50%;
+        }
+
+        li p:nth-of-type(1) {
+            float: left;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li > span {
+            float: right;
+            color: #cccccc;
+            margin-top: 10px;
+        }
+
+        li p:nth-of-type(2) {
+            clear: both;
+            margin-left: 60px;
+        }
+
+        .icon {
+            clear: both;
+            margin-top: 15px;
+        }
+
+        .icon img:nth-of-type(1) {
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin-left: 60px;
+        }
+
+        .icon img:nth-of-type(2) {
+            width: 20px;
+            height: 20px;
+            float: right;
+        }
+
+        .icon span {
+            float: left;
+            margin-left: 10px;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h3>精彩评论</h3>
+    <ul>
+        <li v-for="item in arr">
+            <img src="" alt="" :src="item.userPic">
+            <p v-text="item.userName">{{}}</p>
+            <!--过滤器的用法-->
+            <span>{{item.createAt|a}}</span>
+            <p v-text="item.commentTxt"></p>
+            <div class="icon">
+                <!--<img src="img/star.png" alt="">-->
+                <span v-text="item.praiseNum"></span>
+                <!--<img src="img/new.png" alt="">-->
+            </div>
+            <div class="clear"></div>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+<script>
+    // 在vue实例的前面定义过滤器
+    //    Vue.filter('过滤器名字'，过滤器处理函数)；
+    //    val就是需要处理的参数
+    Vue.filter('a', function (val) {
+        var arr=val.split('-');
+        var data=arr[2].substr(0,2)
+        return (arr[0] - 0) + '年' + (arr[1] - 0) + '月'+(data-0)+'日';
+    })
+ new Vue ({
+     el:'#app',
+     data:function() {
+         return {
+             arr:[],
+             msg:'hello world',
+         }
+     },
+     created:function () {
+         this.send();
+     },
+     methods:{
+         send:function () {
+             let that = this
+             axios.get('http://api.artgoer.cn:8084/artgoer/api/v1/user/324380/v3/topic/topicHomeByLabel',{
+                 params:{
+                     pageIndex:1,
+                     token:'b544cd63-6d42-46fe-a96c-3cf96bae3113',
+                     topicId:62187,
+                 }
+             }).then(function (res) {
+                     console.log(res);
+                         that.arr = res.data.data.commentList;
+                 }).catch(function (err) {
+                 console.log(err)
+             })
+             }
+     },
+ })
+</script>
+</html>

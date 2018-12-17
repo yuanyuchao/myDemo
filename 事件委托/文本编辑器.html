@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .top-ul>li {
+            float: left;
+            width: 120px;
+            height: 15px;
+            line-height: 15px;
+            margin: 10px 0;
+            border-right: 1px solid;
+        }
+        .top-ul>li ul {
+            padding-top: 10px;
+            display: none;
+        }
+        .top-ul>li>div:hover ul {
+            display: block;
+            position: absolute;
+            z-index: 10;
+            background-color: white;
+        }
+        .top-ul>li ul li {
+            width: 50px;
+            padding: 3px 0;
+        }
+        .top-ul>li ul li:hover {
+            background-color: #8b8887;
+        }
+        .top-ul>li>div {
+            float: left;
+            width: 50%;
+            text-align: center;
+        }
+        .top-ul li span {
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+        }
+        .text {
+            width: 600px;
+            height: 25px;
+            border: 1px solid #cccccc;
+        }
+        .inp {
+            width: 100px;
+
+        }
+        .clear {
+            clear: both;
+        }
+    </style>
+
+</head>
+<body>
+<div class="top">
+    <ul class="top-ul">
+        <li>
+            <div>
+                <span>A</span>
+                <ul class="ziti">
+                    <li style="font-family: 宋体">宋体</li>
+                    <li style="font-family: 黑体">黑体</li>
+                    <li style="font-family: 微软雅黑">微软雅黑</li>
+                    <li style="font-family: 楷体">楷体</li>
+                    <li style="font-family: 隶书">隶书</li>
+                </ul>
+            </div>
+            <div>
+               <span>T</span>
+                <ul class="daxiao">
+                    <li style="font-size: 14px">14px</li>
+                    <li style="font-size: 15px">15px</li>
+                    <li style="font-size: 20px">20px</li>
+                    <li style="font-size: 23px">23px</li>
+                    <li style="font-size: 26px">26px</li>
+                </ul>
+            </div>
+
+        <li>
+            <span style="font-weight: 900">B</span>
+            <span style="text-decoration:underline">U</span>
+            <span style="font-style: italic">I</span>
+        <li>
+            <div>
+                <span>color</span>
+                <ul class="color">
+                    <li style="color: red">红</li>
+                    <li style="color: yellow">黄</li>
+                    <li style="color: green">绿</li>
+                    <li style="color: blue">蓝</li>
+                    <li style="color: #FF0ECC">紫</li>
+                </ul>
+            </div>
+            <div>
+                <span>bgc</span>
+                <ul class="bac">
+                    <li style="background-color: red">红</li>
+                    <li style="background-color:yellow ">黄</li>
+                    <li style="background-color: green">绿</li>
+                    <li style="background-color: blue">蓝</li>
+                    <li style="background-color: #FF0ECC">紫</li>
+                </ul>
+            </div>
+
+        <li class="center">
+            <span style="text-align: left">左</span>
+            <span style="text-align: center">中</span>
+            <span style="text-align: right">右</span>
+    </ul>
+</div>
+<div class="clear"></div>
+<div contenteditable="true" class="text">
+    <!--<p class="inp"></p>-->
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('.ziti').on('click','li',function () {
+        $('.text').css('font-family',$(this).css('font-family'))
+    });
+    $('.daxiao').on('click','li',function () {
+        $('.text').css('font-size',$(this).css('font-size'))
+    });
+    $('.color').on('click','li',function () {
+        $('.text').css('color',$(this).css('color'))
+    });
+    $('.bac').on('click','li',function () {
+        $('.text').css('background-color',$(this).css('background-color'))
+    });
+    $('.center').on('click','span',function () {
+        $('.text').css('text-align',$(this).css('text-align'))
+    })
+
+
+</script>
+
+</html>

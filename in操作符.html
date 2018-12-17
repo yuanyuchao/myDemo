@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>in操作符</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    // in操作符用来判断一个属性是否存在于这个对象中。但是在查找这个属性时候，现在对象本身中找，如果对象找不到再去原型中找。
+    // 换句话说，只要对象和原型中有一个地方存在这个属性，就返回true
+    function Person () {
+
+    }
+    Person.prototype.name = "志玲";
+    var p1 = new Person();
+    p1.sex = "女";
+    alert("sex" in p1);     // 对象本身添加的，所以true
+    alert("name" in p1);    //原型中存在，所以true
+    alert("age" in p1);     //对象和原型中都不存在，所以false
+
+
+    // 如果一个属性存在，但是没有在对象本身中，则一定存在于原型中。
+    function Person () {
+    }
+    Person.prototype.name = "志玲";
+    var p1 = new Person();
+    p1.sex = "女";
+
+    //定义一个函数去判断原型所在的位置
+    function propertyLocation(obj, prop){
+        if(!(prop in obj)){
+            alert(prop + "属性不存在");
+        }else if(obj.hasOwnProperty(prop)){
+            alert(prop + "属性存在于对象中");
+        }else {
+            alert(prop + "对象存在于原型中");
+        }
+    }
+    propertyLocation(p1, "age");
+    propertyLocation(p1, "name");
+    propertyLocation(p1, "sex");
+</script>
+</html>

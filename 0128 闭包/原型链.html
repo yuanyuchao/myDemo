@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // __proto__保存的是一个内存地址，这个内存地址指向的就是原型对象。
+    // 如何创建宇哥对象
+    // var fn = new fn();
+    // 等价于var s = {};
+    function Animal() {
+
+        // 原型对象也是object对象的实例
+    }
+    Animal.prototype = {
+        eat:function (food) {
+            console.log(this.name + '正在吃' + food);
+        }
+    }
+    function Cat(name) {
+        this.name = name || '猫';
+    }
+    Cat.prototype = new Animal();
+    function Dog(name) {
+        this.name = name || '狗';
+    }
+    Dog.prototype = new Animal();
+    var jiafeimao = new Cat('加菲猫');
+    jiafeimao.eat('饼干');
+
+    var jiqimao = new Cat('机器猫');
+    jiqimao.eat('铜锣烧');
+
+    var danshengou = new Dog('单身狗');
+    danshengou.eat('狗粮');
+
+</script>
+
+</html>

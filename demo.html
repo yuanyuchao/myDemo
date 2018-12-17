@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+
+</ul>
+</body>
+<script>
+    var ul = document.querySelector('ul')
+    var arr = [1,200,55,88,74,33,45,85,96,2,3,4,56,7,8,9];
+    for (let i = 0; i<arr.length;i++){
+        if(arr[i]>arr[i+1]){
+            [arr[i],arr[i+1]]=[arr[i+1],arr[i]]
+        }
+    }
+    console.log(arr);
+    var str = 'yuanyuchao';
+
+        for(i in str){
+            console.log(str[i])
+        }
+
+
+</script>
+</html>

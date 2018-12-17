@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1></h1>
+</body>
+<script>
+    // 类似于秒表 可以帮我们定时执行一些代码
+    // 定时器有两个参数
+    // 第一个参数是一个函数
+    // 第二个参数是一个数字 ，执行的时间
+    // setInterval()无限循环执行的定时器
+    var h1=document.querySelector('h1')
+    var index=0;
+    var time=null;
+    // null就是一个空对象
+
+     time=setInterval(function () {
+        index++;
+        h1.innerHTML=index;
+        if(index==100){
+            clearInterval(time)
+        }
+    }, 100)
+
+
+    // 第二种定时器 setTimeout() 只执行一次
+    // setTimeout(function () {
+    //     alert('nihaoa')
+    // },1000)
+    // 清除定时器的两种方法
+    // clearInterval()
+    // clearTimeout()
+
+</script>
+
+</html>

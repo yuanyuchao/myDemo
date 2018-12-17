@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>用户名：<input type="text" id="a"><span>用户名必须为6-10位</span></p>
+<p>邮箱：<input type="text" id="b"><span id="span">必须包含@符号</span></p>
+<p>手机：<input type="text" id="phone"><span id="phonespan">请输入11位手机号码</span></p>
+</body>
+<script>
+    // var str = 'hello world';
+    // console.log(str.length)
+    // onblur失去焦点事件
+    // onfocus获取焦点事件
+    var inp = document.getElementById('a');
+    var mail = document.getElementById('b');
+    var phone = document.getElementById('phone');
+    var phonespan = document.getElementById('phonespan');
+    var span1 = document.getElementById('span');
+    var span = document.querySelector('span')
+    inp.onblur = function () {
+        var text = inp.value;
+        if(text.length>=6&&text.length<=10){
+            span.innerHTML='输入正确';
+            span.style.color='green';
+        }else if(text.length===0){
+           alert('用户名不能为空')
+        }else {
+            span.innerHTML='输入有误，请重新输入';
+            span.style.color='red';
+        }
+    }
+    mail.onblur = function () {
+        var text = mail.value;
+        if(text.indexOf('@')!=-1&&text.indexOf('.')!=-1&&text.indexOf('@')<text.indexOf('.')){
+            span1.innerHTML = '输入正确';
+            span1.style.color = 'green';
+        }else if(text.length==0){
+            alert('邮箱地址不能为空')
+        }
+        else {
+            span1.innerHTML = '请输入合法的邮箱地址';
+            span1.style.color='red';
+        }
+    }
+    phone.onblur = function () {
+        // toString()把数据类型转换为字符串类型
+        var text = parseInt(phone.value).toString();
+        if(text.length==11&&text.indexOf('1')==0){
+            phonespan.innerHTML = '输入正确';
+            phonespan.style.color = 'green';
+        }else if (text.length==0){
+            alert('手机号不能为空')
+        }else {
+            phonespan.innerHTML = '请输入正确的手机号码';
+            phonespan.style.color = 'red';
+        }
+    }
+    var str = 'abcdEFG';
+    console.log(str.toLowerCase());
+    console.log(str.toUpperCase());
+    console.log(str.charAt(1));
+    console.log(str.indexOf('z'));//返回一个字符在字符串中位置的索引，如果有多个相同字符，只会返回第一个字符的位置。如果字符串中没有这个字符则返回-1.
+    console.log(str.substring(0,4))//截取字符串。通过索引去截取。第一个参数截取开始的位置，第二个参数为结束位置，但不包括他本身。
+    console.log(isNaN('a'));
+</script>
+</html>

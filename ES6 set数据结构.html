@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Set数据结构</title>
+</head>
+<body>
+
+</body>
+<script>
+    //Set是ES6给开发者带来的一种新的数据结构，你可以理解为值的集合。
+    // 我们平时见到的数组Array也是一种数据结构，但是Set跟其他数据结构不同的地方就在于：它的值不会有重复项。
+    let  arr = [1,1,21,21,3,3,4,4,4,4,8,8,8,8,8,8,8];
+    let  s = new Set(arr);
+    console.log(s);
+    console.log(s.size);
+    console.log(s.delete(1));
+    console.log(s.delete(100));
+    console.log((Array.from(s)) instanceof Array);
+</script>
+</html>

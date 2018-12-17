@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+            width: 2550px;
+            position: absolute;
+        }
+        .box {
+            width: 500px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        li {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="../small%20case/img/1.jpg" alt=""></li>
+        <li><img src="../small%20case/img/2.jpg" alt=""></li>
+        <li><img src="../small%20case/img/3.jpg" alt=""></li>
+        <li><img src="../small%20case/img/4.jpg" alt=""></li>
+        <li><img src="../small%20case/img/1.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+<script>
+    var ul = document.querySelector('ul');
+    var box = document.querySelector('.box');
+    var index = 0;
+    var timer = null;
+    box.onmouseenter = function () {
+        clearInterval(timer)
+    }
+    box.onmouseleave = function () {
+       start();
+    }
+    function start() {
+        timer=setInterval(function () {
+            index-=2;
+            index = index <= -2000? 0:index;
+            ul.style.left = index+'px';
+        },30)
+    }
+    start();
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="../vue.js"></script>
+<script src="../vue-resource.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            text:'',
+        },
+        methods: {
+            getData: function () {
+//                //  get请求后台方法
+////                this.$http.get('url',{params:{此处是请求的参数，键值对}}).then（请求成功后执行的函数，请求失败后执行的函数）
+//                 this.$http.get('a.php',{
+//                     params:{
+//                         id:this.id,
+//                         name:this.name,
+//                     }
+//                 }).then(function (res) {
+//                     //请求成功后执行的函数，res就是请求回来的结果对象，res.data 请求回来的数据
+//                 },function (res) {
+////                     请求失败后执行的函数，res可以通过red.status来获取失败的状态码
+//                 })
+//            }
+
+
+                //post请求后台方法
+//            this.$http.post('url',{参数名：值，参数名：值，}，{emulateJSON:true}).then（请求成功后执行的函数，请求失败后执行的函数）
+                this.$http.post('a.php', {id: this.id, name: this.name,}, {emulateJSON: true}).then(function (res) {
+                    //请求成功后执行的函数，res就是请求回来的结果对象，res.data 请求回来的数据
+                }, function (res) {
+//                    请求失败后执行的函数，res可以通过red.status来获取失败的状态码
+                })
+
+            },
+        }
+    })
+</script>
+</html>

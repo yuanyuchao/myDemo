@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<input type="text">-->
+<!--<button>点我变色</button>-->
+<ul>
+<li>第1个</li>
+<li>第2个</li>
+<li>第3个</li>
+<li>第4个</li>
+<li>第5个</li>
+<li>第6个</li>
+<li>第7个</li>
+<li>第8个</li>
+    <h1>第1个</h1>
+    <h1>第2个</h1>
+    <h1>第3个</h1>
+    <h1>第4个</h1>
+    <h1>第5个</h1>
+    <h1>第6个</h1>
+    <h1>第7个</h1>
+    <h1>第8个</h1>
+    <h1>第9个</h1>
+    <h1>第10个</h1>
+    <h1>第11个</h1>
+    <h1>第12个</h1>
+    <h1>第13个</h1>
+    <h1>第14个</h1>
+    <h1>第15个</h1>
+    <h1>第16个</h1>
+    <h1>第17个</h1>
+    <h1>第18个</h1>
+    <h1>第19个</h1>
+    <h1>第20个</h1>
+    <input type="text" placeholder="请输入内容">
+    <button>变色</button>
+</ul>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+   $('button').on('click',function () {
+       var text=$('input').val()-1;
+       $('h1').eq(text).css('color','red')
+   })
+   $('h1:last').css('backgroundColor','green');
+   $('h1:lt(7)').css('color','purple');
+   $('h1:odd').css('backgroundColor','red');
+// var lis=document.getElementsByTagName('li');
+// var ul=document.getElementsByTagName('ul')[0];
+// //    $(function () {
+//         for(var i=0;i<lis.length;i++){
+//             lis[i].onclick=function () {
+//                 ul.removeChild(this);
+//             }
+//         }
+
+//    })
+</script>
+</html>

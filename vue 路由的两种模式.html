@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由的两种模式</title>
+</head>
+<body>
+1111111111111
+</body>
+<script>
+    window.onhashchange = function(event){
+        console.log(event)
+        console.log(event.oldURL, event.newURL,location.hash);
+        let hash = location.hash.slice(1);
+        document.body.style.color = hash;
+    }
+
+    history.pushState({color:'red'}, 'red', 'red');
+
+    window.onpopstate = function(event){
+        console.log(event.state)
+        if(event.state && event.state.color === 'red'){
+            document.body.style.color = 'red';
+        }
+    }
+
+    history.back();
+
+    history.forward();
+
+
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.min.js">
+    </script>
+</head>
+<body>
+<p>1111</p>
+<button>control</button>
+</body>
+<script>
+    var turn=0 ;
+    $('button').on('click',function () {
+        if(turn==0){
+            $('p').css('display','none');
+            turn = 1;
+        }else {
+            $('p').css('display','block');
+            turn = 0;
+        }
+    })
+
+</script>
+</html>

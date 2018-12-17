@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            position: relative;
+        }
+
+        .box {
+            width: 100%;
+            height: 50px;
+            margin-top: 100px;
+            background-color: blue;
+            position: relative;
+            color: white;
+            font-weight: 900;
+        }
+
+        li {
+            float: left;
+            width: 120px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            position:relative;
+            z-index: 99;
+        }
+
+        .move {
+            background-color: red;
+            width: 120px;
+            height: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>首页</li>
+        <li>新闻</li>
+        <li>百度百科</li>
+        <li>体育</li>
+        <li>娱乐</li>
+        <li>购物指南</li>
+        <li>生活</li>
+        <li>军事</li>
+        <li>民生</li>
+        <li>健康</li>
+    </ul>
+    <div class="move"></div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('li').hover(function () {
+        $('.move').stop().animate({left:$(this).offset().left},200)
+
+    },function(){
+        $('.move').stop().animate({left:0},200)
+
+    })
+
+</script>
+</html>

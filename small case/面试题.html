@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+    <script>
+//        var a = prompt("请输入一个三位数数字,来计算数位相加的和");
+//        //获取个位上的数字
+//        var b = a%10;
+//        //获取十位上的数字
+//        var c = parseInt((a%100)/10);
+//        //获取百位上的数字
+//        var d = parseInt(a/100);
+//
+//        var sc = b+c+d;
+//        alert("你输入的三位数数字是"+a+",位数相加得"+sc);
+        var a=prompt('请输入一个数字')
+   if(a%5==0 ) {
+       if (a % 6 == 0) {
+           alert('这个数可以被5和6整除');
+       } else {
+           alert('这个数只能被5整除');
+       }
+   }else if(a%6==0){
+       alert('这个数可以被6整除');
+   } else {
+       alert('这个数既不能被5整除,也不能被6整除');
+}
+
+</script>
+</html>

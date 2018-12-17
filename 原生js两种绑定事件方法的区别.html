@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #a {
+            width: 100px;
+            height: 100px;
+            background-color: #666;
+        }
+        #b {
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="a">
+    <div id="b"></div>
+</div>
+</body>
+<script>
+    var a=document.getElementById('a');
+    var b=document.getElementById('b');
+    // onclick()方法只会执行最后一次点击事件
+    // document.getElementById('a').onclick=function () {
+    //     alert('hello')
+    // }
+    // document.getElementById('a').onclick=function () {
+    //     alert('world')
+    // }
+    // addEventListener()方法会一次执行两次点击事件
+    // 第三个参数，默认是false，冒泡执行，设置为true，捕获执行。
+    if(a.addEventListener){
+        //所有主流浏览器，除了IE8更早版本
+        a.addEventListener('click',function () {
+            alert('parent')
+        })
+    }else if(a.attachEvent){
+        //IE8及更早版本
+        a.attachEvent('click',function () {
+            alert('parent')
+        })
+    }
+
+
+    b.addEventListener('click',function (e) {
+        alert('child');
+        e.stopPropagation()
+    })
+    // e.stopPropagation()阻止事件冒泡
+        // preventDefault()阻止默认事件
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ref-outside-component" v-on:click="consoleRef">
+    <component-father ref="ss">
+    </component-father>
+    <p>ref在外面的组件上</p>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    var refoutsidecomponentTem={
+        template:"<div class='childComp'><h5>我是子组件</h5></div>"
+    };
+    var  refoutsidecomponent=new Vue({
+        el:"#ref-outside-component",
+        components:{
+            "component-father":refoutsidecomponentTem
+        },
+        methods:{
+            consoleRef:function () {
+                console.log(this); // #ref-outside-component     vue实例
+                console.log(this.$refs.ss);  // div.childComp vue实例
+            }
+        }
+    });
+</script>
+</html>

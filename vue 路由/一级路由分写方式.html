@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><router-link to="/news">新闻</router-link></li>
+        <li><router-link to="/hot">热点</router-link></li>
+        <li><router-link to="/mine">我的</router-link></li>
+    </ul>
+    <div class="box">
+        <!--router-view 是一个占位符，把路由所用到得模块加载到此处。-->
+        <router-view></router-view>
+    </div>
+</div>
+<template id="news">
+   <h1>新闻列表</h1>
+</template>
+<template id="hot">
+    <h1>热点列表</h1>
+</template>
+<template id="mine">
+    <h1>我的信息</h1>
+</template>
+</body>
+
+<script src="../vue.js"></script>
+<script src="../vue-router.js"></script>
+<script>
+    // 第一步 准备路由所使用到的模块
+    // 在全局的VUE下面有一个Vue.extend（）方法 可以创建路由所使用到的模块
+    var news = Vue.extend({
+        template:'#news',
+    });
+    var hot=Vue.extend({
+        template:'#hot',
+    });
+    var mine=Vue.extend({
+        template:'#mine',
+    });
+// 第二步 准备路由配置信息
+    var routes=[
+        {path:'/news', component:news},
+        {path:'/hot', component:hot},
+        {path:'/mine', component:mine},
+    ];
+// 第三步 创建路由对象
+    var router=new VueRouter({
+        routes
+    });
+
+// 第四步 创建vue实例
+    var vm=new Vue({
+        el:'#box',
+        router
+    });
+
+
+</script>
+</html>

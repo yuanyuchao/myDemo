@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // push()方法可向数组的末尾添加一个或者多个元素，并返回新的长度。
+    // 第一个参数，必须，要添加到数组的第一个元素。
+    // 第二个参数，可选。要添加到数组的第二个元素。
+    // 第三个参数，可选。可添加多个元素。
+    var a=['a','b','c','d'];
+    document.write('返回值：'+a.push('aa','bb','cc','dd','ss','xxx','6666')+'</br>');//返回的是新数组的长度
+    document.write(a+'</br>');
+
+    // pop() 方法用于删除并返回数组的最后一个元素。
+    // 返回值
+    // arrayObject 的最后一个元素。
+    document.write('返回值：'+a.pop()+'</br>')//返回的是删除的元素
+    document.write(a+'</br>');
+
+
+    // shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
+    // 返回值
+    // 数组原来的第一个元素的值。
+    // 如果数组是空的，那么 shift() 方法将不进行任何操作，返回 undefined 值。请注意，该方法不创建新数组，         而是直接修改原有的 arrayObject。
+
+    document.write('返回值：'+a.shift()+'</br>')//返回的是删除的元素
+    document.write(a+'</br>');
+
+
+    // unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度。
+    // 参数同push（）方法
+    // 返回值
+    // arrayObject 的新长度。
+    document.write('返回值：'+a.unshift('hello','world')+'</br>');
+    document.write(a)
+    // push和unshift都是向数组添加元素，返回值是新数组的长度。
+    // pop和shift都是从数组删除元素，返回值是被删掉的元素。
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        li {
+
+        }
+    </style>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20%3D%202151330&format=json';
+    // 从远程地址获取JSON:
+    $.getJSON(url, function (data) {
+        console.log(data)
+        var city = data.query.results.channel.location.city;
+        var forecast = data.query.results.channel.item.forecast;
+        var str = '';
+        str += '<p>' + city + '</p>'
+        for (var i = 0; i < forecast.length; i++) {
+            str += '<ul>';
+            str += '<li>' + forecast[i].code + '</li>';
+            str += '<li>' + forecast[i].date + '</li>';
+            str += '<li>' + forecast[i].day + '</li>';
+            str += '<li>' + forecast[i].high + '</li>';
+            str += '<li>' + forecast[i].low + '</li>';
+            str += '<li>' + forecast[i].text + '</li>';
+            str += '</ul>';
+        }
+        $('div').html(str);
+    });
+</script>
+
+</html>

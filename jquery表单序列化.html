@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery表单序列化</title>
+</head>
+<body>
+<form action="">
+    账户：<input type="text" name="zhanghu"><br>
+    密码：<input type="password" name="password"><br>
+    爱好：<input type="checkbox" name="bobby" value="read" id="read"> <label for="read">读书</label> <input type="checkbox" name="hobby" value="write" id="write"><label for="write">写字</label>
+    <input type="checkbox" name="hobby" value="draw" id="draw"><label for="draw">画画</label><br>
+    性别;<input type="radio" name="sex" value="man" id="man"><label for="man">男</label> <input type="radio" name="sex" value="woman" id="woman"><label
+        for="woman">女</label><br>
+    用户来源:<select name="from" id="" >
+    <option value="google">谷歌</option>
+    <option value="baidu">百度</option>
+    <option value="taobao">淘宝</option>
+</select><br>
+</form>
+<button>submit</button>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    $('button').on('click',function () {
+alert($("form").serializeArray());
+    })
+    // var sum=0;
+    // for (var i=1;i<=100;i++){
+    //     sum+=i;
+    // }
+    // alert(sum);
+    function handle(a) {
+        var s = list.length;
+        for(var i=0 ;i<s;i++){
+            total+= a
+        }
+        return total
+    }
+</script>
+</html>

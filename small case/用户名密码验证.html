@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+
+        label {
+            float: left;
+            width: 50px;
+            text-align: right;
+            padding-right: 10px ;
+        }
+        button {
+            margin-left: 60px;}
+    </style>
+</head>
+<body>
+<ul>
+<li><label>用户名</label><input type="text" id="username"><span id="username_info">用户名为6-10位</span></li>
+<li><label>密码</label><input type="password" id="password"><span id="password_info">密码为6-10位</span></li>
+<li><label>手机</label><input type="text" id="phone"><span id="phone_info">请输入11位手机号码</span></li>
+<li><label>邮箱</label><input type="text" id="email"><span id="email_info">请输入邮箱地址</span></li>
+<li><button>注册</button></li>
+</ul>
+</body>
+<script>
+var username=document.getElementById('username');
+var username_info=document.getElementById('username_info');
+var password=document.getElementById('password');
+var password_info=document.getElementById('password_info');
+var phone=document.getElementById('phone');
+var phone_info=document.getElementById('phone_info');
+var email=document.getElementById('email')
+var email_info=document.getElementById('email_info');
+username.onblur=function () {
+    var text=username.value;
+    if(text.length>=6&&text.length<=10){
+       username_info.innerHTML= ('输入正确');
+       username_info.style.color='green';
+       username.style.border='1px solid green';
+    }else{
+        username_info.innerHTML=('输入的格式不正确');
+        username_info.style.color='red';
+        username.style.border='1px solid red';
+    }
+}
+password.onblur=function(){
+    var text=password.value;
+    if(text.length>=6&&text.length<=10){
+        password.nnerHTML= ('输入正确');
+        password_info.style.color='green';
+        password.style.border='1px solid green';
+    }else{
+        password_info.innerHTML=('输入的格式不正确');
+        password_info.style.color='red';
+        password.style.border='1px solid red';
+    }
+}
+phone.onblur=function () {
+    var text=parseInt(phone.value).toString();
+    if(text.length==11){
+        phone_info.innerHTML='输入正确';
+        phone_info.style.color='green';
+        phone.style.border='1px solid green';
+    }else{
+        phone_info.innerHTML=('请输入正确的手机号码');
+        phone_info.style.color='red';
+        phone.style.border='1px solid red';
+    }
+}
+email.onblur=function(){
+    var text=email.value;
+    if(text.indexOf('@')!=-1&&text.indexOf('.')!=-1){
+        email_info.innerHTML= ('输入正确');
+        email_info.style.color='green';
+        email.style.border='1px solid green';
+    }else{
+        email_info.innerHTML=('输入的格式不正确');
+        email_info.style.color='red';
+        email.style.border='1px solid red';
+    }
+}
+
+</script>
+</html>

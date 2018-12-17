@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            width: 1200px;
+            list-style: none;
+        }
+        div {
+            width: 1200px;
+            height: 400px;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+        li {
+            width: 300px;
+            height: 400px;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('li').hover(function(){
+        $(this).stop().animate({width:'500'},200).siblings().stop().animate({width:'233'},200)
+    } ,function(){
+        $('li').stop().animate({width:'300'},200);
+    })
+//     语法
+//     $(selector).hover(inFunction,outFunction)
+//     等同以下方式：
+// $( selector ).mouseover( handlerIn ).mouseout( handlerOut );
+//     注意: 如果只指定一个函数，则 mouseenter 和 mouseleave 都执行它。
+
+
+
+</script>
+</html>

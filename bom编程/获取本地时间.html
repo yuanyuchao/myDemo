@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 1300px;
+        }
+        h1 {
+            width: 500px;
+            margin: 200px auto;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1></h1>
+</div>
+
+</body>
+<script>
+    var h1 = document.querySelector('h1');
+
+
+setInterval(function () {
+    // 获取本地时间
+    var date = new Date();
+    var year = date.getFullYear();//获取年份
+    var month = date.getMonth()+1;
+    var day = date.getDate();
+    var hours = date.getHours();
+    var min = date.getMinutes();
+    var s= date.getSeconds();
+    month=month<10?'0'+month:month;
+    day=day<10?'0'+day:day;
+    hours=hours<10?'0'+hours:hours;
+    min=min<10?'0'+min:min;
+    s=s<10?'0'+s:s;
+
+
+    h1.innerHTML = year+'年'+month+'月'+day+'日'+hours+'时'+min+'分'+s+'秒';
+},1000)
+</script>
+</html>

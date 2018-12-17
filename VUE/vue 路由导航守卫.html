@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <router-link to="/home">home</router-link>
+    <router-link to="/login">login</router-link>
+    <router-link to="/list">list</router-link>
+    <router-link to="/cart">cart</router-link>
+    <router-link to="profile">profile</router-link>
+    <router-link to="detail">detail</router-link>
+<router-view></router-view>
+
+</div>
+<template id="detail">
+    <div ><ul>
+        <router-link v-for="(per,index) in brr"   to="{name:'detail',params:{id:'per.id'}}"><h1>{{per.name}}</h1>
+            <h2>{{per.age}}</h2>
+            <h3>{{per.sex}}</h3>
+        </router-link>
+    </ul></div>
+</template>
+</body>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+    let home = {
+        template:`<div><h1>home页面</h1></div>`
+    }
+    let login = {
+        template:`<div><h1>login页面</h1></div>`
+    }
+    let list = {
+        template:`<div><h1>list页面</h1></div>`
+    }
+    let detail = {
+        template:'#detail',
+        data(){
+            return {
+                brr:[
+                    {
+                        id:1,
+                        name:'yyc',
+                        age:'28',
+                        sex:'man',
+                    },
+                    {
+                        id:2,
+                        name:'hhh',
+                        age:'25',
+                        sex:'man',
+                    },
+                    {
+                        id:3,
+                        name:'ycd',
+                        age:'26',
+                        sex:'man',
+                    },
+                    {
+                        id:4,
+                        name:'aac',
+                        age:'24',
+                        sex:'woman',
+                    },
+                ],
+            }
+
+
+        }
+    }
+    let cart = {
+        template:`<div><h1>cart页面</h1></div>`
+    }
+    let profile = {
+        template:`<div><h1>profile页面</h1></div>`
+    }
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/',  // 默认进入路由
+                redirect: '/home'   //重定向
+            },
+            {
+                path: '/login',
+                name: 'login',
+                component:login,
+            },
+            {
+                path: '/home',
+                name: 'home',
+                component: home,
+            },
+            {
+                path: '/list',
+                name: 'list',
+                component: list,
+            },
+            {
+                path: '/detail',
+                name: 'detail',
+                component: detail,
+            },
+            {
+                path: '/cart',
+                name: 'cart',
+                component: cart
+            },
+            {
+                path: '/profile',
+                name: 'profile',
+                component: profile
+            },
+            {
+                path: '*',   // 错误路由
+                redirect: '/home'   //重定向
+            },
+        ]
+    });
+
+    // 全局路由守卫
+    router.beforeEach((to, from, next) => {
+        console.log('navigation-guards');
+        // to: Route: 即将要进入的目标 路由对象
+        // from: Route: 当前导航正要离开的路由
+        // next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。
+
+        const nextRoute = ['cart', 'profile', 'detail'];
+        let isLogin = 1;  // 是否登录
+        // 未登录状态；当路由到nextRoute指定页时，跳转至login
+        if (nextRoute.indexOf(to.name) >= 0) {
+            if(isLogin){
+                console.log('what fuck');
+                // router.push({ name: 'login' })
+                next('/login');
+            }
+        }
+        // 已登录状态；当路由到login时，跳转至home
+        if (to.name === 'login') {
+            if(!isLogin){
+                console.log(666)
+                router.push({ name: 'home' });
+            }
+        }
+        next();
+    });
+    let vm = new Vue({
+        el:`#app`,
+        router,
+
+    })
+
+</script>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .stage{
+            position:relative;
+            height:600px;
+            overflow: hidden;
+            background-color: #ddf5f7;
+            animation: stage 30s infinite linear alternate;
+        }
+        @keyframes stage {
+            0%{background-color:#ddf5f7}
+            25%{background-color:#9CADAE}
+            50%{background-color:#2B3435}
+            75%{background-color:#455354}
+            100%{background-color:#ddf5f7}
+        }
+        .skyline{
+            position:absolute;
+            z-index:6;
+            bottom:26%;
+            background: url(img/skyline.png) repeat no-repeat center;
+            width:100%;
+            height:147px;
+        }
+        .beans{
+            position:absolute;
+            bottom:30%;
+            left:52%;
+            background:url(img/beans.png) no-repeat;
+            width:80px;
+            height:201px;
+            z-index:5;
+        }
+        .back{
+            position:absolute;
+            bottom:0;
+            width:100%;
+            height:281px;
+            background:url(img/groundBack.png) repeat center;
+            z-index:10;
+        }
+        .front{
+            position:absolute;
+            bottom:0;
+            width:100%;
+            height:301px;
+            background:url(img/groundFront.png) repeat center;
+            z-index:30;
+        }
+        .mid{
+            position:absolute;
+            bottom:0;
+            width:100%;
+            height:299px;
+            background:url(img/groundMid.png);
+            z-index:20;
+        }
+        .dowEventCenter{
+            position:absolute;
+            bottom:20%;
+            left:10%;
+            width:520px;
+            height:229px;
+            background:url(img/dowEventCenter.png) no-repeat;
+            z-index:18;
+        }
+        .friendshipShell{
+            position:absolute;
+            bottom:20%;
+            left:20%;
+            width:231px;
+            height:370px;
+            background:url(img/friendshipShell.png) no-repeat;
+            z-index:22;
+        }
+        .glockenspiel{
+            position:absolute;
+            bottom:26%;
+            left:42%;
+            width:137px;
+            height:263px;
+            background:url(img/Glockenspiel.png) no-repeat;
+            z-index:17;
+        }
+        .planetarium{
+            position:absolute;
+            bottom:20%;
+            left:60%;
+            width:347px;
+            height:285px;
+            background:url(img/Planetarium.png) no-repeat;
+            z-index:28
+        }
+        .large{
+            position:absolute;
+            top:5%;
+           left:-302px;
+            width:302px;
+            height:169px;
+            background:url(img/cloudLarge.png) no-repeat;
+            z-index:3;
+            animation:large 80s linear infinite alternate;
+        }
+        @keyframes large{
+            0%{left:-302px}
+            25%{left:25%}
+            50%{left:50%}
+            75%{left:75%}
+            100%{left:100%}
+        }
+        .medium{
+            position:absolute;
+            top:5%;
+            right:-159px;
+            width:159px;
+            height:92px;
+            background:url(img/cloudMedium.png) no-repeat;
+            z-index:2;
+            animation: medium 100s linear infinite alternate;
+        }
+        @keyframes medium{
+            0%{right:-159px}
+            25%{right:25%}
+            50%{right:50%}
+            75%{right:75%}
+            100%{right:100%}
+        }
+        .small{
+            position:absolute;
+            top:5%;
+            left:99px;
+            width:89px;
+            height:50px;
+            background:url(img/cloudSmall.png) no-repeat;
+            z-index:1;
+            animation: small 90s linear infinite alternate;
+        }
+        @keyframes small{
+            0%{left:99px}
+            25%{left:25%}
+            50%{left:50%}
+            75%{left:75%}
+            100%{left:100%}
+        }
+        .balloon{
+            position:absolute;
+           top:5%;
+            right:-157px;
+            background:url(img/balloon.png) no-repeat;
+            width:157px;
+            height:227px;
+            z-index:4;
+            animation: move 30s infinite ease alternate;
+        }
+        @keyframes move {
+            0%{  right:-157px;  transform: rotate(0deg);  }
+            25%{  right:25%;  transform:rotate(30deg);  }
+            50%{  right:50%;  transform:rotate(60deg);  }
+            75%{  right:75%;  transform:rotate(30deg);  }
+            100%{  right:100%;  transform:rotate(0deg)  }
+        }
+        .sun{
+            width:200px;
+            height:200px;
+            border-radius:50%;
+            background-color: #ff460e;
+            position:absolute;
+            bottom:20%;
+            left:20%;
+            z-index:1;
+            animation: sun 30s linear infinite ;
+        }
+        @keyframes sun{
+            0%{bottom:20% ;left:20%;background-color:#ff460e;}
+            25%{bottom:650px;background-color:#ff460e;}
+            50%{left:900px;}
+            75%{bottom:10px; left:1000px;background-color: #000; }
+            100%{left:1000px;bottom:10px;}
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="stage">
+        <div class="skyline"></div>
+        <div class="beans"></div>
+        <div class="back"></div>
+        <div class="front"></div>
+        <div class="mid"></div>
+        <div class="dowEventCenter"></div>
+        <div class="friendshipShell"></div>
+        <div class="glockenspiel"></div>
+        <div class="planetarium"></div>
+        <div class="large"></div>
+        <div class="medium"></div>
+        <div class="small"></div>
+        <div class="sun"></div>
+
+        <div class="balloon"></div>
+    </div>
+</section>
+</body>
+</html>

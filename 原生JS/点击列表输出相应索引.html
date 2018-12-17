@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击列表输出相应索引</title>
+</head>
+<body>
+<ul>
+    <li>11111111</li>
+    <li>22222222</li>
+    <li>33333333</li>
+    <li>44444444</li>
+    <li>55555555</li>
+    <li>66666666</li>
+    <li>77777777</li>
+</ul>
+</body>
+<script>
+    var ul = document.querySelector('ul');
+    var lis = document.querySelectorAll('ul li');
+    ul.addEventListener('click',function (e) {
+        if(e.target.nodeName.toLowerCase()==='li'){
+            console.log(e.target)
+            console.log('li的下标是：'+[].indexOf.apply(lis,[e.target]));
+        }
+    },false);
+    // call()第一个参数是函数运行的作用域（this），但是传递给函数的参数必须列举出来；
+    // apply()第一个参数是函数运行的作用域（this），第二个参数是将多个参数组合成一个参数数组；
+</script>
+</html>

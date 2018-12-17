@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 页面跳转传参</title>
+    <style>
+        .detail {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <router-link to="/home">home</router-link>
+    <router-link to="/list">list</router-link>
+    <router-view></router-view>
+</div>
+</body>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+    var home ={
+        template:`<div>home</div>`,
+    };
+    var list ={
+        template:`<ul><router-link tag="li" v-for="(item,index) in arr"  :to="{name:'detail',params:{id:item.id,name:item.name}}" :key="index">
+<h1>{{item.name}}</h1>
+<h2>{{item.age}}</h2>
+<h3>{{item.sex}}</h3>
+<button @click.stop="remove(item)">delete</button>
+</router-link></ul>`,
+        data(){
+            return {
+                arr:[
+                    {
+                        id:1,
+                        name:'yyc',
+                        age:'28',
+                        sex:'man',
+                        num:666
+                    },
+                    {
+                        id:2,
+                        name:'hhh',
+                        age:'25',
+                        sex:'man',
+                    },
+                    {
+                        id:3,
+                        name:'ycd',
+                        age:'26',
+                        sex:'man',
+                    },
+                    {
+                        id:4,
+                        name:'aac',
+                        age:'24',
+                        sex:'woman',
+                    },
+                ],
+            }
+        },
+        created(){
+            this.tranform();
+        },
+        methods:{
+            remove(id){
+                this.arr = this.arr.filter(item=>item!==id);
+            },
+            tranform(){
+                console.log(Object.keys(this.arr[0]).length);
+            }
+        }
+    };
+    var detail = {
+        template:`<div class="detail"><h1>{{$route.params.name}}</h1></div>`
+    }
+    let router = new VueRouter({
+        routes:[
+            {
+                name:'home',
+                path:'/home',
+                component:home
+            },
+            {
+                name:'list',
+                path:'/list',
+                component:list
+            },
+            {
+                name:'detail',
+                path:`/detail/:id/:name`,
+                component:detail
+            }
+
+        ]
+    })
+    let  vm = new Vue({
+        el:`#app`,
+        router,
+    })
+</script>
+</html>

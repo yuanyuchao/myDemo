@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 2400px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .box {
+            width: 800px;
+            height: 600px;
+            margin: 100px auto;
+            /*background-color: purple;*/
+            overflow: hidden;
+            position: relative;
+        }
+
+        li {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul id="ul">
+        <li><img src="1.jpg" alt=""></li>
+        <li><img src="2.jpg" alt=""></li>
+        <li><img src="3.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+<script>
+    var ul = document.getElementById('ul');
+    var leader = 0;
+    var target = 0;
+    var timer = null;
+    //    记录当前第几张轮播图播放
+    var index = 0;
+    setInterval(function () {
+//        养成一个好习惯，在开启定时器的时候，先把他自身清除一下。
+        clearInterval(timer);
+        index++;
+        index > 2 ? index = 0 : index;
+        target = -800 * index;
+
+        timer = setInterval(function () {
+            leader = leader + (target - leader) / 10;
+            ul.style.left = leader + 'px';
+        }, 30);
+    }, 2000);
+
+
+</script>
+</html>

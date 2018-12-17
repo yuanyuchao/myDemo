@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ref-3</title>
+</head>
+<body>
+<!--ref在里面的元素上-->
+<div id="ref-inside-dom">
+    <component-father>
+    </component-father>
+    <p>ref在组件里面的元素上</p>
+</div>
+</body>
+<script src="vue.js "></script>
+<script>
+    var refinsidedomTem={
+        template:"<div class='childComp' v-on:click='consoleRef'>" +
+        "<h5 ref='insideDomRef'>我是子组件</h5>" +
+        "</div>",
+        methods:{
+            consoleRef:function () {
+                console.log(this);  // div.childComp   vue实例
+                console.log(this.$refs.insideDomRef);  // <h5 >我是子组件</h5>
+            }
+        }
+    };
+    var  refinsidedom=new Vue({
+        el:"#ref-inside-dom",
+        components:{
+            "component-father":refinsidedomTem
+        }
+    });
+</script>
+</html>

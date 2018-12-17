@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        #box {
+            width: 510px;
+            height: 500px;
+            background-color: purple;
+            position: relative;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+        #box1 {
+            width: 510px;
+            height: 250px;
+            /*background-color:yellow;*/
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        #box2 {
+            width: 510px;
+            height: 250px;
+            /*background-color:blue;*/
+            position: absolute;
+            top: 250px;
+            left: 0;
+        }
+        #img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div id="box">
+    <img id="img" src="mi.png" alt="" >
+    <div id="box1" ></div>
+    <div id="box2" ></div>
+</div>
+</body>
+<script>
+//    var box=document.getElementById('box')
+    var img=document.getElementById('img')
+    var aa=document.getElementsByTagName('div');
+    var index=0;
+    var timer=null;
+    aa[1].onmouseover=function () {
+        timer=setInterval(function () {
+            index--;
+            if (index<=-970) {
+                index = -970;
+            }
+                img.style.top = index + 'px';
+        },10);
+    }
+    aa[2].onmouseover=function () {
+        timer=setInterval(function () {
+            index++;
+            if (index>=0) {
+                index=0;
+            }
+            img.style.top = index + 'px';
+        },10);
+    }
+    aa[0].onmouseout=function(){
+        clearInterval(timer);
+    }
+</script>
+</html>

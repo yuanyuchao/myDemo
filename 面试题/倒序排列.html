@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+<div>
+    
+</div>
+</body>
+<script>
+    var arr = [1,5,8,5,2,14,7,6,9,8,4,5,2,1,7,5,9,8,7,4,1,2,3,2,5,9];
+
+    function arrRset(arr) {
+        //数组去重
+        for(var i = 0; i < arr.length; i++){
+            for(var j = i + 1; j < arr.length; j++){
+                if(arr[i] === arr[j]){
+                    arr.splice(j,1);
+                    j--;
+                }
+            }
+        }
+//    数组排序  冒泡排序
+//         var c = 0;
+        for(var i = 0; i < arr.length; i++){
+            for(var j = i + 1; j < arr.length; j++){
+                if(arr[i] < arr[j]){
+                    // c = arr[i];
+                    // arr[i] = arr[j];
+                    // arr[j] = c;
+                    [arr[i],arr[j]]=[arr[j],arr[i]]
+                }
+            }
+        }
+        return arr;
+    }
+    console.log(arrRset(arr));
+
+
+    var s = 0.1 +0.2
+    console.log(s)
+</script>
+</html>
+<!--1,5,8,5,2,14,7,6,9,8,4,5,2,1,7,5,9,8,7,4,1,2,3,2,5,9-->
+<!--1,5,8,5,2,14,7,6,9,8,4,5,2,1,7,5,9,8,7,4,1,2,3,2,5,9-->

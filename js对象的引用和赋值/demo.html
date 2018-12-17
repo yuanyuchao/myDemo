@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 先看一个简单例子，
+
+var obj = {
+    a : 1
+}
+    var obj1 = obj;
+
+    function test(b){
+        b.a = 2
+    }
+    test(obj1);
+    console.log(obj.a);//2
+    //
+    // 由于js中对象属于引用类型，var obj1 = obj 这一步相当于把obj的地址赋值给了obj1，他们两个指向的都是原对象的地址，所以通过其中的一个去修改值时其实是修改他们指向的那个对象。例子中通过调用test方法改变了原对象的值，因此这里应该输出2。
+
+
+
+// 对于js的值类型和引用类型的区分，这里有个通俗的比喻，我们可以用“连锁店”和“总店钥匙”这两个概念来帮助理解。
+
+// 1.值类型赋值理解：相当于在一个新的地方按照连锁总店的统一标准（统一店面理解为相同的变量内容）新开一个分店，这样新开的店与总店互不影响、各自运营；
+
+　　var a='China';
+    var b=a;
+    a='USA';
+    console.log(b);  //China
+
+    // 2.引用类型赋值理解：相当于把连锁总店的钥匙（变量引用地址）复制一把给了另外一个老板，此时两个老板同时管理总店，两个老板的行为都有可能对总店的运营造成影响。
+
+
+
+// 这里详细说后者，
+//
+// 1.如果真要复制对象互不影响，则要通过转换赋值或者遍历key:value来复制你的方法和属性。需要注意的是对象的子对象也是引用，所以遍历赋值的时候要判断，子元素是否是对象，如果子元素是对象，则要继续对子元素进行遍历赋值。
+//
+// 例：转换赋值
+
+    var data = {a:1,b:2,c:3,d:[0,1,2,3]};
+    var str = JSON.stringify(data);
+    var data1 = JSON.parse(str);
+    data1["e"] = 4;
+    data1["d"][0] = 11;
+    console.log(data);//Object {a: 1, b: 2, c: 3, d: [0,1,2,3]}
+    console.log(data1);//Object {a: 1, b: 2, c: 3, d: [11,1,2,3], e: 4}
+
+    // 2.当对象引用做为函数参数传递时，依然会相互影响，如下示例：
+
+　　var data = {a:1,b:2,c:3,d:{q:4,w:5,e:6}};
+    var data1 = data;
+    function con(data2){
+        data2["r"] = 5;
+        console.log(JSON.stringify(data2));
+    }
+    con(data1);//{"a":1,"b":2,"c":3,"d":{"q":4,"w":5,"e":6},"r":5}
+    console.log(JSON.stringify(data));//{"a":1,"b":2,"c":3,"d":{"q":4,"w":5,"e":6},"r":5}
+
+    // 3.但是，对象引用赋值后，如果将对象置空，相互间是不受影响的，如下：
+
+　　var arr = {"a":"1","b":"2"};
+    var arr1 = arr;
+    arr = {};
+    arr["a"] = 2;
+    console.log(arr1);//Object {a: "1", b: "2"}
+    console.log(arr);//Object {a: 2}
+</script>
+</html>

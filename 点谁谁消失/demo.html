@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+<h2>第1个</h2>
+<h2>第2个</h2>
+<h2>第3个</h2>
+<h2>第4个</h2>
+<h2>第5个</h2>
+<h2>第6个</h2>
+<h2>第7个</h2>
+<h2>第8个</h2>
+<h2>第9个</h2>
+<h2>第10个</h2>
+<h2>第11个</h2>
+<h2>第12个</h2>
+<h2>第13个</h2>
+<h2>第14个</h2>
+<h2>第15个</h2>
+<h2>第16个</h2>
+<h2>第17个</h2>
+<h2>第18个</h2>
+<h2>第19个</h2>
+<h2>第20个</h2>
+</div>
+</body>
+<script>
+    var h2=document.querySelectorAll('h2');
+    var div=document.querySelector('div');
+    for(var i=0;i<h2.length;i++){
+        h2[i].onclick=function () {
+            div.removeChild(this)
+        }
+    }
+    //语法： 父节点.removeChild（直属父节点的子节点）
+</script>
+</html>

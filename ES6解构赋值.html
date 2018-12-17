@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6解构赋值</title>
+</head>
+<body>
+
+</body>
+<script>
+    //数组
+
+    // 赋值不成功，变量的值为undefined
+    // 允许设定默认值,新赋的值会覆盖默认的值
+    //可以嵌套
+    // let [a,b,c=100,[d,e]] = [1,2,3,[4,5]];
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+    // console.log(d);
+    // console.log(e);
+
+    //对象
+
+    //不收顺序影响
+    //可以嵌套
+    // var { a,b,c} = {"a":1,"c":3,"b":2};
+    // console.log(a);//结果：a的值为1
+    // console.log(b);//结果：b的值为2
+    // console.log(c);//结果：c的值为3
+
+    // 字符串
+    // var [a,b,c,d,e,f] = "我就是前端君";
+    // console.log(a);//我
+    // console.log(b);//就
+    // console.log(c);//是
+    // console.log(d);//前
+    // console.log(e);//端
+    // console.log(f);//君
+
+    // 用途
+    // 交换变量的值
+    var x = 1;
+    var y = 2;
+    [x,y] = [y,x];
+
+    // 提取函数返回的多个值
+    function demo(){
+        return {"name":"张三","age":21}
+    }
+    var {name,age} = demo();
+    console.log(name);//结果：张三
+    console.log(age);//结果：21
+
+
+
+
+</script>
+</html>

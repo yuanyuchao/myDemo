@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>typeof和instanceof</title>
+</head>
+<body>
+
+</body>
+<script>
+    //  typeof用以获取一个变量或者表达式的类型，typeof一般只能返回如下几个结果：
+    // number,boolean,string,function（函数）,object（NULL,数组，对象）,undefined。
+    // 正因为typeof遇到null,数组,对象时都会返回object类型，所以当我们要判断一个对象是否是数组时
+    // 或者判断某个变量是否是某个对象的实例则要选择使用另一个关键语法instanceof
+    var arr = [1, 2, 3, 4, 5, 6, 9];
+    var obj = {
+        age: 27,
+        name: 'name',
+    };
+    var fn = function () {
+        var a;
+    };
+    var time = new Date();
+    console.log(typeof arr);
+    console.log(typeof obj);
+    console.log(typeof null);
+    console.log(typeof fn);
+    console.log(typeof time);
+    console.log(arr instanceof Array);
+    console.log(obj instanceof Object);
+    console.log(fn instanceof Function);
+    console.log(time instanceof Date);
+
+
+</script>
+</html>

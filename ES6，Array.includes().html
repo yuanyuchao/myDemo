@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>includes()和indexOf()</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //includes()可以判断NaN是否存在,indexOf不能
+    const arr = [1,'z',55,'yy','cc',9,NaN];
+    console.log(arr.includes(1));
+    console.log(arr.includes(NaN));
+    console.log(arr.includes('z'));
+    console.log(arr.indexOf(1));
+    console.log(arr.indexOf(NaN));
+    console.log(arr.indexOf('z'));
+    //includes()函数的第二个参数表示判断的起始位置。
+    console.log(arr.includes(1,2));
+    console.log(arr.includes(NaN,2));
+    console.log(arr.includes('z',2));
+    console.log(arr.indexOf(1,2));
+    console.log(arr.indexOf(NaN,2));
+    console.log(arr.indexOf('z',2));
+    var name = "前端君";    //目标字符串
+    name.includes('君');
+    //true, 含有
+
+    name.includes('web');
+    //false, 不含有
+
+    name.includes('前',1);
+    //false, 从第2个字符开始搜索, 不含有
+
+
+    // startsWith( )函数：判断指定的子字符串是否出现在目标字符串的开头位置，第二个参数选填，表示开始搜索的位置。
+
+    // 我们如果判断字符串是否以某个子字符串开头，就可以直接使用startsWith( )函数即可，同样，第二个参数为1表示从第2个字符开始搜索。
+    // 若要从第一个字符开始搜索，参数应该为0或者为空（默认从第一个字符开始搜索）。
+
+    var name = "前端君";  //目标字符串
+    name.startsWith('前');
+    //true，出现在开头位置
+    name.startsWith('端');
+    //false，不是在开头位置
+    name.startsWith('端',1);
+    //true，从第2个字符开始
+
+    // endsWith( )函数：判断子字符串是否出现在目标字符串的尾部位置，第二个参数选填，表示针对前N个字符。
+    var name = "我就是前端君";    //目标字符串
+    name.endsWith('我');
+    //false，不在尾部位置
+    name.endsWith('君');
+    //true，在尾部位置
+    name.endsWith('君',5);
+    //false，只针对前5个字符
+    name.endsWith('君',6);
+    //true，针对前6个字符
+
+
+</script>
+</html>

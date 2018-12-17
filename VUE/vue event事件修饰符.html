@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 事件修饰符</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #app {
+            width: 500px;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<div id="app"  @mousemove="update">
+    <h1>
+        {{x}},
+        {{y}}
+
+    </h1>
+    <span @mousemove.stop=""> stop moving</span>
+<button @click.once="add">ADD</button>
+    <h1>{{age}}</h1>
+    <a href="https://www.baidu.com" @click.prevent="alert()">去百度</a>
+
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    new Vue ({
+        el:`#app`,
+        data(){
+            return {
+                x:0,
+                y:0,
+                age:25,
+            }
+        },
+        methods:{
+            update(event){
+                this.x = event.offsetX;
+                this.y = event.offsetY;
+            },
+            add(){
+                this.age++;
+            },
+            alert(){
+                alert(666);
+            }
+        }
+
+    })
+</script>
+</html>

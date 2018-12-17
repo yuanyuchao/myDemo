@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todoList</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input type="text" v-model="inputValue" @keyup.enter="handleSubmit">
+    <button @click="handleSubmit">提交</button>
+    <ul>
+        <!--<li v-for="(item,index) of list" :key="index">{{index}} {{item}}</li>-->
+        <todo-item
+                v-for="(item,index) of list"
+                :key="index"
+                :content="item"
+                :index="index"
+                @delete="handleDelete"
+        ></todo-item>
+
+    </ul>
+</div>
+</body>
+<script>
+    Vue.component('todo-item', {
+        props: ['content', 'index'],
+        template: '<li @click="handleClick">{{index+1}}、{{content}}</li>',
+        methods: {
+            handleClick: function () {
+                this.$emit('delete', this.index);
+            }
+        },
+    }),
+    new Vue({
+        el: '#root',
+        data: {
+            inputValue: '',
+            list: [],
+        },
+        methods: {
+            handleSubmit: function () {
+                if(!this.inputValue) return;//输入为空就return
+                this.list.push(this.inputValue);
+                this.inputValue = '';
+            },
+            handleDelete: function (index) {
+                this.list.splice(index, 1)
+            }
+        },
+    })
+</script>
+</html>

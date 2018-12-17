@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<template>
+    <div id="box">
+        <header > <slot name="header">00000000000</slot></header>
+        <section><slot name="section">0000000000000</slot></section>
+        <footer><slot name="footer">1111111111111</slot></footer>
+    </div>
+</template>
+
+<wednesday>
+    <h1 slot="header">welcome to CHINA</h1>
+    <h3 slot="section">nice to meet you </h3>
+    <h3 slot="footer">me too</h3>
+</wednesday>
+</body>
+<script>
+    Vue.component('wednesday',{
+        template:'#box',
+    })
+
+    var arr = [1,2,3,4];
+    var obj = {
+        a:'str',
+        b:2,
+    }
+    brr = arr.slice();
+    arr[3]=888;
+    console.log(arr,brr)
+    console.log(typeof arr)
+    console.log(typeof obj)
+    console.log(typeof arr[0])
+    console.log(typeof obj['a'])
+    console.log(obj.hasOwnProperty('b'))
+    function deepClone(obj){
+        let objClone = Array.isArray(obj)?[]:{};
+        if(obj && typeof obj==="object"){
+            for(i in obj){
+                if(obj.hasOwnProperty(i)){
+                    //判断ojb子元素是否为对象，如果是，递归复制
+                    if(obj[i]&&typeof obj[i] ==="object"){
+                        objClone[i] = deepClone(obj[i]);
+                    }else{
+                        //如果不是，简单复制
+                        objClone[i] = obj[i];
+                    }
+                    console.log(i)
+                }
+            }
+        }
+        return objClone;
+    }
+    console.log(deepClone(arr))
+    arr[0]= 666;
+    console.log(deepClone(arr))
+
+
+    var dd = {
+        yyx:'hello world',
+        yyc:'next',
+        xxx:'where are you doing?',
+    }
+    for(i in arr){
+        console.log(i)
+    }
+</script>
+</html>

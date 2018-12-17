@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="ref-outside-dom" v-on:click="consoleRef" >
+    <component-father>
+    </component-father>
+    <p  ref="a">ref在外面的元素上</p>
+</div>
+
+</body>
+<script src="vue.js"></script>
+<script>
+    // js部分
+
+    var refoutsidedomTem={
+        template:"<div class='childComp'><h5>我是子组件</h5> <input type='text' ref='bbb' v-if='isShow'></div>",
+        data:function () {
+            return {
+                isShow:false,
+            }
+        },
+        mounted:function () {
+            this.isShow = true;
+            //我们希望在Vue真正渲染dom以后再做的事儿。
+            this.$nextTick(function () {
+                this.$refs.bbb.focus();
+            })
+        }
+    };
+    var  refoutsidedom=new Vue({
+        el:"#ref-outside-dom",
+        components:{
+            "component-father":refoutsidedomTem
+        },
+
+        methods:{
+            consoleRef:function () {
+                console.log(this); // #ref-outside-dom    vue实例
+                console.log(this.$refs.a.innerHTML);  //   <p> ref在外面的元素上</p>
+            }
+        }
+    });
+</script>
+</html>

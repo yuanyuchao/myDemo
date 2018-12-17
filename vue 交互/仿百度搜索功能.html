@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 31px;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #box {
+            width: 500px;
+            margin: 100px auto;
+            position: relative;
+        }
+        input {
+            width: 398px;
+            height: 30px;
+            border: 1px solid #ccc;
+            outline: none;
+            text-indent: 10px;
+            float: left;
+        }
+        .bordernone {
+            border: none;
+        }
+        .selectbd {
+            border-color: #3385ff;
+        }
+        button {
+            width: 100px;
+            border: none;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            background-color: #3385ff;
+            color: #fff;
+            float: left;
+        }
+        li {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-indent: 10px;
+        }
+        .clearfix {
+            clear: both;
+        }
+        .active {
+            background-color: #dd3729;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <input type="text" v-model="text" @focus="inputSelected = true" @keyup="getData($event)"
+           @keyup.down="selectDown()" @keydown.up.prevent="selectUp()" @blur="inputSelected = false" :class="{selectbd: inputSelected}">
+    <button>百度一下</button>
+    <div class="clearfix"></div>
+    <ul :class="{bordernone: !dataArr.length}">
+        <li v-for="(item , index) in dataArr" v-text="item" :class="{active: selected === index}" @mouseenter="mouseSelect(index)"></li>
+    </ul>
+</div>
+
+</body>
+<script src="https://cdn.bootcss.com/vue/2.5.8/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/vue-resource/1.3.4/vue-resource.js"></script>
+<script>
+
+//    Vue.filter('length',function (val) {
+//        return val.slice(0,5);
+//    });
+
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            // 保存请求回来的数据
+            dataArr: [],
+            inputSelected: false,
+            text: '',
+            selected: -1
+        },
+        methods: {
+            getData: function (ev) {
+                console.log(ev.keyCode);
+                if(ev.keyCode != 38 && ev.keyCode != 40){
+                    this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+                        {
+                            params: {
+                                wd: this.text
+                            },
+                            jsonp: 'cb'
+                        },
+                        {emulateJSON: true}
+                    ).then(function (res) {
+                        // res.data.s.length=5;
+//                        console.log(res.data.s)
+                        this.dataArr = res.data.s;
+                    },function (res) {
+                        console.log(res.status);
+                    })
+                }
+            },
+            selectDown: function () {
+                this.selected++;
+                this.selected = this.selected > this.dataArr.length ? 0 : this.selected;
+                this.text = this.dataArr[this.selected];
+            },
+            selectUp: function () {
+                this.selected--;
+                this.selected = this.selected < 0 ? this.dataArr.length : this.selected;
+                this.text = this.dataArr[this.selected];
+            },
+            mouseSelect: function (index) {
+                this.selected = index;
+            }
+        }
+    })
+//    var arr=[1,2,3,5,8];
+//    arr.push('a','b');
+//    console.log(arr.pop());
+//    console.log(arr);
+//    arr.pop();arr.pop();arr.pop();arr.pop();
+//arr.pop();
+//console.log(arr);
+
+</script>
+</html>

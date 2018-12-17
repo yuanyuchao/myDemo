@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+<script src="vue.js"></script>
+<script>
+
+    //全局组件声明后，使用时就不需要再声明了。
+    Vue.component('my',{
+        template:`<div><button style="background-color: pink;">大家好，我是全局组件</button></div>`,
+    })
+    var myHeader = {
+        template:`<div><h1>我是头部</h1><my></my></div>`,
+    };
+    var myFooter = {
+        template:`<div><h1>我是weibu</h1><my></my></div>`,
+    }
+    new Vue ({
+        el:'#app',
+        components:{
+            'aheader':myHeader,
+            'afooter':myFooter,
+        },
+        template:`<div><aheader></aheader><afooter></afooter><my></my></div>`,
+    })
+</script>
+</body>
+</html>

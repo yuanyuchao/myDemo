@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域</title>
+</head>
+<body>
+
+</body>
+<script>
+    console.log(i)
+    var arr = [];
+    for(var i=0;i<= 2;i++){//变量i会被提升到顶部
+        arr[i] = function () {
+            return i*2;//闭包，return出的是一个表达式，并不是一个值。
+        }
+    }
+    console.log(i);//i=3的时候不符合条件，所以跳出循环以后i=3；
+    console.table([
+            arr[0](),
+            arr[1](),
+            arr[2](),
+    ]
+    )
+</script>
+</html>

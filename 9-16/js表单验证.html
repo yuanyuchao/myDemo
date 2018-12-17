@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>仿QQ注册</title>
+  <link href="css/style.css" rel="stylesheet"/>
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="js/reg.js"></script>
+ </head>
+ <body>
+	<div class="container">
+		<h2 class="reg-top"></h2>
+		<div class="reg-box">
+			<div class="reg-main">
+				<h3>注册账号</h3>
+				<form action="" method="post" class="reg-form">
+					<div class="reg-input">
+						<label>昵称</label>
+						<input type="text" name="nick" id="nick"/>
+						<span id="nick-tip">长度为6-10个字符</span>
+					</div>
+					<div class="reg-input">
+						<label>密码</label>
+						<input type="password" name="psw" id="psw"/>
+						<span id="psw-tip">长度为6-16个字符</span>
+					</div>
+					<div class="reg-input">
+						<label>确认密码</label>
+						<input type="password" name="psw1" id="psw1"/>
+						<span id="psw1-tip">长度为6-16个字符</span>
+					</div>
+					<div class="reg-input">
+						<label>手机号码</label>
+						<input type="text" name="tel" id="tel"/>
+						<span id="tel-tip">忘记密码时可用手机号找回密码</span>
+					</div>
+					<div class="reg-input">
+						<label>邮箱</label>
+						<input type="text" name="mail" id="mail"/>
+						<span id="mail-tip">请输入邮箱地址</span>
+					</div>
+					<div class="reg-input">
+						<label>年龄</label>
+						<input type="text" name="old" id="old"/>
+						<span id="old-tip">请输入你的年龄</span>
+					</div>
+					<div class="submit-box">
+						<button id="submit">立即注册</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+ </body>
+<script>
+	var nick=document.getElementById('nick');
+    var nick_tip=document.getElementById('nick-tip');
+    var psw=document.getElementById('psw');
+    var psw_tip=document.getElementById('psw-tip');
+    var psw1=document.getElementById('psw1');
+    var psw1_tip=document.getElementById('psw1-tip');
+    var tel=document.getElementById('tel');
+    var tel_tip=document.getElementById('tel-tip');
+    var mail=document.getElementById('mail');
+    var mail_tip=document.getElementById('mail-tip');
+    var old=document.getElementById('old');
+    var old_tip=document.getElementById('old-tip');
+nick.onblur=function () {
+	var text=nick.value;
+	if(text.length>=6&&text.length<=10){
+	    nick_tip.innerHTML=('输入正确');
+	    nick_tip.style.color='green';
+	    nick.style.border='1px solid green';
+	}else {
+        nick_tip.innerHTML=('格式错误');
+        nick_tip.style.color='red';
+        nick.style.border='1px solid red';
+	}
+}
+psw.onblur=function(){
+    var text=psw.value;
+    if (text.length>=6&&text.length<=16){
+        psw_tip.innerHTML=('输入正确');
+        psw_tip.style.color='green';
+        psw.style.border='1px solid green';
+	}else{
+        psw_tip.innerHTML=('格式错误');
+        psw_tip.style.color='red';
+        psw.style.border='1px solid red';
+	}
+}
+psw1.onblur=function(){
+    var text=psw.value;
+    var text1=psw1.value;
+    if (text=text1){
+        psw1_tip.innerHTML=('输入正确');
+        psw1_tip.style.color='green';
+        psw1.style.border='1px solid green';
+	}else{
+        psw1_tip.innerHTML=('格式错误');
+        psw1_tip.style.color='red';
+        psw1.style.border='1px solid red';
+	}
+}
+    tel.onblur=function(){
+        var text=parseInt(tel.value).toString();
+        if (text.length==11){
+            tel_tip.innerHTML=('输入正确');
+            tel_tip.style.color='green';
+            tel.style.border='1px solid green';
+        }else{
+            tel_tip.innerHTML=('格式错误');
+            tel_tip.style.color='red';
+            tel.style.border='1px solid red';
+        }
+    }
+    mail.onblur=function(){
+        var text=mail.value;
+        if(text.indexOf('@')!=-1&&text.indexOf('.')!=-1){
+            mail_tip.innerHTML= ('输入正确');
+            mail_tip.style.color='green';
+            mail.style.border='1px solid green';
+        }else{
+            mail_tip.innerHTML=('输入的格式不正确');
+            mail_tip.style.color='red';
+            mail.style.border='1px solid red';
+        }
+    }
+    old.onblur=function () {
+        var text=old.value;
+        if(text<150&&text>0){
+            old_tip.innerHTML=('输入正确');
+            old_tip.style.color='green';
+            old.style.border='1px solid green';
+        }else {
+            old_tip.innerHTML=('请输入正确的年龄');
+            old_tip.style.color='red';
+            old.style.border='1px solid red';
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>阿里</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 290px;
+            height: 420px;
+            margin: 100px auto;
+            background: url("作业/ali/phone.jpg");
+            background-size: 100%;
+            position: relative;
+        }
+
+        .img2 {
+            background: rgba(0, 0, 0, 0.6);
+            width: 290px;
+            height: 420px;
+            transition: all 1s;
+        }
+
+        .img3 {
+            width: 290px;
+            /*height: 420px;*/
+            text-align: center;
+            position: absolute;
+            top: 60px;
+            color: white;
+            cursor: pointer;
+            transform: translate(0, 100px);
+            transition: all 0.4s;
+        }
+
+        .img3 > p:nth-of-type(1) {
+            background-color: white;
+            height: 2px;
+            margin: 10px 130px;
+            transition: all 0.4s;
+        }
+
+        .img3 > p:nth-of-type(2) {
+            font-size: 14px;
+            margin: 20px;
+            opacity: 0;
+            transition: all 0.4s;
+        }
+
+        .img3 > p:nth-of-type(3) {
+            width: 120px;
+            height: 40px;
+            margin: 40px auto;
+            border: 1px solid white;
+            font-size: 14px;
+            line-height: 40px;
+            opacity: 0;
+            transition: all 0.4s;
+        }
+
+        .img3 > img:nth-of-type(1),
+        .img3 > img:nth-of-type(2)
+        {
+            width: 60px;
+            opacity: 1;
+            position: absolute;
+            top:-70px;
+            left: 115px;
+        }
+        .img3 > img:nth-of-type(2){
+            opacity: 0;
+            transition: all 1s;
+        }
+
+        .img3 > h2 {
+            font-size: 20px;
+            opacity: 1;
+        }
+
+         .box:hover>.img2 {
+             background: rgba(0, 194, 222, 0.8);
+        }
+        .box:hover > .img3 >img:nth-of-type(2){
+            opacity: 1;
+        }
+        .box:hover > .img3 > p:nth-of-type(3),
+        .box:hover > .img3 > p:nth-of-type(2) {
+            opacity: 1;
+        }
+
+        .box:hover > .img3 > p:nth-of-type(1) {
+            opacity: 0;
+            margin: 0 130px;
+        }
+        .img3 > p:nth-of-type(3):hover{
+            color: #00c2de;
+            background-color: white;
+        }
+        .box:hover > .img3 {
+            transform: translate(0, 50px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="img1"></div>
+    <div class="img2"></div>
+    <div class="img3">
+        <img src="作业/ali/1.png" alt=""/>
+        <img src="作业/ali/2.png" alt=""/>
+
+        <p></p>
+
+        <h2>App解决方案</h2>
+
+        <p>助移动开发者轻松应对用户数爆发式增长,实现基于大数据的精细化运营、增强用户黏性</p>
+
+        <p>查看详情</p>
+    </div>
+</div>
+</body>
+</html>

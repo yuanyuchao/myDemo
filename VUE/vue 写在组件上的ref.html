@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 写在组件上的ref</title>
+</head>
+<body>
+<div id="app">
+    <!--ref如果放在组件上，获取的是组件的实例，并不是组件的dom元素-->
+    <child ref="son"></child>
+</div>
+<template id="child">
+    <h1 v-show="flag">我是子组件</h1>
+</template>
+</body>
+<script src="vue.js"></script>
+<script>
+    var child = {
+        template:`#child`,
+        data(){
+            return {
+                flag:true,
+            }
+        },
+        methods:{
+            hide(){
+                this.flag = false;
+            }
+        },
+    }
+    new Vue({
+        el:'#app',
+        components:{
+            child,
+        },
+        mounted(){
+            this.$refs.son.$el.style.color= 'pink';
+        },
+
+    })
+</script>
+</html>

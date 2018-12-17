@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+    <style>
+        .modal-dialog {
+            width: 400px;
+            margin: 30px auto;
+        }
+        .logo::before {
+            content: '';
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            background: url("img/baidu_logo_24.png")no-repeat;
+            vertical-align: bottom;
+        }
+        .modal-header {
+            background-color: #f7f7f7;
+        }
+        .phone {
+            height: 22px;
+            padding: 0 25px ;
+            background: url("img/input_icons_24.png")no-repeat 0 -38px;
+            line-height: 22px;
+        }
+        .username,.password {
+            width: 100%;
+            height: 40px;
+            background: url("img/input_icons_24.png") no-repeat 0 -62px;
+            text-indent: 3rem;
+            margin-top: 20px;
+            border: 1px solid #cccccc;
+        }
+        .password {
+            background: url("img/input_icons_24.png") no-repeat 0 -143px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title logo" id="myModalLabel">登录百度账号</h4>
+            </div>
+            <div class="modal-body">
+                <a href="" class="btn btn-link pull-right phone ">短信快捷登录</a>
+                <div class="clearfix"></div>
+                <input type="text" class="username" placeholder="手机/邮箱/用户名">
+                <input type="password" class="password" placeholder="密码">
+                <div class="checkbox pull-left">
+                <label >
+                    <input type="checkbox" > 下次自动登录
+                </label>
+                </div>
+                <a href="" class="btn btn-link pull-right">登录遇到问题</a>
+                <div class="clearfix"></div>
+                <button class="btn btn-primary btn-block" >登录</button>
+                <a href="" class="btn btn-link pull-right">立即注册</a>
+                <div class="clearfix"></div>
+                <p>使用以下方式登录</p>
+            </div>
+
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+</html>

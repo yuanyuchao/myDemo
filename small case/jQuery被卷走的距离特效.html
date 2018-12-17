@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            position: absolute;
+            top: 100px;
+            left: 500px;
+        }
+        button {
+            width: 150px;
+            height: 50px;
+            background-color: purple;
+            margin-bottom: 100px;
+            margin-left: 600px;
+        }
+        ul {
+            position: fixed;
+            top: 100px;
+            right: 200px;
+        }
+    </style>
+</head>
+<body>
+<img src="img/1.jpg" alt="">
+<ul>
+    <li>15</li>
+    <li>35</li>
+    <li>65</li>
+    <li>0</li>
+</ul>
+<h1>我是第1个</h1>
+<h1>我是第2个</h1>
+<h1>我是第3个</h1>
+<h1>我是第4个</h1>
+<h1>我是第5个</h1>
+<h1>我是第6个</h1>
+<h1>我是第7个</h1>
+<h1>我是第8个</h1>
+<h1>我是第9个</h1>
+<h1>我是第10个</h1>
+<h1>我是第11个</h1>
+<h1>我是第12个</h1>
+<h1>我是第13个</h1>
+<h1>我是第14个</h1>
+<h1>我是第15个</h1>
+<h1>我是第16个</h1>
+<h1>我是第17个</h1>
+<h1>我是第18个</h1>
+<h1>我是第19个</h1>
+<h1>我是第20个</h1>
+<h1>我是第21个</h1>
+<h1>我是第22个</h1>
+<h1>我是第23个</h1>
+<h1>我是第24个</h1>
+<h1>我是第25个</h1>
+<h1>我是第26个</h1>
+<h1>我是第27个</h1>
+<h1>我是第28个</h1>
+<h1>我是第29个</h1>
+<h1>我是第30个</h1>
+<h1>我是第31个</h1>
+<h1>我是第32个</h1>
+<h1>我是第33个</h1>
+<h1>我是第34个</h1>
+<h1>我是第35个</h1>
+<h1>我是第36个</h1>
+<h1>我是第37个</h1>
+<h1>我是第38个</h1>
+<h1>我是第39个</h1>
+<h1>我是第40个</h1>
+<h1>我是第41个</h1>
+<h1>我是第42个</h1>
+<h1>我是第43个</h1>
+<h1>我是第44个</h1>
+<h1>我是第45个</h1>
+<h1>我是第46个</h1>
+<h1>我是第47个</h1>
+<h1>我是第48个</h1>
+<h1>我是第49个</h1>
+<h1>我是第50个</h1>
+<h1>我是第51个</h1>
+<h1>我是第52个</h1>
+<h1>我是第53个</h1>
+<h1>我是第54个</h1>
+<h1>我是第55个</h1>
+<h1>我是第56个</h1>
+<h1>我是第57个</h1>
+<h1>我是第58个</h1>
+<h1>我是第59个</h1>
+<h1>我是第60个</h1>
+<h1>我是第61个</h1>
+<h1>我是第62个</h1>
+<h1>我是第63个</h1>
+<h1>我是第64个</h1>
+<h1>我是第65个</h1>
+<h1>我是第66个</h1>
+<h1>我是第67个</h1>
+<h1>我是第68个</h1>
+<h1>我是第69个</h1>
+<h1>我是第70个</h1>
+<h1>我是第71个</h1>
+<h1>我是第72个</h1>
+<h1>我是第73个</h1>
+<h1>我是第74个</h1>
+<h1>我是第75个</h1>
+<h1>我是第76个</h1>
+<h1>我是第77个</h1>
+<h1>我是第78个</h1>
+<h1>我是第79个</h1>
+<h1>我是第80个</h1>
+<h1>我是第81个</h1>
+<h1>我是第82个</h1>
+<h1>我是第83个</h1>
+<h1>我是第84个</h1>
+<h1>我是第85个</h1>
+<h1>我是第86个</h1>
+<h1>我是第87个</h1>
+<h1>我是第88个</h1>
+<h1>我是第89个</h1>
+<h1>我是第90个</h1>
+<h1>我是第91个</h1>
+<h1>我是第92个</h1>
+<h1>我是第93个</h1>
+<h1>我是第94个</h1>
+<h1>我是第95个</h1>
+<h1>我是第96个</h1>
+<h1>我是第97个</h1>
+<h1>我是第98个</h1>
+<h1>我是第99个</h1>
+<h1>我是第100个</h1>
+
+<button>返回顶部</button>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(function(){
+        $(window).scroll(function () {
+            console.log('left:'+document.documentElement.scrollLeft)
+            console.log(document.documentElement.scrollTop)
+            console.log($(document).scrollTop())
+            $('img').stop().animate({top:$(document).scrollTop()+300},);
+        });
+        $('button').on('click',function () {
+            $('html').stop().animate({scrollTop:'0'},200)
+        })
+        $('li').eq(0).on('click',function () {
+            $('html,body').animate({scrollTop:$('h1').eq(14).offset().top},1000)
+        })
+        $('li').eq(1).on('click',function () {
+            $('html,body').animate({scrollTop:$('h1').eq(34).offset().top},1000)
+        })
+        $('li').eq(2).on('click',function () {
+            $('html,body').animate({scrollTop:$('h1').eq(64).offset().top},1000)
+        })
+        $('li').eq(3).on('click',function () {
+            $('html,body').animate({scrollTop:$('h1').eq(0).offset().top},1000)
+        })
+    })
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //每一个对象其实都有一个原型对象
+
+    // 构造函数 他就是我们模仿高级语言 类 的概念，最原始的对象。
+    function People() {
+        //构造函数
+        // return 1;
+        // this.name=1;
+    }
+    //创建一个原型对象。原型对象也是让实例对象继承的。
+    People.prototype={
+        name: {
+            num:2
+        }
+
+    };
+
+//zhangsan就是People的实例对象。
+    var zhangsan=new People();
+    //new  究竟干了什么？
+    // 1.创建了一个空对象（开辟了一块新的内存空间）；
+    // 2.把构造函数的zhis指向这个空对象；
+    // 3.把空对象指向构造函数的原型对象；
+    // 4.构造函数如果没有return，会把自己本身返回出去。
+    zhangsan.name.num=9;
+    var lisi=new People();
+    lisi.name.num=10;
+    console.log(zhangsan.name.num)
+    console.log(lisi.name.num)
+
+    // 属性查找机制：实例对象被实例化出来的时候会把构造函数的属性和方法拷贝一份出来方便实例对象去查找属性和方法，
+    // 但是当自身查找不到的时候会去构造函数的原型对象身上查找
+
+    // JS原型在进行属性查找的时候，如果找到原型对象，而原型对象身上的属性又是基本数据类型
+    // 那么它会把属性给实例对象
+    // 如果是引用数据类型就让所有的实例对象共享同一片内存，共用一个属相来达到节省内存空间的作用。
+
+
+    // 在写构造函数的时候，把属性写在构造函数里面，把方法写在构造函数的原型对象身上。
+    // __proto__保存的是一个内存地址 这个内存地址指向的就是原型对象。
+    // oop面向对象的三大特性：封装 继承 多态
+</script>
+</html>

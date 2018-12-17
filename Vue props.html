@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue props</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+</body>
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+<script>
+    Vue.component('son',{
+        props:['msg'],//可以把props里定义的东西理解为形参
+        template:`<div>
+<h1>{{msg.name}}</h1>
+<h2>{{msg.age}}</h2>
+<h3 v-show="msg.status">我是h3</h3>
+</div>`,
+
+    })
+    new Vue({
+        el:`#app`,
+        data:function () {
+            return{
+                arr:[
+                //     {
+                //     name:'yyc',
+                //     age:27,
+                //     status:0,
+                // },
+                //     {
+                //         name:'zs',
+                //         age:29,
+                //         status:1,
+                //     },
+                //     {
+                //         name:'ls',
+                //         age:28,
+                //         status:0,
+                //     },
+                ],
+            }
+        },
+
+        created:function () {
+            this.sendAjax();
+        },
+        methods:{
+            sendAjax:function () {
+                axios.post('https://www.easy-mock.com/mock/5adb39f7ca92ef20e1bcf0e8/example/query_copy_1541483813092')
+                    .then(res=>{
+                        console.log(res);
+                        this.arr = res.data.data.list;
+                        console.log(this.arr)
+                    })
+            }
+        },
+        template:`<div><son v-for="item in arr" :msg="item" ></son></div>`,
+    })
+</script>
+</html>

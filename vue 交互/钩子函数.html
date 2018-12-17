@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <input type="text" v-model="text">
+    <h1 v-text="text"></h1>
+</div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm=new Vue({
+        el:'#box',
+        data:{
+            text:'hello',
+
+        },
+        beforeCreate:function () {
+
+            //$data 就是vue实例对象的data属性
+            //$el就是vue这个对象 div
+            console.group('beforeCreate')
+            console.log(this.$data);
+            console.log(this.$el);
+            console.groupEnd();
+        },
+        created:function () {
+//            alert(1)
+            //$data 就是vue实例对象的data属性
+            //$el就是vue这个对象 div
+            console.group('created')
+            console.log(this.$data);
+            console.log(this.$el);
+            console.groupEnd();
+        },
+        beforeMount:function () {
+//            alert(1)
+            //$data 就是vue实例对象的data属性
+            //$el就是vue这个对象 div
+            console.group('beforeMount')
+            console.log(this.$data);
+            console.log(this.$el);
+            console.groupEnd();
+        },
+        mounted:function () {
+//            alert(1)
+            //$data 就是vue实例对象的data属性
+            //$el就是vue这个对象 div
+            console.group('mounted')
+            console.log(this.$data);
+            console.log(this.$el);
+            console.groupEnd();
+        },
+        beforeUpdate:function () {
+//            alert(1)
+            //$data 就是vue实例对象的data属性
+            //$el就是vue这个对象 div
+            console.group('beforeUpdate')
+            console.log(this.$data);
+            console.log(this.$el);
+            console.groupEnd();
+        },
+        updated:function () {
+//            alert(1)
+            //$data 就是vue实例对象的data属性
+            //$el就是vue这个对象 div
+            console.group('updated')
+            console.log(this.$data);
+            console.log(this.$el);
+            console.groupEnd();
+        },
+//        console直接输入vm.destroy()可以使vue实例死亡。
+
+    })
+    var name = '小明';
+    var age = 20;
+    var message = `你好, ${name}, 你今年${age}岁了!`;
+    alert(message);
+
+</script>
+
+</html>

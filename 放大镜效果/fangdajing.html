@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 600px;
+            height: 100px;
+        }
+        .wraper {
+            width: 1000px;
+            margin: 100px auto;
+        }
+        .box {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            float: left;
+        }
+        .mask {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(219, 178, 29, 0.54);
+            position: absolute;
+            left: 0;
+            top:0;
+            display: none;
+            cursor: move;
+        }
+        .bigbox {
+            width: 500px;
+            height: 500px;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            display: none;
+        }
+        .bigbox img {
+            width:1600px;
+            height: 1600px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        li {
+            width: 60px;
+            height: 60px;
+            padding: 10px;
+            float: left;
+        }
+        li img:hover {
+            border: 1px solid red;
+        }
+        .aaa {
+            width: 400px;
+            height: 100px;
+            overflow: hidden;
+            position: absolute;
+            top: 500px;
+            left: 444px;
+        }
+        .aaa ul {
+            position: absolute;
+            top: 0;
+            left: 0px;
+            transition: all 1s;
+        }
+        li img {
+            width: 60px;
+            height: 60px;
+            border: 1px solid transparent;
+        }
+        span {
+            width: 40px;
+            height: 60px;
+            font-size: 30px;
+            font-family: 黑体;
+            text-align: center;
+            cursor: pointer;
+            line-height: 60px;
+            margin-top: 10px;
+            background-color: #fff;
+        }
+        .aaa span:nth-of-type(1){
+            position: absolute;
+            left: 0;
+            bottom: 29px;
+            z-index: 22;
+        }
+        .aaa span:nth-of-type(2){
+            position: absolute;
+            right: 0;
+            bottom: 29px;
+        }
+        .bbb {
+            width: 320px;
+            height: 100px;
+            overflow: hidden;
+            position: absolute;
+            left: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="wraper">
+    <!--左边图片-->
+    <div class="box">
+        <img src="img/1.jpg" alt="">
+        <!--mask为黄色遮罩层-->
+        <div class="mask"></div>
+    </div>
+    <!--右边图片-->
+    <div class="bigbox">
+        <img src="img/1.jpg" alt="">
+    </div>
+    <div class="aaa">
+        <span><</span>
+        <div class="bbb">
+        <ul>
+            <li data-img="img/1.jpg"><img src="img/1.jpg" alt=""></li>
+            <li data-img="img/33.jpg"><img src="img/33.jpg" alt=""></li>
+            <li data-img="img/44.jpg"><img src="img/44.jpg" alt=""></li>
+            <li data-img="img/55.jpg"><img src="img/55.jpg" alt=""></li>
+            <li data-img="img/66.jpg"><img src="img/66.jpg" alt=""></li>
+            <li data-img="img/11.jpg"><img src="img/11.jpg" alt=""></li>
+        </ul>
+        </div>
+        <span>></span>
+    </div>
+</div>
+</body>
+<script>
+    var box=document.querySelector('.box');
+    var mask=document.querySelector('.mask');
+    var bigbox=document.querySelector('.bigbox');
+    var bigImg=document.querySelector('.bigbox img');
+    var lis=document.querySelectorAll('.aaa li');
+    var boxImg=document.querySelector('.box img');
+    var spanLeft=document.querySelector('.aaa span:nth-of-type(1)');
+    var spanRight=document.querySelector('.aaa span:nth-of-type(2)');
+    var ul=document.querySelector('.bbb ul');
+    var index=0;
+
+    spanRight.addEventListener('click',function(){
+        index++;
+        index=index>lis.length-4?lis.length-4:index;
+        ul.style.left=-80*index+'px';
+    })
+
+    spanLeft.addEventListener('click',function(){
+        index--;
+        index=index<0?0:index;
+        ul.style.left=-80*index+'px';
+    })
+
+
+
+    for(i=0;i<lis.length;i++){
+        lis[i].addEventListener('click',function(){
+            bigImg.src=this.dataset.img;
+            boxImg.src=this.dataset.img;
+        })
+    }
+
+    box.addEventListener('mouseenter',function () {
+        mask.style.display='block';
+        bigbox.style.display='block';
+    })
+    box.addEventListener('mouseleave',function () {
+        mask.style.display='none';
+        bigbox.style.display='none';
+    })
+//    museemove事件 鼠标在绑定元素身上移动时触发
+    box.addEventListener('mousemove',function (e) {
+//        兼容性处理
+        var ev=e|| window.event;
+//        原生js获取元素的宽度 通过offsetWidth来获取
+        var maskLeft=ev.x-box.offsetLeft-(mask.offsetWidth/2);//mask水平方向中间的位置
+        console.log(maskLeft)
+        var maskTop=ev.y-box.offsetTop-(mask.offsetHeight/2);//mask垂直方向中间的位置
+        if(maskLeft<=0){
+            maskLeft=0;
+        }else if (maskLeft>=box.offsetWidth-mask.offsetWidth){//如果剩余的宽度不及一个mask的宽度，也要显示一个mask的宽度。
+            maskLeft=box.offsetWidth-mask.offsetWidth;
+        }
+        if(maskTop<=0){
+            maskTop=0;
+        }else if (maskTop>=box.offsetHeight-mask.offsetHeight){//如果剩余的高度不及一个mask的宽度，也要显示一个mask的高度。
+            maskTop=box.offsetHeight-mask.offsetHeight;
+        }
+        mask.style.left=maskLeft+'px';
+        mask.style.top=maskTop+'px';
+        var b=maskLeft/(box.offsetWidth-mask.offsetWidth);//mask水平方向占box的百分比
+        var t=maskTop/(box.offsetHeight-mask.offsetHeight);//mask垂直方向占box的百分比
+
+        var imgLeft=b*(bigImg.offsetWidth-bigbox.offsetWidth);
+        var imgTop=t*(bigImg.offsetHeight-bigbox.offsetHeight)
+
+        bigImg.style.left=-imgLeft+'px';
+        bigImg.style.top=-imgTop+'px';
+    })
+
+</script>
+</html>

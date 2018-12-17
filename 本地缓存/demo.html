@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a {
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body>
+<button>删除</button>
+<a href="demo2.html">去demo2页面</a>
+</body>
+<script>
+    var btn=document.querySelector('button')
+    var data=[{msg:'aaa',age:'22'}]
+    // Cookie.sessionStorage和localstorage的区别
+
+
+    // 大小
+    // cookie 有大小限制 一般为4kb
+    // sessionStorage和localstorage 没有大小限制（一般为5M）
+
+    // 存储时长
+    // sessionStorage 关闭浏览器 数据消失
+    // localstorage和cookie 只要用户不手动删除 就会一直存在
+
+    // 作用域
+    // sessionStorage 数据不共享 单页面有效
+    // localstorage和cookie 可以数据共享 同源页面都有效
+
+    // 设置本地缓存 setItem()
+    // localstorage.setItem('自定义命名（key）',JSON.stringify(要保存的数据（value）))
+    // 通过JSON.stringify()把数据转换为字符串，localStorage只能识别字符串
+    sessionStorage.setItem('hello',JSON.stringify(data))
+
+    // 获取本地缓存getItem('自定义的名字key')
+    console.log(sessionStorage.getItem('hello'));
+    // removeItem('自定义的名字')删除本地缓存
+
+    // 可以通过localStorage实现跨页面通信
+btn.addEventListener('click',function () {
+    sessionStorage.removeItem('hello');
+    alert('删除成功')
+})
+    // window.onload = function (e) {
+    //     window.addEventListener('storage',function (e) {
+    //         congsole.log(e)
+    //     },true)
+    // }
+
+</script>
+
+</html>

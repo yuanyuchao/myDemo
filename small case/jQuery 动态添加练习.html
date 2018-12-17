@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .top>span {
+            float: right;
+        }
+        .box {
+            margin: 100px auto;
+            width: 700px;
+            text-align: center;
+            /*border :1px solid black;*/
+            }
+
+        .clear {
+            clear: both;
+        }
+        .bottom>ul>li {
+            width: 140px;
+            float: left;
+            margin: 20px 0px;
+            font-size: 13px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <span>更多...</span>
+    </div>
+    <div class="clear"></div>
+    <div class="bottom">
+        <ul>
+
+        </ul>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+    var data = [
+        {
+            src: 'img/t1.jpg',
+            text: 'html5从入门到精通'
+        },{
+            src: 'img/t2.jpg',
+            text: 'jquery开发从入门到...'
+        },{
+            src: 'img/t3.jpg',
+            text: 'java教程'
+        },{
+            src: 'img/t4.jpg',
+            text: 'bootstrap用户手册'
+        },{
+            src: 'img/t5.jpg',
+            text: 'javascript经典实例'
+        },{
+            src: 'img/t6.jpg',
+            text: 'jquery参考手册'
+        },{
+            src: 'img/t7.jpg',
+            text: 'javascript高级程序...'
+        },{
+            src: 'img/t8.jpg',
+            text: 'jquery用户界面库学...'
+        },{
+            src: 'img/t9.jpg',
+            text: '精通javascript+jqu...'
+        },{
+            src: 'img/t10.jpg',
+            text: 'jquery权威指南'
+        },{
+            src: 'img/t11.jpg',
+            text: 'jquery实战'
+        },{
+            src: 'img/t12.jpg',
+            text: 'jquery即学即用'
+        },{
+            src: 'img/t13.jpg',
+            text: '深入浅出jquery'
+        },{
+            src: 'img/t14.jpg',
+            text: 'jquery开发技术详解'
+        },{
+            src: 'img/t15.jpg',
+            text: 'jquery高级编程'
+        }
+    ]
+    var str='';
+    for(i=0;i<data.length;i++){
+        str+='<li>';
+        str+='<img src="'+data[i].src+'">';
+        str+='<p><a>'+data[i].text+'</a></p>';
+        str+='</li>'
+    }
+    $('ul').html(str);
+    $('span').on('click',function(){
+        $('li:gt(4)').toggleClass('hide');
+    })
+</script>
+</html>

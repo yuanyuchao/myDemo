@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿QQ音乐播放器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        body {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            background: url("img/111.jpg") no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            width: 70%;
+            margin: 0px auto;
+        }
+
+        .left {
+            width: 400px;
+            height: 600px;
+            float: left;
+        }
+
+        .left-top {
+            margin: 100px auto;
+            width: 300px;
+            height: 300px;
+            background: url('img/2.png') no-repeat;
+            border-radius: 50%;
+            border: 5px solid grey;
+        }
+
+        .left-bottom {
+            width: 400px;
+            height: 100px;
+        }
+
+        .a {
+            text-align: right;
+            margin-bottom: 15px;
+        }
+
+        .line {
+            width: 400px;
+            height: 5px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .color-line {
+            width: 150px;
+            height: 5px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .right {
+            width: 400px;
+            height: 600px;
+            float: left;
+            margin-left: 100px;
+        }
+
+        .right-top {
+            margin-top: 100px;
+            width: 400px;
+            height: 70px;
+        }
+
+        .right-top h2 {
+            color: white;
+        }
+
+        .right-top p {
+            float: left;
+            color: white;
+            margin-right: 30px;
+        }
+
+        .right span {
+            color: #cccccc;
+        }
+
+        .right-bottom {
+            width: 400px;
+            height: 400px;
+            line-height: 35px;
+        }
+
+        .control {
+            text-align: center;
+            color: #282828;
+        }
+
+        .control span:nth-of-type(1), .control span:nth-of-type(3) {
+            width: 0;
+            height: 60px;
+            font-size: 60px;
+            margin: 0 50px;
+            cursor: pointer;
+        }
+
+        .control span:nth-of-type(2) {
+            font-size: 45px;
+            cursor: pointer;
+        }
+
+        .color {
+            color: white;
+        }
+
+        .dian {
+            width: 15px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <!--audio便签必须有 决定音乐能否播放-->
+    <audio></audio>
+    <div class="container">
+        <div class="left">
+            <div class="left-top">
+
+            </div>
+            <div class="left-bottom">
+                <div class="a"><span>01:18/04:35</span></div>
+                <div class="line">
+                    <div class="color-line">
+
+                    </div>
+                    <div class="dian"></div>
+                </div>
+
+                <div class="control">
+
+                    <span class="prev">◀</span>
+                    <span class="play">‖</span>
+                    <span class="next">▶</span>
+                    <!--♪♫♬-->
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <h2></h2>
+
+
+            </div>
+            <div class="right-bottom">
+                <p>徘徊着的 在路上的</p>
+                <p>你要走吗</p>
+                <p>易碎的 骄傲着</p>
+                <p class="color">那也曾是我的模样</p>
+                <p>沸腾着的 不安着的</p>
+                <p>你要去哪</p>
+                <p>谜一样的 沉默着的</p>
+                <p>故事你真的在听吗</p>
+                <p>我曾经跨过山和大海 也穿过人山人海</p>
+                <p>我曾经拥有着一切 转眼都飘散如烟</p>
+                <p>.....</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    //音乐播放器
+    //动态加载功能
+    var data = [
+        {
+            url: 'http://dl.stream.qqmusic.qq.com/C400000T1Ws32MWrUj.m4a?vkey=874305996C6EED08B2779699602CAB9C259EB921DB6FCA0CB7ED9A85877ED7C02F2B79F24D106B4B134073B12D250B2E2D29322E3FF7A8E4&guid=4420355260&uin=0&fromtag=66',
+            singer: '朴树',
+            song: ' 平凡之路',
+            pic: 'https://y.gtimg.cn/music/photo_new/T002R300x300M000002aRnZM0garaC.jpg?max_age=2592000',
+        }, {
+            url: 'http://dl.stream.qqmusic.qq.com/C400002OKIox28ad9a.m4a?vkey=3CDF09C82AD213D5C48C9082ABDEBFA95343B2C2DDCC59B01A26D0884F6449C369D4958235CBFE68BD65B3AE61DD649135E483727E888A23&guid=4420355260&uin=0&fromtag=66',
+            singer: '周杰伦',
+            song: ' 半岛铁盒',
+            pic: 'https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg?max_age=2592000',
+        }, {
+            url: 'http://dl.stream.qqmusic.qq.com/C400003nEQHr3Ceet5.m4a?vkey=B3C3030827DE4EC7A944A943052D460CD0AB0C4F225CD78860CFBF3C9CBF3B4E917BF11DCC515A382EA88F921935D8C1ABE469E96A578247&guid=4420355260&uin=0&fromtag=66',
+            singer: '周杰伦',
+            song: '园游会',
+            pic: 'https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg?max_age=2592000'
+        }
+    ];
+    var pic = document.querySelector('.left-top');
+    var des = document.querySelector('.right-top h2');
+    var audio = document.querySelector('audio');
+    var play = document.querySelector('.play');
+    var prev = document.querySelector('.prev');
+    var next = document.querySelector('.next');
+    var playTime = document.querySelector('.a span');
+
+    //控制当前播放到第几首
+    var index=0;
+    function init() {
+        pic.style.background = 'url("'+data[index].pic+'")';
+        des.innerHTML = data[index].song + '---' + data[index].singer;
+        // 想要播放音乐 首先要给audio绑定一首歌曲
+        audio.src = data[index].url;
+    }
+    init();
+    //控制专辑图片的旋转角度
+    var deg=0;
+     var timer=null
+    //  播放音乐函数
+    function playMusic(){
+        audio.play();
+        clearInterval(timer);
+        timer=setInterval(function () {
+            deg++;
+            pic.style.transform='rotate('+deg+'deg)'
+        },50)
+    }
+  //暂停音乐函数
+    function pauseMusic() {
+        audio.pause()
+        clearInterval(timer);
+    }
+
+    play.addEventListener('click', function () {
+        //首先需要检测当前音乐是不是播放状态 audio.paused 如果是暂停就为ture
+        if (audio.paused) {
+            playMusic();
+        } else {
+            pauseMusic()
+        }
+    })
+    // 上一曲
+    prev.addEventListener('click', function () {
+       index--;
+       deg=0;
+       index=index<0?data.length-1:index;
+       init();
+       playMusic();
+    })
+    //下一曲
+    next.addEventListener('click', function () {
+        index++;
+        deg=0;
+        index=index>data.length-1?0:index;
+        init();
+        playMusic()
+    })
+
+
+//当音乐准备完成可以进行播放 会触发canplay（）事件
+    //要想获取音乐总时长和当前 必须等到音乐准备完成后才能获取到
+    audio.addEventListener('canplay',function () {
+
+        //获取播放总时长
+        var m=Math.floor(audio.duration/60);
+        var s=Math.floor(audio.duration%60);
+        function filterTime(m) {
+            return m<10?'0'+m:m;
+        }
+
+        var sumTime=filterTime(m)+':'+filterTime(s);
+       playTime.innerHTML='00:00/'+sumTime;
+//currentTime 当前播放播放事件
+//       timeupdate 当音乐时间一旦发生改变 触发这个事件
+        audio.addEventListener('timeupdate',function () {
+            var mm=Math.floor(audio.currentTime/60);
+            var ss=Math.floor(audio.currentTime%60);
+            var nowTime=filterTime(mm)+':'+filterTime(ss)
+            playTime.innerHTML=nowTime+'/'+sumTime;
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue路由</title>
+    <style>
+        /*路由被选中时的样式*/
+        .active {
+            color: red;
+            font-size: 30px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script src="vue.js"></script>
+ <!--1.引入vue-router插件-->
+<script src="vue-router.js"></script>
+<script>
+//$route 路由信息对象，只读对象。是属性。
+//$router 路由操作对象，只写对象。是方法。
+//router-link标签就相当于a标签，
+//router-view就是要跳转的锚链接要显示的地方，router-view的内容由路由定义的template提供。
+
+    var login = {
+        created:function () {
+            // console.log(this.$route.query);//获取参数的方法
+        },
+        //1.router-view中包含router-view
+        //路由规则中包含子路由
+        template:`<div><h1>我是登录页面页面的内容，下面是子路由的内容</h1>
+<router-link :to="{name:'man'}"  active-class='active' tag="button"> click man</router-link>
+ <router-link :to="{name:'woman'}">click woman</router-link>
+<router-view></router-view>
+</div>`
+    };
+    var register = {
+        created:function () {
+            console.log(this.$route.params);//获取参数的方法
+        },
+        template:`<div><h1>我是注册页面</h1>
+</div>`
+    }
+    var man = {
+        template:`<div><h1>it is man</h1>
+<router-view></router-view></div>   `,
+    };
+    var woman = {
+        template:`<div><h1>it is woman</h1>
+<router-view></router-view></div>`,
+    }
+   // 2.安装插件
+   Vue.use(VueRouter);//此步骤可省略
+   //  3.创建路由对象
+   var router = new VueRouter({
+       //  4.配置路由对象
+       routes:[
+           {
+               path: '/',  // 默认进入路由
+               redirect: '/login'   //重定向
+           },
+           {
+               path: '*',   // 错误路由
+               redirect: '/login'   //重定向
+           },
+           {
+           //  路由对象有了名称，就等于有了 变量名，那么routre-link只需
+           // 说明这个变量名就可以了
+           name:'login',
+           path:'/login',
+           component:login,
+           children:[
+               {
+                   name:'man',//要注意，以 / 开头的嵌套路径会被当作根路径。 这让你充分的使用嵌套组件而无须设置嵌套的路径。
+                   path:'man',
+                   component:man,
+               },{
+                   name:'woman',
+                   path:'woman',
+                   component:woman,
+               }
+           ],
+       },{
+           name:'register',
+           path:'/register/:name',
+           component:register,
+       }],
+   })
+
+   var App = {
+       // 路由传参的两种方式
+       //1.query:直接在对象里写key：value；对应的是Url?后面key=value;
+       //2.params:对象里也是键值，不同的是需要在路由的path后加上：key，说明参数要放的位置。
+       template:`<div>
+<router-link :to="{name:'login', query:{id:1}}">去登录</router-link>
+<router-link :to="{name:'register',params:{name:'abc'}}">去注册</router-link>
+<router-view></router-view>
+</div>`
+   }
+    //5.讲配置好的路由对象关联到Vue实例中
+    let vm = new Vue({
+        el:'#app',
+        router:router, //没有这一步提示matched of undefined
+        components:{
+            app:App,
+        },
+        template:`<app/>`,
+        // created:function () {
+        //     this.$router.push({name:'man'});//编程导航
+        //     // this.$router.go(-1)//前进或后退
+        // }
+    });
+    router.beforeEach((to, from, next) => {
+        if(to.name=='login'){
+            alert('请先登录');
+            router.push({ name: 'register' });
+        }
+        console.log(to);
+        console.log(from);
+        console.log(next);
+        next();
+    })
+
+
+</script>
+</html>

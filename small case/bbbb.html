@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $('div').on('mouseenter',function(e) {
+        var w = $(this).width(); // 得到盒子宽度
+        var h = $(this).height();// 得到盒子高度
+        var x = (e.pageX - this.offsetLeft - (w / 2)) * (w > h ? (h / w) : 1);
+        // 获取x值
+        var y = (e.pageY - this.offsetTop - (h / 2)) * (h > w ? (w / h) : 1);
+        // 获取y值
+
+        // direction的值为“0,1,2,3”分别对应着“上，右，下，左”
+        var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+
+    });
+</script>
+</html>

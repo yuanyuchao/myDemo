@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuex计算器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 30px;
+        }
+        ul {
+            list-style: none;
+        }
+        #app {
+            width: 420px;
+            height: 600px;
+            margin: 100px auto;
+            overflow: auto;
+        }
+        .result  {
+            text-align: right;
+        }
+        .enter {
+            text-align: right;
+        }
+        .list>div:nth-of-type(1){
+            color: orangered;
+        }
+        .list>div:nth-of-type(16) {
+            background-color:orangered ;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="result" style="font-size: 60px;margin-right: 10px;height: 70px;">{{result}}</div>
+    <div class="enter" style="font-size: 40px;margin-right: 10px">{{enter===''?0:enter}}</div>
+    <div class="keys">
+        <div class="list">
+            <!--键盘区域-->
+            <keyboard
+                    v-for="item in keys"
+                    :value="item" style="width: 100px;height: 100px;line-height: 100px; text-align: center;float: left;border: 1px solid #dddddd" >
+            </keyboard>
+        </div>
+    </div>
+</div>
+</body>
+<script src="vue.js"></script>
+<script src="vuex.js"></script>
+<script>
+
+    // vuex其实就是用一个全局的变量保存了Vue项目中的所有的公共数据，类似与在前端这块放了一个数据库，
+    // 大家都可以在这里存数据，删数据，改数据，读数据，是不是有点熟悉：增，删，改，查；
+    // 不过这个全局的变量给他定义了一个固定的名字就叫：store（仓库），
+    // 是不是很形象，而这个仓库里面装数据的袋子就是state，
+    // 加工数据的机器就叫做：mutations，
+    // 操作机器的工人就叫做：actions，
+    // 把数据装起来取走的卡车就叫做：getters;
+    // 所以一个简单的vuex就是：
+    // new vuex.store({
+    //     state,
+    //     mutations,
+    //     actions,
+    //     getters
+    // })
+
+
+    // state (类似存储全局变量的数据)
+    // getters (提供用来获取state数据的方法)
+    // actions (提供跟后台接口打交道的方法，并调用mutations提供的方法)
+    // mutations (提供存储设置state数据的方法)
+
+
+    //创建仓库store
+    const store = new Vuex.Store({
+        state:{
+            result:"",//运算结果
+            enter:""  //输入的值
+        },
+        //定义名为calculate的mutation
+        mutations:{//更改Vuex的store中的状态的唯一方法就是mutations.
+            calculate(state,value){
+                if(value === '='){
+
+                    //按键的值为=，进行结果计算
+                    state.result = eval(state.enter);
+                    state.enter += value;
+
+                }else if(value === 'clear'){
+
+                    //按键的值为clear，清空数据
+                    state.result = state.enter = "";
+
+                }else{
+
+                    //输入结果enter进行拼接
+                    state.enter += value;
+
+                }
+            }
+        }
+    });
+    //自定义组件
+    Vue.component('keyboard',{
+        //接受的参数value，代表键盘的值
+        props:['value'],
+        //模板
+        template:`<div
+@click="getKeyboardValue"
+               :data-abc="value" >
+                {{value}}
+             </div>`,
+        methods:{
+            //点击事件处理函数
+            getKeyboardValue(event){
+                //获取当前的按键的值
+                let value=event.target.dataset.abc;
+                console.log(event.target);
+                console.log(event.target.dataset);
+                //通过commit提交mutation
+                this.$store.commit('calculate',value);
+            }
+        },
+    });
+    new Vue({
+        el:`#app`,
+        //ES6语法，相当于"store":store
+        // Vuex 通过 store 选项，提供了一种机制将状态从根组件『注入』到每一个子组件
+        // 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所 有的子组件
+        store,
+        data(){
+            return{
+                keys:[
+                    'clear', '+', '-', '*',
+                    '7', '8', '9', '/',
+                    '4', '5', '6', '0',
+                    '1', '2', '3', '=',]
+            }
+        },
+
+        //增加计算属性
+        // Vuex的状态获取是一个方法，当Vuex状态更新时，相应的Vue组件也要更新，所以Vue应该在计算属性（computed）获取state；
+        computed:{
+            result(){
+                //通过this.$store获取仓库的数据result
+                return this.$store.state.result;
+            },
+            enter(){
+                //通过this.$store获取仓库的数据result
+                return this.$store.state.enter;
+            },
+
+        },
+    })
+</script>
+</html>
