@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate demo</title>
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            margin: 300px auto;
+        }
+        span {
+            /*transition: All 4s;*/
+            display: inline-block;
+            width: 200px;
+            height: 50px;
+        }
+        /*span:hover {*/
+            /*transform: rotateY(360deg);*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div class="div">
+    <button>减</button>
+    <span>1</span>
+    <button>加</button>
+</div>
+
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    $('button:nth-of-type(1)').on('click',function () {
+        $('span').css('transform','rotateY(360deg)');
+        $('span').css('transition','All 4s');
+        $('span').text(parseInt($('span').text())-1);
+    })
+    $('button:nth-of-type(2)').on('click',function () {
+        $('span').text(parseInt($('span').text())+1);
+    })
+</script>
+</html>
