@@ -8,16 +8,9 @@
 
 </body>
 <script>
-    //外层for循环执行一次，内层for循环执行五次。
-    for(var i=0;i<3;i++){
-        for(var j=0;j<5;j++){
-            document.write(j);
-        };
-        document.write('<br/>');
-    }
     //99乘法口诀表,i控制行数，j控制列数。
     document.write('<table border="1">');
-    for (var i = 9;i>=1;i--){
+    for (var i=1;i<=9;i++){
         document.write('</tr>');
         for(var j=1;j<=i;j++){
             document.write('<td>'+i+'x'+ j +'='+(i*j)+'</td>')
@@ -36,5 +29,39 @@
         }
     }
     document.write(sum);
+
+    //for循环表格
+    document.write('<table border="1">');
+    for(var i=0;i<5;i++){
+        document.write('<tr>');
+        for (var j=0;j<5;j++){
+            document.write('<td>'+j+'</td>')
+        }
+        document.write('</tr>');
+    }
+    document.write('</table>');
+
+    //公鸡5元每只，母鸡3元每只，小鸡1元3只，100元可以买100只鸡。
+    for(var i=0;i<=20;i++){
+        for (var j=0;j<=33;j++){
+            for(var z=0;z<=100;z++){
+                // console.log(1);//运行72114次。101*34*21
+                if(i+j+z==100&&5*i+3*j+z/3==100){
+                    document.write('公鸡：'+i+'母鸡：'+j+'小鸡：'+z+'<br/>')
+                }
+            }
+        }
+    }
+
+    document.write('<hr/ color="red">')
+    for(var i=0;i<=20;i++){
+        for(var j=0;j<=33;j++){
+            console.log(1)//运行714次；21*34，性能更好。
+            z=100-i-j;
+            if(z%3==0&&5*i+3*j+z/3==100){
+                document.write('公鸡：'+i+'母鸡：'+j+'小鸡：'+z+'<br/>')
+            }
+        }
+    }
 </script>
 </html>
