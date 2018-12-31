@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.defineProperty</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        x:1,
+        y:2
+    }
+    //Object.defineProperty
+    // 第一个参数为要修改的对象名称
+    // 第二个参数为要修改的属相名称
+    // 第三个参数为要修改成什么样子，包括是否可写，是否可枚举，是否可配置，默认都为false。
+    // (只针对新添加的属性，对象原有的属性writable，enumerable，configurable默认都为true)
+    Object.defineProperty(obj,'z',{
+        value:666,//该属性对应的值，默认为undefined
+        writable:true,//是否可写。默认值为false。
+        enumerable:true,//是否可枚举，默认为false。
+        configurable:true,//writable和enumerable是否可配置，是否可删除，默认为false.
+    })
+    obj.z = 222;
+    console.log(obj.z);
+    for(p in obj){
+        console.log(p);
+    }
+</script>
+</html>

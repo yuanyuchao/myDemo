@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象原型</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 原型链的顶层就是Object.prototype，而这个对象的是没有原型对象的。
+    // 首先明确： 函数（Function）才有prototype属性，对象（除Object）拥有__proto__。
+    var a = {};
+    console.log(a.prototype);  //undefined
+    console.log(a.__proto__);  //Object {}
+
+    var b = function(){}
+    console.log(b.prototype);  //b {}
+    console.log(b.__proto__);  //function() {}
+    //enumerable 枚举：可遍历
+    function Foo() {};
+    var obj = new Foo();
+    Foo.prototype.z=6;
+
+    var obj = {
+        name:'yyc',
+        age:28,
+        sex:'man'
+    };
+    for( p in obj){
+        console.log(p+':'+obj[p]);
+    };
+    console.log('name' in obj);//对象是否拥有某属性，包括从原型上继承下来的属性。
+    console.log('toString' in obj);//对象是否拥有某属性，包括从原型上继承下来的属性。
+    console.log(obj.hasOwnProperty('name'));//对象自身是否拥有某属性。
+    console.log(obj.propertyIsEnumerable('z'));//对象自身是否拥有某属性并可枚举。
+    console.log(obj.hasOwnProperty('z'));
+    console.log(obj.hasOwnProperty('toString'));
+    console.log(obj);
+</script>
+</html>

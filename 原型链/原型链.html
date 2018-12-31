@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //属性搜索原则
+    // 1.所谓的属性搜索原则, 就是对象在访问属性与方法的时候, 首先在当前对象中查找
+    // 2.如果当前对象中存储在属性或方法, 停止查找, 直接使用该属性与方法
+    // 3.如果对象没有改成员, 那么再其原型对象中查找
+    // 4.如果原型对象含有该成员, 那么停止查找, 直接使用
+    // 5.如果原型还没有, 就到原型的原型中查找
+    // 6.如此往复, 直到直到 Object.prototype 还没有, 那么就返回 undefind.
+    // 7.如果是调用方法就报错, 该 xxxx 不是一个函数
+    var A = function () {
+        
+    };
+    var a = new A();
+    console.log(a.__proto__); //A {}（即构造器function A 的原型对象）
+    console.log(a.__proto__.__proto__); //Object {}（即构造器function Object 的原型对象）
+    console.log(a.__proto__.__proto__.__proto__); //null
+</script>
+</html>
