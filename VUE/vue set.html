@@ -1,36 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<head lang="en">
     <meta charset="UTF-8">
-    <title>vue set</title>
+    <title></title>
 </head>
 <body>
-<div id="app">
-    <ul>
-        <li v-for="item in arr">{{item}}</li>
-    </ul>
+<div id="app2">
+    <p v-for="item in items" :key="item.id">
+        {{item.message}}
+    </p>
+    <button class="btn" @click="btn2Click()">动态赋值</button><br/><br/>
+    <button class="btn" @click="btn3Click()">为data新增属性</button>
 </div>
-</body>
+
 <script src="vue.js"></script>
 <script>
-  const vm = new Vue({
-        el:'#app',
+    var vm2=new Vue({
+        el:"#app2",
         data:{
-            arr:[111,2,3,4]
+            items:[
+                {message:"Test one",id:"0"},
+                {message:"Test two",id:"1"},
+                {message:"Test three",id:"2"}
+            ]
         },
-        // created(){
-        //   this.mySet();
-        // },
         methods:{
-           mySet(){
-               this.arr[0] = 0;
-               console.log(this.arr);
-           }
+            btn2Click:function(){
+                //Vue methods中的this 指向的是Vue的实例，这里可以直接在this中找到items
+                Vue.set(this.items,0,{message:"Change Test",id:Math.random()})
+            },
+            btn3Click:function(){
+                var itemLen=this.items.length;
+                Vue.set(this.items,itemLen,{message:"Test add attr",id:itemLen});
+            }
         }
-
     });
-  vm.arr[0] = 666;//这样写不会触发视图更新，虽然数据已经更新了。
-  console.log(vm.arr);
-  // Vue.set(vm.arr,2,8888)//vue提供的set方法，可以解决这个bug。
+
 </script>
+</body>
 </html>
