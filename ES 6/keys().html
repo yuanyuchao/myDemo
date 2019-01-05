@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //Obejct.keys(obj),返回一个数组,包括对象自身的(不含继承的)所有可枚举属性(不含Symbol属性).
+    let arr = ['hello','world','fight'];
+    console.log(Object.keys(arr));;
+    let obj = {
+        a:'nihao',
+        b:'hello',
+        c:'world',
+    }
+    console.log(Object.keys(obj));//遍历对象的键到一个数组里
+    let str = 'hello world';
+    console.log(Object.keys(str));
+</script>
+</html>
