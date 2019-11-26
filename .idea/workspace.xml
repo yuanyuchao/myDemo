@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d66275c-a9f0-4d8e-9888-e2600769d2aa" name="!changes.default.changelist.name!" comment="...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLove/renjunjun.html" beforeDir="false" afterPath="$PROJECT_DIR$/myLove/renjunjun.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -607,7 +606,7 @@
       <workItem from="1574646834213" duration="3781000" />
       <workItem from="1574651373417" duration="8722000" />
       <workItem from="1574727729250" duration="357000" />
-      <workItem from="1574728180538" duration="7059000" />
+      <workItem from="1574728180538" duration="7366000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.tet">
       <created>1574650935243</created>
@@ -644,7 +643,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574745104683</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="...">
+      <created>1574745776442</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1574745776442</updated>
+    </task>
+    <task id="LOCAL-00007" summary="...">
+      <created>1574745915171</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1574745915171</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
