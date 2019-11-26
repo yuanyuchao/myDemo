@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d66275c-a9f0-4d8e-9888-e2600769d2aa" name="!changes.default.changelist.name!" comment="add rjj">
-      <change afterPath="$PROJECT_DIR$/Element/4ae8a58137eadf8895d8983efff0712.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Element/58021945b7548a94bb0601b3871ab8a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Element/a42f9b6a8b7ecce467f5b859c42b369.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Element/aa2a190541c9da300ed295127bfbdcf.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Element/d5b8ae705c5b8be481df9522267e307.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Element/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9d66275c-a9f0-4d8e-9888-e2600769d2aa" name="!changes.default.changelist.name!" comment="..." />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -610,7 +602,7 @@
       <workItem from="1574646834213" duration="3781000" />
       <workItem from="1574651373417" duration="8722000" />
       <workItem from="1574727729250" duration="357000" />
-      <workItem from="1574728180538" duration="5191000" />
+      <workItem from="1574728180538" duration="5524000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.tet">
       <created>1574650935243</created>
@@ -626,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574673606715</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="...">
+      <created>1574744000966</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574744000966</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +655,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add readme.tet" />
     <MESSAGE value="add rjj" />
-    <option name="LAST_COMMIT_MESSAGE" value="add rjj" />
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
