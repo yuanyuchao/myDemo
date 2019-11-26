@@ -62,14 +62,32 @@
         <li><img src="4ae8a58137eadf8895d8983efff0712.jpg" alt=""></li>
         <li><img src="58021945b7548a94bb0601b3871ab8a.jpg" alt=""></li>
         <li><img src="d5b8ae705c5b8be481df9522267e307.jpg" alt=""></li>
+        <li><img src="6.jpg" alt=""></li>
+        <li><img src="7.jpg" alt=""></li>
+        <li><img src="8.jpg" alt=""></li>
+        <li><img src="9.jpg" alt=""></li>
+        <li><img src="10.jpg" alt=""></li>
+        <li><img src="11.jpg" alt=""></li>
+        <li><img src="12.jpg" alt=""></li>
+        <li><img src="13.jpg" alt=""></li>
+        <li><img src="14.jpg" alt=""></li>
     </ul>
-    <ol>
-        <li class="active">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-    </ol>
+<!--    <ol>-->
+<!--        <li class="active">1</li>-->
+<!--        <li>2</li>-->
+<!--        <li>3</li>-->
+<!--        <li>4</li>-->
+<!--        <li>5</li>-->
+<!--        <li>6</li>-->
+<!--        <li>7</li>-->
+<!--        <li>8</li>-->
+<!--        <li>9</li>-->
+<!--        <li>10</li>-->
+<!--        <li>11</li>-->
+<!--        <li>12</li>-->
+<!--        <li>13</li>-->
+<!--        <li>14</li>-->
+<!--    </ol>-->
 </div>
 
 </body>
@@ -82,7 +100,7 @@
         var index = 0;
         setInterval(function () {
             index++;
-            index = index > 4 ? 0 : index;
+            index = index > 13 ? 0 : index;
             $('ul>li').eq(index).fadeIn().siblings().fadeOut();
             $('ol>li').eq(index).addClass('active').siblings().removeClass('active');
         }, 2000);

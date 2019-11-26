@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d66275c-a9f0-4d8e-9888-e2600769d2aa" name="!changes.default.changelist.name!" comment="..." />
+    <list default="true" id="9d66275c-a9f0-4d8e-9888-e2600769d2aa" name="!changes.default.changelist.name!" comment="...">
+      <change afterPath="$PROJECT_DIR$/myLove/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myLove/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myLove/12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myLove/13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myLove/14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myLove/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myLove/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myLove/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myLove/9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLove/renjunjun.html" beforeDir="false" afterPath="$PROJECT_DIR$/myLove/renjunjun.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +191,9 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="添加" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="FullScreen" value="false" />
@@ -188,7 +202,7 @@
     <property name="SearchEverywhereHistoryKey" value="la&#9;FILE&#9;file://D:/test/layui/layui/layui.js&#10;1227&#9;FILE&#9;file://F:/项目/1227" />
     <property name="ToolWindowFavorites.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Element" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myLove" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -205,8 +219,8 @@
       <recent name="F:\项目\vue 组件二" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\myDemo\Element" />
       <recent name="C:\Users\Administrator\Desktop\myDemo\myLove" />
+      <recent name="C:\Users\Administrator\Desktop\myDemo\Element" />
       <recent name="D:\test\懒加载" />
       <recent name="D:\test\懒加载\layui-v2.3.0-rc1" />
       <recent name="D:\test\layui" />
@@ -602,7 +616,7 @@
       <workItem from="1574646834213" duration="3781000" />
       <workItem from="1574651373417" duration="8722000" />
       <workItem from="1574727729250" duration="357000" />
-      <workItem from="1574728180538" duration="5524000" />
+      <workItem from="1574728180538" duration="6302000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.tet">
       <created>1574650935243</created>
@@ -625,7 +639,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574744000966</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="...">
+      <created>1574744273310</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574744273310</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
