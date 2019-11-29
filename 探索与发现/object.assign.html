@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Object.assign(target,sources)用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+        // 合并具有相同属性的对象
+        let obj1 = {
+        name:"yuanyuchao",
+        sex:"man",
+        age:29
+    };
+    let obj2 = {
+        aaa:"hello",
+        bbb:"world",
+        age:18,
+        name:"yyc",
+        sex:"waman"
+    };
+    let newObj = Object.assign(obj1,obj2);
+    console.log(obj1);
+    console.log(newObj);
+
+
+
+
+    </script>
+    
+</body>
+</html>
