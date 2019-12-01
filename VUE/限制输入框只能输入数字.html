@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>限制输入框只能输入汉字</title>
+    <title>限制输入框只能输入数字</title>
 </head>
+
 <body>
-<div id="app">
-    <input type="text" @input="handleInput" :val="val" @blur="warn">
-</div>
+    <div id="app">
+    
+        <input type="text"  v-model="_msg">
+    </div>
 </body>
 <script src="vue.js"></script>
 <script>
     const vm = new Vue({
-        el:'#app',
-        data:{
-          val:'',
+        el: '#app',
+        data: {
+            msg: '',
         },
-        methods:{
-            handleInput(e){
-                this.val=e.target.value.replace(/[^\d]/g,'');
-            },
-            warn(){
-                if(this.val.length==0){
-                    alert('请输入有效价格')
+        computed: {
+            _msg: {
+                set: function (value) {
+                    this.msg = value;
+                },
+                get: function () {
+                    return this.msg.replace(/[^0-9]+/g, '')
                 }
             }
         },
+    
     })
 </script>
+
 </html>

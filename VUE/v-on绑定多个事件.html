@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box {
+        width: 545px;
+        height: 500px;
+        background-color:purple;
+    }
+    </style>
+</head>
+<body>
+    <div class="box" @click="clickEvent(),fnc(),fnn()"></div>
+    <!-- 给一个事件绑定多个函数 -->
+    <!-- <div class="box" v-on="{click:clickEvent,dblclick:dblclickEvent}"></div> -->
+    <!-- 给一个元素绑定多个不同类型的事件 -->
+</body>
+<script src="vue.js"></script>
+    <script>    
+    const vm = new Vue({
+        el:".box",
+        data () {
+            return {
+                msg:'',
+            }
+        },
+        methods:{
+            clickEvent:function(){
+                console.log(1);
+            },
+            dblclickEvent:function(){
+                console.log(2);
+            },
+            fnc:function(){
+                console.log(3)
+            },
+            fnn:function(){
+                console.log(6);
+            }
+        }
+    })
+
+    
+    </script>
+</html>

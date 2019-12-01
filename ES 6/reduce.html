@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 求和或平均数
+    let arr = [100, 20, 33, 67, 10008, 4989];
+    let result = arr.reduce(function (total, item, index) {
+        alert(total + ',' + item + ',' + index);
+        if(index!=arr.length-1){
+            return total + item;
+        }else{
+            return (total + item)/arr.length;
+        }
+        
+    });
+    // 第一个参数是两两运算的结果；
+    // 第二个参数是当前循环的项
+    // 第三个参数是当前循环项的索引
+
+    alert(result);
+
+</script>
+
+</html>

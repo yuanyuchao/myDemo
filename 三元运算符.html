@@ -3,16 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>三元运算符</title>
+    <style> 
+    .oBtn {
+        background-color: pink;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+    }
+    .oUl {
+        background-color: purple;
+        width: 300px;
+        height: 300px;
+    }
+    
+    </style>
 </head>
 <body>
+<div class="oBtn">
+    click
+</div>
+<div class="oUl">
 
+</div>
 </body>
 <script>
+    var oBtn = document.querySelector('.oBtn');
+    var oUl = document.querySelector('.oUl');
 
-
-    oBth.onclick=function(){
+    oBtn.onclick=function(){
         var style = oUl.style.display;
-        oUl.style.display= style == "block" ? "none":"block"  //这样写的话就一定不能忘了把运算结果重新赋值给元素 - -
+        oUl.style.display = style == "block" ? "none":"block"  //这样写的话就一定不能忘了把运算结果重新赋值给元素 - -
         //oUl.style.display= (style == "block" ? "none":"block") 可读性更高
     }
     // 上面代码的意思是，如果style == "block" 成立的话就把none返回，不成立就返回block，
@@ -27,7 +48,7 @@
     // 我指的是尽量避免如上嵌套的 三元，因为在js 中 语句是从右到左，上面的代码等同于
     //
     // 代码如下:
-    alert(true ? 'true' : (false ? 't' : 'f'));
+    // alert(true ? 'true' : (false ? 't' : 'f'));
 
 
     // 三元运算比较容易出错的应该就是运算的优先级问题：
