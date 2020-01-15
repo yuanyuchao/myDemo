@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<button @click="handle">test</button>
+</div>
+</body>
+<script src="../VUE/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data(){
+            return{
+                arr : [
+                    {
+                        name: "yyc",
+                        age: 29,
+                        sex: "man",
+                        title: "hello world"
+                    },
+                    {
+                        name: "aaa",
+                        age: 29,
+                        sex: "man",
+                        title: "hello world"
+                    },
+                    {
+                        name: "bbb",
+                        age: 29,
+                        sex: "man",
+                        title: "hello world"
+                    },
+                    {
+                        name: "ccc",
+                        age: 29,
+                        sex: "man",
+                        title: "hello world"
+                    },
+                    {
+                        name: "ddd",
+                        age: 29,
+                        sex: "man",
+                        title: "hello world"
+                    },
+                    {
+                        name: "eee",
+                        age: 29,
+                        sex: "man",
+                        title: "hello world"
+                    },
+                    {
+                        name: "fff",
+                        age: 29,
+                        sex: "man",
+                        title: "hello world"
+                    },
+                    {
+                        name: "ggg",
+                        age: 29,
+                        sex: "man",
+                        title: "hello world"
+                    },
+                ],
+                obj :{},
+            }
+        },
+        methods:{
+            handle() {
+                this.arr.map(item =>{
+                    this.$set(this.obj,item.name,item)
+                });
+                console.log(this.obj);
+            }
+        }
+
+    });
+</script>
+</html>

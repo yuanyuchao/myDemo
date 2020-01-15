@@ -10,9 +10,11 @@
 </body>
 <script>
      var srr = [1,2,[1,2],4];
-     console.log( $.inArray(4,srr))
-     console.log(srr.splice(-1,1))
-    function deepClone(obj) {
+     console.log( $.inArray(4,srr))//isArray返回目标索引
+     console.log(srr.splice(-1,1));//返回值是包含被删除项目的新数组，如果有的话
+     console.log(srr);
+
+     function deepClone(obj) {
        var brr = JSON.stringify(obj);
       var  objClone = JSON.parse(brr);
         return objClone;

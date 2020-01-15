@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>原生 filter() find() every()</title>
+    <title></title>
 </head>
 <body>
 
 </body>
 <script>
     //参数是一个函数，返回值是一个数组，返回所有符合条件的项。
-    var age = [100,12,20,15,11,60,50,35];
+    var age = [12,20,15,11,60,50,35,100];
 // find() 方法返回通过测试（函数内判断）的数组的第一个元素的值。
 // find() 方法为数组中的每个元素都调用一次函数执行：
 // 当数组中的元素在测试条件时返回 true 时, find() 返回符合条件的元素，之后的值不会再调用执行函数。
@@ -20,7 +20,8 @@
     // 如果数组中检测到有一个元素不满足，则整个表达式返回 false ，且剩余的元素不会再进行检测。
     // 如果所有元素都满足条件，则返回 true。
     console.log(age.filter(age=>age>=20));
-    console.log(age.find(age=>age>=20));
+    console.log(age.find(age=>age>=18));
     console.log(age.every(age=>age<=100));
+    console.log(age.some(age=>age>=19));
 </script>
 </html>

@@ -12,10 +12,9 @@
 
     function parseQueryString(url) {
         var arr = url.split('?')[1].split('&');
-        console.log(arr);
         var obj={};
         for(var i=0;i<arr.length;i++){
-            obj[arr[i].split('=')[0]]=arr[i].split('=')[1];//对象赋值
+            obj[arr[i].split('=')[0]] = arr[i].split('=')[1];//对象赋值
         }
         return obj;
     }

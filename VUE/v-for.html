@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(value,key,index) in list">
+            <label >{{key}}</label> <input type="text" :value="value" :disabled="0 && !edit" >
+        </li>
+    </ul>
+    <p v-for="(value,key,index) in list">
+        key:{{key}}
+        value:{{value}}
+        index:{{index}}
+    </p>
+    <button>click</button>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data(){
+            return{
+                list: {
+                    '项目名称':'yyc',
+                    '创建时间':'2019-12-31',
+                    '到期时间':'2020-01-11',
+                    '项目描述':'随便写点什么',
+                },
+                edit:false,
+
+            }
+        },
+        methods:{
+            click(){
+
+            }
+        }
+    })
+</script>
+</html>

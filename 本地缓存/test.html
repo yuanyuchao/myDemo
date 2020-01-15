@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        name: 'yyc',
+        age: 29,
+        sex: 'man'
+    };
+    var arr = [
+        {
+            name: 'yyc',
+            age: 29,
+            sex: 'man'
+        },
+        {
+            name: 'zs',
+            age: 30,
+            sex: 'woman'
+        },
+        {
+            name: 'ls',
+            age: 28,
+            sex: 'woman'
+        },
+        {
+            name: 'egz',
+            age: 25,
+            sex: 'man'
+        }
+    ];
+
+    var crr = [
+        {
+            name: 'yyc',
+            age: 29,
+            sex: 'woman'
+        },
+        {
+            name: 'zs',
+            age: 30,
+            sex: 'woman'
+        },
+        {
+            name: 'ls',
+            age: 28,
+            sex: 'woman'
+        },
+        {
+            name: 'egz',
+            age: 25,
+            sex: 'man'
+        },
+        {
+            name: 'zzz',
+            age: 25,
+            sex: 'man'
+        }
+    ];
+
+
+    var sex;
+    localStorage.setItem('info',JSON.stringify(arr));
+    localStorage.setItem('info',JSON.stringify(crr));
+    console.log(JSON.parse(localStorage.getItem('info')));
+    var brr = JSON.parse(localStorage.getItem('info'));
+    brr.forEach(function (item,index) {
+        if(item.name=='yyc'){
+            sex = item.age;
+        }
+    });
+    console.log(sex);
+     sessionStorage.setItem('session','---------->');//sessionstorage在同一个标签页下面可以访问，不可以跨标签页获取。
+</script>
+</html>

@@ -7,30 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-
-        // Object.assign(target,sources)用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
-        // 合并具有相同属性的对象
-        let obj1 = {
-        name:"yuanyuchao",
-        sex:"man",
-        age:29
+<script>
+    //Object.assign(target,sources)用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+    // 合并具有相同属性的对象
+    let obj1 = {
+        name: "yuanyuchao",
+        sex: "man",
+        age: 29
     };
+    obj1.ss = "xxx";
+    // obj1.prototype.say = 'HI';
+    console.log(obj1.ss);
     let obj2 = {
-        aaa:"hello",
-        bbb:"world",
-        age:18,
-        name:"yyc",
-        sex:"waman"
+        aaa: "hello",
+        bbb: "world",
+        age: 18,
+        name: "yyc",
+        sex: "waman"
     };
-    let newObj = Object.assign(obj1,obj2);
+    let newObj = Object.assign(obj1, obj2);
     console.log(obj1);
     console.log(newObj);
 
 
+</script>
 
-
-    </script>
-    
 </body>
 </html>

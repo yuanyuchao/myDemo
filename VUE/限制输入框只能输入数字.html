@@ -6,7 +6,8 @@
 </head>
 <body>
 <div id="app">
-    <input type="text" @input="handleInput" :val="val" @blur="warn">
+    <input type="text" @input="handleInput" :val="val" @blur="warn" ref="value">
+    <button @click="copy">copy</button>
 </div>
 </body>
 <script src="vue.js"></script>
@@ -24,6 +25,12 @@
                 if(this.val.length==0){
                     alert('请输入有效价格')
                 }
+            },
+            // 复制文字到剪切板
+            copy(){
+                this.$refs.value.select();
+                console.log(this.$refs.value);
+                document.execCommand('copy');
             }
         },
     })

@@ -2,8 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d66275c-a9f0-4d8e-9888-e2600769d2aa" name="!changes.default.changelist.name!" comment="...">
-      <change afterPath="$PROJECT_DIR$/探索与发现/深拷贝.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TS/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VUE/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VUE/v-for.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/探索与发现/map.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/探索与发现/sessionStorage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/探索与发现/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/探索与发现/复制.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ES6，Array.includes().html" beforeDir="false" afterPath="$PROJECT_DIR$/ES6，Array.includes().html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VUE/vue set.html" beforeDir="false" afterPath="$PROJECT_DIR$/VUE/vue set.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VUE/限制输入框只能输入数字.html" beforeDir="false" afterPath="$PROJECT_DIR$/VUE/限制输入框只能输入数字.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue axios.html" beforeDir="false" afterPath="$PROJECT_DIR$/Vue axios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue组件生命周期.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js节点/微博评论功能.html" beforeDir="false" afterPath="$PROJECT_DIR$/js节点/微博评论功能.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmm.html" beforeDir="false" afterPath="$PROJECT_DIR$/本地缓存/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todoList/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeof和instanceof.html" beforeDir="false" afterPath="$PROJECT_DIR$/typeof和instanceof.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vueTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/动画 1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/原生 filter方法和find方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/filter、find、every、some.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/引用数据类型.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/探索与发现/object.assign.html" beforeDir="false" afterPath="$PROJECT_DIR$/探索与发现/object.assign.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/本地缓存/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/本地缓存/demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/本地缓存/demo2.html" beforeDir="false" afterPath="$PROJECT_DIR$/本地缓存/demo2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/深拷贝.html" beforeDir="false" afterPath="$PROJECT_DIR$/深拷贝.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/箭头函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/TS/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/面试题/把url解析成对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/面试题/把url参数解析成对象.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,50 +51,10 @@
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="TypeScript File" />
         <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>ul1</find>
-      <find>remen</find>
-      <find>sec</find>
-      <find>riyong</find>
-      <find>h3</find>
-      <find>chuxing</find>
-      <find>pro</find>
-      <find>syr</find>
-      <find>bran</find>
-      <find>aa</find>
-      <find>main</find>
-      <find>logo</find>
-      <find>thum</find>
-      <find>good</find>
-      <find>addr</find>
-      <find>tec</find>
-      <find>padd</find>
-      <find>4</find>
-      <find>.selector-brand li</find>
-      <find>brand-logo</find>
-      <find>tabAdd</find>
-      <find>get</find>
-      <find>getID</find>
-      <find>layui-icon</find>
-      <find>input</find>
-      <find>compelted</find>
-      <find>editing</find>
-      <find>循环</find>
-      <find>new Data</find>
-      <find>zhuan</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
-    <dirStrings>
-      <dir>F:\作业\四叶草详情页</dir>
-      <dir>F:\test</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -191,13 +178,17 @@
     <property name="SearchEverywhereHistoryKey" value="la&#9;FILE&#9;file://D:/test/layui/layui/layui.js&#10;1227&#9;FILE&#9;file://F:/项目/1227" />
     <property name="ToolWindowFavorites.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../saleTools" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="C:\WebStorm 2019.2.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -609,6 +600,31 @@
       <workItem from="1574835685523" duration="3004000" />
       <workItem from="1574901211841" duration="16000" />
       <workItem from="1574901546374" duration="18000" />
+      <workItem from="1575252021768" duration="1284000" />
+      <workItem from="1575263526274" duration="143000" />
+      <workItem from="1575440348871" duration="1274000" />
+      <workItem from="1575524964505" duration="5342000" />
+      <workItem from="1575607779312" duration="7730000" />
+      <workItem from="1575706952987" duration="2042000" />
+      <workItem from="1575851209482" duration="9000" />
+      <workItem from="1575855367857" duration="2093000" />
+      <workItem from="1576463852863" duration="3558000" />
+      <workItem from="1576719488853" duration="1844000" />
+      <workItem from="1576744694946" duration="868000" />
+      <workItem from="1577338329936" duration="10101000" />
+      <workItem from="1577350213129" duration="2211000" />
+      <workItem from="1577407641618" duration="1265000" />
+      <workItem from="1577688088750" duration="1423000" />
+      <workItem from="1578381737147" duration="7261000" />
+      <workItem from="1578473695259" duration="2550000" />
+      <workItem from="1578533321149" duration="9241000" />
+      <workItem from="1578616146763" duration="12000" />
+      <workItem from="1578617206737" duration="37000" />
+      <workItem from="1578617539914" duration="46000" />
+      <workItem from="1578617745903" duration="564000" />
+      <workItem from="1578622476747" duration="332000" />
+      <workItem from="1578882757338" duration="1081000" />
+      <workItem from="1578884936727" duration="8072000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.tet">
       <created>1574650935243</created>

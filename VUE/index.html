@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .complete {
+            text-decoration: line-through;
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p><input type="text" v-model="title" @keyup.enter="add" placeholder="请添加代办事项">
+        <button @click="add">添加</button>
+    </p>
+    <ul>
+        <li v-for="(todo,index) in todoList">
+            <div class="div" :class="{complete:todo.isSelected}">
+                <input type="checkbox" v-model="todo.isSelected">
+                <span>{{todo.title}}</span>
+                <button @click="deleteItem(todo)">删除</button>
+            </div>
+        </li>
+    </ul>
+    <p>您当前暂有{{count}}代办事项</p>
+    <p>已完成{{completed}}项</p>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                title: '',
+                todoList: [],
+                num: 0
+            }
+        },
+        computed: {
+            count() {
+                return this.todoList.filter(item => !item.isSelected).length;
+            },
+            completed() {
+                return this.todoList.filter(item => item.isSelected).length;
+            }
+        },
+        methods: {
+            add() {
+                if (this.title) {
+                    this.todoList.push({
+                        isSelected: false,
+                        title: this.title,
+                    });
+                } else {
+                    return;
+                }
+                this.title = '';
+            },
+            deleteItem(todo) {
+                this.todoList = this.todoList.filter(item => item != todo);
+            }
+
+        },
+        updated(){
+            localStorage.setItem('data',JSON.stringify(this.todoList));
+        },
+        created(){
+          if(localStorage.getItem('data')){
+              this.todoList = JSON.parse(localStorage.getItem('data'));
+          }
+        },
+    })
+</script>
+</html>

@@ -26,7 +26,6 @@
         },
         methods:{
             btn2Click:function(){
-                //Vue methods中的this 指向的是Vue的实例，这里可以直接在this中找到items
                 Vue.set(this.items,0,{message:"Change Test",id:Math.random()})
             },
             btn3Click:function(){
