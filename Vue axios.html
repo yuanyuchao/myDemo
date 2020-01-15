@@ -127,16 +127,16 @@
      },
      methods:{
          send:function () {
-             let that = this
+            //  let that = this
              axios.get('http://api.artgoer.cn:8084/artgoer/api/v1/user/324380/v3/topic/topicHomeByLabel',{
                  params:{
-                     pageIndex:1,
+                    //  pageIndex:1,
                      token:'b544cd63-6d42-46fe-a96c-3cf96bae3113',
                      topicId:62187,
                  }
-             }).then(function (res) {
+             }).then(res=> {
                      console.log(res);
-                         that.arr = res.data.data.commentList;
+                         this.arr = res.data.data.commentList;
                  }).catch(function (err) {
                  console.log(err)
              })

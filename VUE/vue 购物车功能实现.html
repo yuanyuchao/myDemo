@@ -77,10 +77,10 @@
         },
         methods:{
             getData(){
-                axios.get('请求资源.json').then((res)=>{
+                axios.get('./request.json').then((res)=>{
                     this.products = res.data;
                 }).then((err=>{
-
+console.log(err);
                 }))
             },
             remove(p){

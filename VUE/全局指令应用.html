@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+    img {
+        width: 200px;
+        height: 200px;
+    }
+    </style>
+</head>
+<body>
+        <div id='app'>
+                <div v-pin="card1.pinded" class="card">
+                  <a href="#" @click.prevent='card1.pinded = !card1.pinded'>钉住/取消</a>
+                  <img src="http://b-ssl.duitang.com/uploads/item/201208/30/20120830173930_PBfJE.jpeg"
+                    alt="">
+                </div>
+                <div v-pin="card2.pinded" class="card">
+                  <a href="#" @click.prevent='card2.pinded = !card2.pinded'>钉住/取消</a>
+                  <img src="http://b-ssl.duitang.com/uploads/item/201208/30/20120830173930_PBfJE.jpeg"
+                    alt="">
+                </div>
+            </div>   
+</body>
+<script src="vue.js"></script>
+<script>
+
+var app = new Vue({
+    el: '#app',
+    data: {
+      card1: {
+        pinded: false
+      },
+      card2: {
+        pinded: false
+      }
+    },
+  })
+  // 如果你只需要执行绑定的 bind 和 update 两个事件,vue指令定义也配置了简写方式.
+  let toppx = 10;
+  Vue.directive('pin', (el, binding) => {
+    if (binding.value) {
+      el.style.position = "fixed"
+      el.style.left = '300px'
+      let top = toppx
+      el.style.top = top + 'px'
+      toppx += 200
+    } else {
+      el.style.position = 'static'
+      toppx === 10 ? toppx : toppx-=200
+    }
+  })
+
+
+</script>
+</html>

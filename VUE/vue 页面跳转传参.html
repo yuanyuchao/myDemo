@@ -70,8 +70,12 @@
             this.tranform();
         },
         methods:{
-            remove(id){
-                this.arr = this.arr.filter(item=>item!==id);
+            remove(items){
+                // this.arr = this.arr.filter(item=>item!==id);
+                this.arr = this.arr.filter(function(item){
+                    return item!==items;
+                    // item就是符合要求的每一项
+                })
             },
             tranform(){
                 console.log(Object.keys(this.arr[0]).length);

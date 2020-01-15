@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //过滤
+    let arr = [22,33,45,64,85,92,50];
+    let brr = [
+        {
+        name:'yuanyuchao',
+        age:29,
+        sex:'man'
+    },
+    {
+        name:'xiaoming',
+        age:49,
+        sex:'man'
+    },
+    {
+        name:'smallH',
+        age:27,
+        sex:'man'
+    },
+    {
+        name:'bigZ',
+        age:66,
+        sex:'man'
+    },
+    ]
+    // let result = arr.filter(item=>{
+    //     return item>50;
+    // });
+    let result = brr.filter(json=>{
+        return json.age<30;
+    })
+   console.log(result);
+    </script>
+</body>
+</html>
